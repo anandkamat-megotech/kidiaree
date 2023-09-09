@@ -3,9 +3,9 @@
 // define("DSN", 'mysql:host=10.35.160.3;dbname=bricketc');
 // define("DB_USERNAME", 'root');
 // define("DB_PASSWORD", 'c3c1eOLNIez2FCrw');
-define("DSN", 'mysql:host=localhost;dbname=kidiaree');
-define("DB_USERNAME", 'root');
-define("DB_PASSWORD", '');
+define("DSN", 'mysql:host=localhost;dbname=u619540767_kids');
+define("DB_USERNAME", 'u619540767_root_kids');
+define("DB_PASSWORD", 'L1m1tl3ss1!');
 define("ERR_PARAMS_INVALID", 'Parameters Invalid');
 define("ERR_PARAMS_INVALID_EMAIL", 'Email Invalid');
 define("ERR_NOT_FOUND", 'Not Found');
