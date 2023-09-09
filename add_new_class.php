@@ -235,12 +235,13 @@ $db->query($sql);
                                             <input type="date" name="price" class="form-control" placeholder="Start Date">
                                         </div>
                                     </div>
+                                    <div id="update2"></div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                             <input type="text" name="price" class="form-control" placeholder="Enter Price per session ">
                                         </div>
                                     </div>
-                                    <div id="update2"></div>
+                                    
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                             <label for="" style="margin-bottom: 0px !important;">Upload Image / Creative </label>
