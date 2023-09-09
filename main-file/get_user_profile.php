@@ -18,7 +18,6 @@ $serviceGetUserProfile = new ServiceGetUserProfile();
 $serviceCheckRecordExistsInTable = new ServiceCheckRecordExistsInTable();
 
 $token = getBearerToken();
-
 $isTokenValid = $serviceCheckTokenValidity->serve($db, $token);
 if ($isTokenValid == 0) {
     echo response_unauthorized(time());

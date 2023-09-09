@@ -81,7 +81,7 @@ if(!empty($_GET['token'])){session_start(); $_SESSION['token'] = $_GET['token'];
 
                             <!--  Header Logo Start  -->
                             <div class="header-logo d-none d-lg-inline">
-                                <a href="index.php"><img src="assets/images/logo.png" alt="logo"></a>
+                                <a href="index.php" style="margin-top: -2px;"><img src="assets/images/logo.png" alt="logo"></a>
                             </div>
                             <!--  Header Logo End  -->
 

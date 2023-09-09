@@ -1257,6 +1257,7 @@ textarea:-ms-input-placeholder {
   background: #379F75;
   margin: 5px 0;
   display: block;
+  margin-top: 7px;
 }
 
 .header-toggle button span:last-child {
@@ -10030,7 +10031,7 @@ textarea:-ms-input-placeholder {
 
 .login-register-section .login-register-wrap .login-register-box {
   border: 1px solid #ebebeb;
-  padding: 40px;
+  padding: 20px;
   border-radius: 10px;
   margin-top: 50px;
 }
@@ -10040,9 +10041,12 @@ textarea:-ms-input-placeholder {
 }
 
 .login-register-section .login-register-wrap .login-register-box .login-register-form .single-form .form-control {
-  border: 1px solid transparent;
+  border: 1px solid #379f75;
   background: #f6f7f9;
   border-radius: 0;
+}
+.nice-select {
+  border: 1px solid #379f75;
 }
 
 .login-register-section .login-register-wrap .login-register-box .login-register-form .single-form .form-control::-webkit-input-placeholder {
