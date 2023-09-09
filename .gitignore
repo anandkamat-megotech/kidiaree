@@ -1,4 +1,5 @@
 
 admin/global/admin_global.php
 dbConfig.php
+global.php
 main-file/globals/constants_db.php
