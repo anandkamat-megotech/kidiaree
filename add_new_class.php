@@ -71,11 +71,12 @@ if (file_exists($target_file)) {
         $msg .=  "Sorry, there was an error uploading your file.";
     }
   }
+  $product_url = 'creative_writing_lab_single.php';
     // die;
 include('dbConfig.php');
 $age_tags = '-:-'.$_POST['age'].'-:-';
 $sql = "INSERT INTO products (name, sub_name, description,tags,teacher_id,price,type,thumbnail,age,age_tags,status,product_url)
-VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age']."', '".$age_tags."', '0', '".$_POST['product_url']."')";
+VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age']."', '".$age_tags."', '0', '".$product_url."')";
 $db->query($sql);
 }
 ?>
@@ -166,12 +167,50 @@ $db->query($sql);
                                     
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="age" class="form-control" placeholder="Enter age Minimum ">
+                                        <select class=" w-100" name="age">
+                                            <option value="">Age Min</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>18</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="age" class="form-control" placeholder="Enter age Maximum ">
+                                        <select class=" w-100" name="age">
+                                            <option value="">Age Max</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>18</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <!-- <div class="col-md-6 col-lg-4">
@@ -282,7 +321,7 @@ $(document).ready(function() {
     if(this.value == 's'){
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Time</label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div>');
     }else{
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time Time </label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Session per hour</label><input type="text" name="hour" class="form-control" placeholder="Session per hour (1,2) "></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Session Per Hour</label><input type="text" name="hour" class="form-control" placeholder="Session Per Hour (1,2) "></div></div>');
     }
         
     });
