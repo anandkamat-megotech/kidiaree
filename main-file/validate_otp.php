@@ -67,8 +67,11 @@ $idRole = getSingleValue($db, "SELECT idRole FROM usersmaster WHERE id = ?", [$i
 
 //Get name of User from usersmaster
 $name = getSingleValue($db, "SELECT name FROM usersmaster WHERE id = ?", [$idUser]);
-
 $url = 'dashboard.php';
+if($idRole == 3){
+    $url = 'teacher_dashboard.php';
+}
+
 $kids = getSingleValue($db, "SELECT count(*) FROM kids WHERE idUser = ?", [$idUser]);
 if(empty($kids)){
     $url = 'add_kid.php';

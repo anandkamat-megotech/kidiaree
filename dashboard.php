@@ -1,7 +1,10 @@
 <?php 
-session_start();
+include('global.php');
 if(!empty($_GET['token']) && $_SESSION['token'] != $_GET['token']){$_SESSION['token'] = $_GET['token'];}
 $token = $_SESSION['token'];
+if(empty($_SESSION['token'])){
+   header("Location: login.php"); exit;
+}
 
 
 ?>

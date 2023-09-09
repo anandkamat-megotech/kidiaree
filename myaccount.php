@@ -1,5 +1,11 @@
 
 <?php include_once 'global.php'; ?>
+<?php
+if(!empty($_SESSION['token'])){
+     header("Location: index.php"); exit;
+}
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
