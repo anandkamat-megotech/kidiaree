@@ -180,11 +180,7 @@ $db->query($sql);
                                         </div>
                                     </div> -->
                                     
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="single-form">
-                                            <input type="text" name="price" class="form-control" placeholder="Enter Price per session ">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                         <select class=" w-100" name="type"  id="session">
@@ -198,6 +194,11 @@ $db->query($sql);
                                         <div class="single-form">
                                         <label for="">Start Date</label>
                                             <input type="date" name="price" class="form-control" placeholder="Start Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" name="price" class="form-control" placeholder="Enter Price per session ">
                                         </div>
                                     </div>
                                     <div id="update2"></div>
@@ -281,7 +282,7 @@ $(document).ready(function() {
     if(this.value == 's'){
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Time</label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div>');
     }else{
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time Time </label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Session per hour</label><input type="time" name="time" class="form-control" placeholder="Session per hour (1,2) "></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time Time </label><input type="text" name="time" class="form-control" placeholder="Enter Time "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Session per hour</label><input type="time" name="time" class="form-control" placeholder="Session per hour (1,2) "></div></div>');
     }
         
     });
