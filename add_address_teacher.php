@@ -325,7 +325,7 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
 
 
                                         <div class="form-btn mt-3">
-                                            <button class="btn" onclick="saveAddress()">Save</button>
+                                            <button class="btn" onclick="saveAddressTeacher()">Save</button>
                                         </div>
                                     <!-- </form> -->
                                 </div>
@@ -553,7 +553,57 @@ $(document).ready(function() {
     });
  });
  
-
+ function saveAddressTeacher(){
+  var idUser =  localStorage.getItem("idUser");
+  var token =  localStorage.getItem("token");
+  console.log(token);
+  var email =  $('#email').val(); 
+  var addressLine1 =  $('#addressLine1').val(); 
+  var addressLine2 = $('#addressLine2').val(); 
+  var area =  $('#area').val(); 
+  var city =  $('#city').val(); 
+  var state =  $('#state').val(); 
+  var country =  $('#country').val(); 
+  var pincode =  $('#pincode').val(); 
+  console.log(addressLine1);
+  console.log(addressLine2);
+  console.log(area);
+  console.log(city);
+  console.log(state);
+  console.log(country);
+  console.log(pincode);
+  $.ajax({
+    url: './main-file/update_user_profile.php',
+    type:'POST',
+    headers: {
+        'Authorization': 'Bearer '+token
+    },
+    data:
+    {
+        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+        email: email,
+        addressLine1: addressLine1,
+        addressLine2: addressLine2,
+        area: area,
+        city: city,
+        state: state,
+        country: country,
+        pincode: pincode
+    },
+    success: function(msg)
+    {
+      let response = JSON.parse(msg);
+      console.log(response);
+      if(response.code == "200"){
+        window.location.href = 'teacher_dashboard.php';
+      } else {
+        // $('#otpError').html('Otp is incorrect!');
+      }
+      
+      // $('#idUser').val(response.body.id)
+    }               
+});
+}
     </script>
 
 </body>

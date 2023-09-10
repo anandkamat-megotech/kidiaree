@@ -201,7 +201,7 @@ if(!empty($_SESSION['token'])){
                 <div class="offcanvas-menu">
                     <ul class="main-menu">
                         <?php if(!empty($_SESSION['token'])){  ?>
-                    <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>"><b class="color1-k ">Kid</b> details</a>
+                    <li><a href="<?php if($profile->body[0]->idRole == 3){ echo '#';}else{ echo'#';} ?>"><b class="color1-k ">Kid</b> details</a>
                             <ul class="sub-menu">
                                 <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">Add new child</a></li>
                             </ul>
@@ -211,8 +211,8 @@ if(!empty($_SESSION['token'])){
                         <li><a href="#">My Favorites</a></li>
                         <li><a href="#">Profile Settings</a></li>
                         <?php } ?>
-                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Student Login / SignUp</a><?php } ?></li>
-                        <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / SignUp</a><?php } ?></li>
+                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Student Login / Sign Up</a><?php } ?></li>
+                        <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / Sign Up</a><?php } ?></li>
                     </ul>
                 </div>
             </div>

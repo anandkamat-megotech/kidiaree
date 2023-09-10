@@ -67,9 +67,23 @@ $idRole = getSingleValue($db, "SELECT idRole FROM usersmaster WHERE id = ?", [$i
 
 //Get name of User from usersmaster
 $name = getSingleValue($db, "SELECT name FROM usersmaster WHERE id = ?", [$idUser]);
+$token = $serviceTokenGenerate->serve($db, $idUser);
 $url = 'dashboard.php';
 if($idRole == 3){
     $url = 'teacher_dashboard.php';
+    $address = getSingleValue($db, "SELECT count(*) FROM useraddressmapping WHERE idUser = ?", [$idUser]);
+    if(empty($address)){
+        $url = 'add_address_teacher.php ';
+    }
+    $myObj = new stdClass();
+    $myObj->idUser = $idUser;
+    $myObj->token = $token;
+    $myObj->name = $name;
+    $myObj->idRole = $idRole;
+    $myObj->url = $url;
+
+echo response_ok(json_encode($myObj), time());
+die;
 }
 
 $kids = getSingleValue($db, "SELECT count(*) FROM kids WHERE idUser = ?", [$idUser]);
@@ -80,7 +94,7 @@ $address = getSingleValue($db, "SELECT count(*) FROM useraddressmapping WHERE id
 if(!empty($kids) && empty($address)){
     $url = 'add_address.php ';
 }
-$token = $serviceTokenGenerate->serve($db, $idUser);
+
 
 $consumerPin = $serviceConsumerPinGenerate->serve($db, $idUser);
 

@@ -43,10 +43,10 @@ if(!empty($_SESSION['token'])){
                         <div class="col-lg-12">
                             <!-- Page Banner Content Start -->
                             <div class="page-banner text-center">
-                                <h2 class="title">Login / Sign Up</h2>
+                                <h2 class="title">Login / Sign Up </h2>
                                 <ul class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Login </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Login (Teacher) </li>
                                 </ul>
                             </div>
                             <!-- Page Banner Content End -->
@@ -85,7 +85,7 @@ if(!empty($_SESSION['token'])){
                                             <label class="form-check-label" for="flexCheckDefault">Remember me</label>
                                         </div> -->
                                         <div class="form-btn">
-                                            <button class="btn" onclick="sendOtp()">Send OTP</button>
+                                            <button class="btn" onclick="sendOtpTeacher()">Send OTP</button>
                                         </div>
                                         <!-- <div class="single-form">
                                             <p><a href="register.php">Create new Account</a></p>
@@ -119,7 +119,7 @@ if(!empty($_SESSION['token'])){
       <div id="otpError" class="mt-2" style="color: red;"></div>
       </div>
       <div class="text-center" style="margin-bottom: 10px;"><span onclick="ClearOtp()" class="text-center mb-2" style="color:red !important; margin-right: 20px;display: inline;">Clear OTP</span>
-      <span onclick="sendOtp()" class="text-center text-primary mb-2" style="display: inline;">Resend OTP</span></div>
+      <span onclick="sendOtpTeacher()" class="text-center text-primary mb-2" style="display: inline;">Resend OTP</span></div>
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal('optSendModal')">Close</button>
@@ -184,6 +184,60 @@ function setCaretPosition(elem, caretPos) {
 }
 function ClearOtp(){
     document.getElementById('partitioned').value='';
+}
+
+function sendOtpTeacher(){
+  var emailorphone = $('#emailorphone').val();
+  console.log(emailorphone);
+  let url = 'validate_mobile_teacher.php';
+  function validatePhoneNumber(input_str) {
+    var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+  
+    return re.test(input_str);
+  }
+
+  var datavalue = validatePhoneNumber(emailorphone);
+  console.log(datavalue);
+  if(datavalue){
+    url = 'validate_mobile_teacher.php';
+  }
+
+  // var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
+  var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+  
+  if(emailorphone){
+  		 if(!regex.test(emailorphone)){
+          document.getElementById("emailorphone").focus();
+          $("#validationError").text("Please enter valid phone number.")
+       }else{
+         $("#validationError").text('')
+         $.ajax({
+          url: './main-file/'+url,
+          type:'POST',
+          data:
+          {
+              // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+              data: $('#emailorphone').val()
+          },
+          success: function(msg)
+          {
+            var element = document.getElementById("optSendModal");
+              element.classList.add("show");
+              element.classList.add("d-block");
+            let response = JSON.parse(msg);
+            console.log(response.body.id);
+            localStorage.setItem("idUser", response.body.id);
+            $('#idUser').val(response.body.id)
+          }               
+      });
+       }
+  }else{
+    document.getElementById("emailorphone").focus();
+   	$("#validationError").text('This field is required.')
+  }
+
+console.log(url);
+ 
 }
     </script>
 

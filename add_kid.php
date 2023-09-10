@@ -1,9 +1,10 @@
+<?php include_once 'global.php'; ?>
 <?php 
 
-if(!empty($_GET['token'])){session_start(); $_SESSION['token'] = $_GET['token'];}
+if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
 
 ?>
-<?php include_once 'global.php'; ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
