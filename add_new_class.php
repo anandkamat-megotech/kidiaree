@@ -224,8 +224,9 @@ $db->query($sql);
                                         <div class="single-form">
                                         <select class=" w-100" name="type"  id="session">
                                             <option value="">Select Class type</option>
-                                            <option value="s">Single session</option>
-                                            <option value="m">Multi-session</option>
+                                            <option value="s">Single-Session Class/Workshop/Camp</option>
+                                            <option value="m">Multi-Session Class/Workshop/Camp</option>
+                                            <option value="m">Regular Classes</option>
                                         </select>
                                         </div>
                                     </div>

@@ -211,7 +211,8 @@ if(!empty($_SESSION['token'])){
                         <li><a href="#">My Favorites</a></li>
                         <li><a href="#">Profile Settings</a></li>
                         <?php } ?>
-                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Login</a><?php } ?></li>
+                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Student Login / SignUp</a><?php } ?></li>
+                        <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / SignUp</a><?php } ?></li>
                     </ul>
                 </div>
             </div>
