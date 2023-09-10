@@ -73,7 +73,7 @@ if($idRole == 3){
     $url = 'teacher_dashboard.php';
     $address = getSingleValue($db, "SELECT count(*) FROM useraddressmapping WHERE idUser = ?", [$idUser]);
     if(empty($address)){
-        $url = 'add_address_teacher.php ';
+        $url = 'add_address_teacher.php';
     }
     $myObj = new stdClass();
     $myObj->idUser = $idUser;
