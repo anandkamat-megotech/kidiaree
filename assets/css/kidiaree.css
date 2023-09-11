@@ -1043,3 +1043,7 @@ input[type=submit] {
   font-size: 12px;
     color: red;
 }
+.add_new_class input[type=file]::file-selector-button {
+  background: #4a9bd8 !important;
+  color: #fff !important;
+}

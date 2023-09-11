@@ -42,10 +42,10 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                         <div class="col-lg-12">
                             <!-- Page Banner Content Start -->
                             <div class="page-banner text-center">
-                                <h2 class="title">Address Details</h2>
+                                <h2 class="title">Registration</h2>
                                 <ul class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Address </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Educator Registration Form </li>
                                 </ul>
                             </div>
                             <!-- Page Banner Content End -->
@@ -69,14 +69,31 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                              <div class="login-register-box">
                                 <!-- Section Title Start -->
                                 <div class="section-title">
-                                    <h2>Add Address</h2>
+                                    <h2>Educator Details</h2>
                                 </div>
                                 <!-- Section Title End -->
 
                                 <div class="login-register-form">
+                                <div class="single-form">
+                                        <div class="radio-button">
+                                            <input type="radio" id="type" name="type" value="Individual" checked />
+                                            <label for="Individual">Individual</label>
+                                            <input type="radio" id="type" style="margin-left: 10px;" name="type" value="Organization" />
+                                            <label for="Organization">Organization</label>
+                                        </div>
+                                </div>
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                            <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email ID">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number">
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
@@ -99,10 +116,48 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                         </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="Pan" name="pan" placeholder="PAN">
+                                        </div>
+                                        <div class="single-form">
+                                            <div class="radio-button">
+                                                <div for="">Do you have a GST Identification Number (GSTIN)?</div>
+                                                <input type="radio" id="type" name="type" value="Individual" checked />
+                                                <label for="Individual">Yes</label>
+                                                <input type="radio" id="type" style="margin-left: 10px;" name="type" value="Organization" />
+                                                <label for="Organization">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="GSTIN" name="GSTIN" placeholder="GSTIN">
+                                        </div>
 
+
+                                        <div class="section-title mt-3">
+                                            <h2>Bank Details</h2>
+                                        </div>
+
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="bname" name="bname" placeholder="Beneficiary Name ">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Account Name">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Account Number">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="re_account_number" name="re_account_number" placeholder="Re-enter Account Number">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code ">
+                                        </div>
 
                                         <div class="form-btn mt-3">
-                                            <button class="btn" onclick="saveAddressTeacher()">Save</button>
+                                            <button class="btn" onclick="saveAddressTeacher()">Save Details</button>
                                         </div>
                                     <!-- </form> -->
                                 </div>

@@ -232,19 +232,20 @@ $db->query($sql);
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <label for="">Start Date</label>
-                                            <input type="date" name="price" class="form-control" placeholder="Start Date">
+                                        <label for="">Date</label>
+                                            <input type="date" min="<?php echo date('Y-m-d') ?>" name="price" class="form-control" placeholder="Date">
                                         </div>
                                     </div>
                                     <div id="update2"></div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="price" class="form-control" placeholder="Enter Price per session ">
+                                            <label for="" style="text-transform: unset !important;">Fees (Inclusive of GST)</label>
+                                            <input type="text" name="price" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6 col-lg-4">
-                                        <div class="single-form">
+                                        <div class="single-form add_new_class">
                                             <label for="" style="margin-bottom: 0px !important;">Upload Image / Creative </label>
                                             <span class="validation-image">Image size (400px X 600px)</span>
                                             <input type="file" name="thumbnail" class="form-control" placeholder="Enter type ">
@@ -318,12 +319,103 @@ $(document).ready(function() {
     }
         
     });
- 
+    <?php
+$timenow = time();
+$opentime = strtotime('00:00');
+$closetime = strtotime('23:59');
+$select ='<select class=" nice-select w-100 mb-2">';
+if($timenow > $closetime || $timenow <= $opentime){
+    $select.= '<option value="Closed">CLOSED</option>';
+    $select.= "</select>"; 
+} 
+else{
+    // you said you wanted the time to start in 1 hour, but had +15 minutes...
+    $deliverytime = strtotime('00:00');
+    // $deliverytime = strtotime('+15 minutes', $timenow);
+    // round to next 15 minutes (15 * 60 seconds)
+    $deliverytime = ceil($deliverytime / (15*60)) * (15*60);
+    // echo $deliverytime;
+    // $select.= '<option value="asap">As soon as possible</option>';
+    while($deliverytime <= $closetime && $deliverytime >= $opentime) {
+        $select.=  '<option value="'. date('H:i', $deliverytime) .'">' . date('H:i', $deliverytime) . '</option>';
+        $deliverytime = strtotime('+15 minutes', $deliverytime);
+    }
+    $select.=  "</select>"; 
+}
+
+
+
+
+function pad_number(&$item, $key, $pad = 2)
+{
+	$item = sprintf('%0'.$pad.'d', $item);
+}
+
+function build_time_options($hours, $minutes, $time)
+{
+	// pad hours and minutes with 0
+	array_walk($hours, 'pad_number');
+	array_walk($minutes, 'pad_number');
+	$time_hour_options = '';
+	$time_minute_options = '';
+	
+	$time_components = explode(':', $time);
+
+	foreach($hours as $hour)
+	{
+		if(count($time_components) == 2)
+		{
+			if($time_components[0] == $hour)
+			{
+				$time_hour_options .= '<option selected="selected">'.$hour.'</option>';
+			}
+			else
+			{
+				$time_hour_options .= '<option>'.$hour.'</option>';
+			}
+		}
+		else
+		{
+			$time_hour_options .= '<option>'.$hour.'</option>';
+		}
+	}
+	foreach($minutes as $minute)
+	{
+		if(count($time_components) == 2)
+		{
+			if($time_components[1] == $minute)
+			{
+				$time_minute_options .= '<option selected="selected">'.$minute.'</option>';
+			}
+			else
+			{
+				$time_minute_options .= '<option>'.$minute.'</option>';
+			}
+		}
+		else
+		{
+			$time_minute_options .= '<option>'.$minute.'</option>';
+		}
+	}
+	
+	return array('hours' => $time_hour_options, 'minutes' => $time_minute_options);
+}
+	
+$hours = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23);
+$minutes = array(0,5,10,15,20,25,30,35,40,45,50,55);
+
+$event_time = '1:15';
+
+$time_options = build_time_options($hours, $minutes, $event_time);
+
+$timer = '<select name="event_time_hour" class="form-control" style="display:inline;width:50%;border-radius: 5px;">'.$time_options['hours'].'</select>';
+$timer .='<select name="event_time_minute" class="form-control" style="display:inline;width:50%;border-radius: 5px;">'.$time_options['minutes'].'</select>';
+?>
  $('#session').change(function(event) {
     if(this.value == 's'){
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Time</label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Select Time</label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }else{
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><input type="time" name="time" class="form-control" placeholder="Enter Time "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Session Per Hour</label><input type="text" name="hour" class="form-control" placeholder="Session Per Hour (1,2) "></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
     });
