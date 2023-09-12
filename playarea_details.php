@@ -109,9 +109,9 @@ $dataTeachers = $getTeacher->fetch_assoc();
                         </ul>
                         <div class="tab-content p-1" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <h6 class="mt-1">Playseum - Children’s Museum</h6>
-                            <p>7th Floor, DLH Mangal Murthi BuildingLinking Road, Santacruz West, Above Jack&Jones</p>
-                            <p>Mumbai - 400054</p>
+                            <img src="playarea/log.jpeg" alt="logo" class="logo-tab">
+                            <p>7th Floor, DLH Mangal Murthi BuildingLinking Road, Santacruz West, Above Jack&Jones <br> Mumbai - 400054</p>
+                            <hr class="dashed">
                             <p>Mumbai’s 1st children’s museum and play facility that opened in June 2023</p>
                             <p>✓ 14 interactive exhibits over 1234 sq feet!</p>
                             <p>✓ 50 hands on activities designed with specific learning objectives!</p>
