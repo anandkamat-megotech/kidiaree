@@ -1102,3 +1102,17 @@ input[type=submit] {
   bottom: -4px;
   width: 100%;
 }
+.bg-success-text {
+  font-size: 14px;
+  color: green;
+}
+.bg-danger-text {
+  font-size: 14px;
+  color: red;
+}
+.nav-tabs .nav-link.active {
+  color: #379f75 !important;
+}
+.nav-tabs .nav-link {
+  color: #000 !important;
+}

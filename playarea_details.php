@@ -72,7 +72,7 @@ $dataTeachers = $getTeacher->fetch_assoc();
                                 <h3 class="title">Playseum</h3>
                                 <p>Santacruz West, Mumbai | 2 km Away</p>
                                 <p>₹ 1200 for 90 mins for 1 Child + 1 Adult</p>
-                                <p><span class="badge bg-success">Open Now </span> | <span class="badge bg-danger">Closes 7.30pm</span></p>
+                                <p><span class="bg-success-text">Open Now </span> | <span class=" bg-danger-text">Closes 7.30pm</span></p>
                             </div>
                             <!-- Course Overview End -->
                             <div class="action_playarea">
