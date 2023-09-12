@@ -23,4 +23,4 @@
 
 
     <!-- Main JS -->
-    <script src="assets/js/main.js?v=0.23"></script>
+    <script src="assets/js/main.js?v=0.24"></script>
