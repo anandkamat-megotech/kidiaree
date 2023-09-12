@@ -58,7 +58,7 @@ $dataTeachers = $getTeacher->fetch_assoc();
         <!-- Page Banner End -->
 
         <!-- Course Details Start -->
-        <div class="section section-padding">
+        <div class="section section-padding" style="padding-top:0px !important;">
             <div class="container">
 
                 <div class="row justify-content-between">
@@ -70,7 +70,7 @@ $dataTeachers = $getTeacher->fetch_assoc();
                             <!-- Course Overview Start -->
                             <div class="course-overview">
                                 <h3 class="title">Playseum</h3>
-                                <p>Santacruz West, Mumbai | 2km Away</p>
+                                <p>Santacruz West, Mumbai | 2 km Away</p>
                                 <p>₹ 1200 for 90 mins for 1 Child + 1 Adult</p>
                                 <p><span class="badge bg-success">Open Now </span> | <span class="badge bg-danger">Closes 7.30pm</span></p>
                             </div>
