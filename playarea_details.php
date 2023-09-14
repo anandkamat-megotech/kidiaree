@@ -32,7 +32,7 @@ $dataTeachers = $getTeacher->fetch_assoc();
        
        
         <!-- Page Banner Start -->
-        <div class="section page-banner-section">
+        <div class="section page-banner-section" style="padding-top: 0px;">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -226,8 +226,8 @@ $dataTeachers = $getTeacher->fetch_assoc();
       </div>
       <div class="modal-body">
         <p><a href="tel:+919819037944"><i class="flaticon-phone-call"></i> +91 9819037944</a></p>
-        <p><a target="_blank" href="https://api.whatsapp.com/send?phone=919819037944&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Send us a message</a></p>
-        <p><a target="_blank" href="mailto:enquiries@playseum.in" class="whatsapp-button"><i class="far fa-envelope"></i> Send us an Email</a></p>
+        <p><a target="_blank" href="https://api.whatsapp.com/send?phone=919819037944&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Send a message</a></p>
+        <p><a target="_blank" href="mailto:enquiries@playseum.in" class="whatsapp-button"><i class="far fa-envelope"></i> Send an Email</a></p>
       </div>
     </div>
   </div>
