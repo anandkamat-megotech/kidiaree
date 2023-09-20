@@ -3315,11 +3315,11 @@ textarea:-ms-input-placeholder {
 }
 
 .kidiaree-offer-section-02 .offer-wrap {
-  margin-top: -40px;
+  margin-top: -10px;
 }
 
 .kidiaree-offer-section-02 .single-offer-02 {
-  background: #c8eaf7;
+  background: #b9e1fe;
   border: 1px solid #898989;
   border-radius: 30px;
   padding: 70px 50px;
@@ -3341,7 +3341,7 @@ textarea:-ms-input-placeholder {
 }
 
 .kidiaree-offer-section-02 .single-offer-02.color-02 {
-  background: #f1d7ec;
+  background: #fbced9;
 }
 
 .kidiaree-offer-section-02 .single-offer-02 .offer-images {
@@ -3356,7 +3356,7 @@ textarea:-ms-input-placeholder {
 }
 
 .kidiaree-offer-section-02 .single-offer-02 .offer-content .sub-title {
-  font-size: 14px;
+  font-size: 20px;
   line-height: 26px;
   font-weight: 600;
   color: #2f2a55;
@@ -3396,7 +3396,7 @@ textarea:-ms-input-placeholder {
 
 @media only screen and (max-width: 1199px) {
   .kidiaree-offer-section-02 .single-offer-02 {
-    padding: 60px 40px;
+    padding: 30px 10px;
   }
 }
 
@@ -10680,17 +10680,17 @@ textarea:-ms-input-placeholder {
 /*----------------------------------------*/
 .footer-widget-wrap {
   padding-top: 50px;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
 }
 
 @media only screen and (max-width: 767px) {
   .footer-widget-wrap {
-    padding-top: 20px;
+    padding-top: 0px;
   }
 }
 
 .footer-widget {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .footer-widget-title {
@@ -10717,7 +10717,7 @@ textarea:-ms-input-placeholder {
 }
 
 .widget-link {
-  padding-top: 15px;
+  padding-top: 0px;
 }
 
 .widget-link .link li {
@@ -10753,8 +10753,8 @@ textarea:-ms-input-placeholder {
   flex-wrap: nowrap;
   border-top: 1px solid #29313a;
   margin-right: 35px;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 10px;
+  padding-top: 5px;
 }
 
 .widget-info .info-icon i {
@@ -10990,12 +10990,16 @@ textarea:-ms-input-placeholder {
   height: 35px;
   width: 35px;
   line-height: 35px;
-  background: #29313a;
+  background: #fff;
   text-align: center;
   border-radius: 50%;
   font-size: 16px;
   color: #ffffff;
   transition: all 0.3s linear;
+}
+.copyright-social .social li .insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+  color: #fff !important;
 }
 
 .copyright-social .social li a:hover {

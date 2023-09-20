@@ -237,6 +237,14 @@ $db->query($sql);
                                         </div>
                                     </div>
                                     <div id="update2"></div>
+                                    <div class="col-md-6 col-lg-4 d-none" id="recurr"><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select></div></div>
+                                    <div id="update3"></div>
+
+                                    
+
+
+
+
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                             <label for="" style="text-transform: unset !important;">Fees (Inclusive of GST)</label>
@@ -367,16 +375,16 @@ function build_time_options($hours, $minutes, $time)
 		{
 			if($time_components[0] == $hour)
 			{
-				$time_hour_options .= '<option selected="selected">'.$hour.'</option>';
+				$time_hour_options .= '<option selected="selected">'.$hour.' hour</option>';
 			}
 			else
 			{
-				$time_hour_options .= '<option>'.$hour.'</option>';
+				$time_hour_options .= '<option>'.$hour.' hours</option>';
 			}
 		}
 		else
 		{
-			$time_hour_options .= '<option>'.$hour.'</option>';
+			$time_hour_options .= '<option>'.$hour.' hour</option>';
 		}
 	}
 	foreach($minutes as $minute)
@@ -385,16 +393,16 @@ function build_time_options($hours, $minutes, $time)
 		{
 			if($time_components[1] == $minute)
 			{
-				$time_minute_options .= '<option selected="selected">'.$minute.'</option>';
+				$time_minute_options .= '<option selected="selected">'.$minute.' minutes</option>';
 			}
 			else
 			{
-				$time_minute_options .= '<option>'.$minute.'</option>';
+				$time_minute_options .= '<option>'.$minute.' minutes</option>';
 			}
 		}
 		else
 		{
-			$time_minute_options .= '<option>'.$minute.'</option>';
+			$time_minute_options .= '<option>'.$minute.' minutes</option>';
 		}
 	}
 	
@@ -413,12 +421,24 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
 ?>
  $('#session').change(function(event) {
     if(this.value == 's'){
+        $('#recurr').toggleClass('d-none');
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Select Time</label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }else{
+        $('#recurr').removeClass('d-none');
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
     });
+
+    $('#recurrence').change(function(event) {
+    if(this.value == 'w' || this.value == 'y'){
+        $('#update3').html('<div class="col-md-6 col-lg-4"><div class="single-form"><div class="weekDays-selector"><input type="checkbox" name="week[]" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label></div></div></div>');
+    }else{
+        $('#update3').html('');
+    }
+        
+    });
+
     </script>
    </body>
 </html>

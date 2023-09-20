@@ -1,4 +1,5 @@
 <?php 
+include('global/admin_global.php');
 session_start();
 if(!empty($_GET['token']) && $_SESSION['token'] != $_GET['token']){$_SESSION['token'] = $_GET['token'];}
 $token = $_SESSION['token'];
@@ -13,7 +14,7 @@ $token = $_SESSION['token'];
    // print_r($token);
    $ch = curl_init();
    
-   curl_setopt($ch, CURLOPT_URL,"https://kidiaree.softwareconnect.in/main-file/get_all_user_details.php");
+   curl_setopt($ch, CURLOPT_URL,$url_curl_kidiaree_admin."/main-file/get_all_user_details.php");
    $authorization = "Authorization: Bearer ".$token;
    curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization ));
    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -27,7 +28,7 @@ $token = $_SESSION['token'];
 
    $ch = curl_init();
    
-   curl_setopt($ch, CURLOPT_URL,"https://kidiaree.softwareconnect.in/main-file/get_user_profile_details.php");
+   curl_setopt($ch, CURLOPT_URL,$url_curl_kidiaree_admin."/main-file/get_user_profile_details.php");
    $authorization = "Authorization: Bearer ".$token;
    curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization ));
    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");

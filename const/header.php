@@ -1,5 +1,8 @@
  <?php 
 //  include('global.php');
+if($_SESSION['under_c'] != '1234@kidiaree'){
+    header("Location: enter_password.php"); exit;
+}
 if(!empty($_SESSION['token'])){
     // $_SESSION['token'] = $_GET['token'];
     $token = $_SESSION['token'];
@@ -57,7 +60,7 @@ if(!empty($_SESSION['token'])){
                                 <ul class="main-menu">
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Classes & Activities</a></li>
-                                    <li><a href="#">List a Class or Activity</a></li>
+                                    <li><a href="list_class_enquiry.php">List a Class or Activity</a></li>
                                     <li><a href="#">Testimonials</a></li>
                                     <li><a href="#">Reach Us</a></li>
                                 </ul>
@@ -173,7 +176,7 @@ if(!empty($_SESSION['token'])){
                     <ul class="main-menu">
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Classes & Activities</a></li>
-                        <li><a href="#">List a Class or Activity</a></li>
+                        <li><a href="list_class_enquiry.php">List a Class or Activity</a></li>
                         <li><a href="#">Testimonials</a></li>
                         <li><a href="#">Reach Us</a></li>
                     </ul>
@@ -213,8 +216,8 @@ if(!empty($_SESSION['token'])){
                         <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">My Favorites</a></li>
                         <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">Profile Settings</a></li>
                         <?php } ?>
-                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Student Login / Sign Up</a><?php } ?></li>
-                        <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / Sign Up</a><?php } ?></li>
+                        <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Login / Sign Up</a><?php } ?></li>
+                        <!-- <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / Sign Up</a><?php } ?></li> -->
                     </ul>
                 </div>
             </div>

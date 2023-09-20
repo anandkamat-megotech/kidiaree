@@ -12,6 +12,8 @@
                         <ul>
                            <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Admin Dashboard</a></li>
                            <li><a href="products.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'active' : ''; ?>">Products</a></li>
+                           <li><a href="enquiry.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'enquiry.php' ? 'active' : ''; ?>">Users</a></li>
+                           <li><a href="contact.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'contact.php' ? 'active' : ''; ?>">Enquires</a></li>
                         </ul>
                      </li>
                      <li class="menu-title">
