@@ -65,9 +65,9 @@ if(!empty($_SESSION['token'])){
                 <div class="login-register-wrap mt-5">
                     <div class="row">
                         <div class="col-lg-6 mx-auto">
-                            <h3 class="text-center">Thank you for your interest</h3>
-                            <p class="mt-3 text-send"> <a target="_blank" href="https://api.whatsapp.com/send?phone=919833992919&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i>  Send a message</a></p>
-                        <p class="text-send"><a href="tel:+919833992919"><i class="flaticon-phone-call"></i> +91 9820074277</a></p>
+                            <h3 class="text-center"  style="color: #eb5e36 !important;">Thank you for your interest</h3>
+                            <p class="mt-3 text-send"> <a target="_blank" href="https://api.whatsapp.com/send?phone=+91 9833992919&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i>  Send a message</a></p>
+                        <p class="text-send"><a href="tel:+919833992919"><i class="flaticon-phone-call"></i> +91 9833992919</a></p>
         <p class="text-send"><a target="_blank" href="mailto:saumyasaraogi@kidiaree.in" class="whatsapp-button"><i class="far fa-envelope"></i> Send an Email</a></p>
 
                         </div>
