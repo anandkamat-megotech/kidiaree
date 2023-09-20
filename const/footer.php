@@ -18,7 +18,7 @@
                                         <i class="fab fa-whatsapp color-green what-app-kidiareel"></i>
                                     </div>
                                     <div class="info-text">
-                                        <a href="tel:+917045715869">+91 7045715869</a>
+                                        <a href="tel:++919833992919">+91 98339 92919</a>
                                     </div>
                                 </div>
                             </div>
