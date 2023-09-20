@@ -77,8 +77,8 @@ if(empty($_SESSION['token'])){
                                  <?php if($getClass->num_rows > 0){
                                                         while($row = $getClass->fetch_assoc()){ ?>
                                              
-                                    <tr onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')">
-                                       <td><?php echo $row['name'] ?></td>
+                                    <tr >
+                                       <td onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')"><?php echo $row['name'] ?></td>
                                        <td><?php echo $row['contact'] ?></td>
                                        <td><?php if($row['status'] == 0 ){ echo '<badge class="badge bg-danger">Not Replied</badge>';} elseif($row['status'] == 1){ echo '<badge class="badge bg-success">Replied</badge>';}?></td>
                                     </tr>
