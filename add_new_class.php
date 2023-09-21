@@ -144,27 +144,39 @@ $db->query($sql);
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="sub_name" class="form-control" placeholder="Enter sub-name ">
+                                            <input type="text" name="sub_name" class="form-control" placeholder="Enter sub-name " required>
+                                            <div class="invalid-feedback">
+                                                Sub name is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="description" class="form-control" placeholder="Enter Description - 'About the Class' ">
+                                            <input type="text" name="description" class="form-control" placeholder="Enter Description - 'About the Class' " required>
+                                            <div class="invalid-feedback">
+                                                Description is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="tags" class="form-control" placeholder="Enter Suggested Tags (tag1, tag2) ">
+                                            <input type="text" name="tags" class="form-control" placeholder="Enter Suggested Tags (tag1, tag2) " required>
+                                            <div class="invalid-feedback">
+                                                Suggested Tags is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="type"  id="mode">
+                                        <select class=" w-100" name="type"  id="mode" required> 
                                             <option value="">Select Mode</option>
                                             <option>Online</option>
                                             <option>Offline</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                            Mode is empty!
                                         </div>
+                                    </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4" id="update"></div>
                                     
@@ -190,6 +202,9 @@ $db->query($sql);
                                             <option>16</option>
                                             <option>18</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                                Minimum age is empty!
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
@@ -216,9 +231,9 @@ $db->query($sql);
                                         </select>
                                         <div id="maxage_error" style="color:red"></div>
                                         <div class="invalid-feedback">
-                                                Max age is empty!
-                                            </div>
+                                                Maximum age is empty!
                                         </div>
+                                    </div>
                                     </div>
                                     <!-- <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
@@ -229,33 +244,51 @@ $db->query($sql);
                                     
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="type"  id="session">
+                                        <select class=" w-100" name="type"  id="session" required>
                                             <option value="">Select Class type</option>
                                             <option value="s">Single-Session Class/Workshop/Camp</option>
                                             <option value="m">Multi-Session Class/Workshop/Camp</option>
                                             <option value="m">Regular Classes</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                                Class type is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                         <label for="" id="date_label">Date</label>
-                                            <input type="date" min="<?php echo date('Y-m-d') ?>" name="price" class="form-control" placeholder="Date">
+                                            <input type="date" min="<?php echo date('Y-m-d') ?>" name="price" class="form-control" placeholder="Date" id=startDate required>
+                                            <div class="invalid-feedback">
+                                                Date is empty!
+                                            </div>
                                         </div>
                                     </div>
-                                    <div id="update2"></div>
-                                    <div class="col-md-6 col-lg-4 d-none" id="recurr"><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select></div></div>
-                                    <div id="update3"></div>
+                                    </div>
+                                    <div class="row" id="update2"></div>
+                                    <div class="row">
+                                    <div class="col-md-6 col-lg-4 d-none" id="recurr" required><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select>
+                                    <div class="invalid-feedback">
+                                        Class Recurrence is empty!
+                                    </div>
+                                    </div></div>
+                                    <div class="col-md-6 col-lg-4 d-none" id="daysWeek"><div class="single-form" ><div class="weekDays-selector"><input type="checkbox" name="week[]" value="1" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]" value="2"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]" value="3"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]" value="4"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]" value="5"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]" value="6"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]" value="7"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label><button id="save_value" class="weeksave">save</button></div></div></div>
+                                    </div>
+                                    <div class="row" id="update3"></div>
+                                    <div class="row" id="update4"></div>
 
                                     
 
 
 
-
+                                    <div class="row">
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                             <label for="" style="text-transform: unset !important;">Fees (Inclusive of GST)</label>
-                                            <input type="text" name="price" class="form-control" placeholder="">
+                                            <input type="text" name="price" class="form-control" placeholder="" required>
+                                            <div class="invalid-feedback">
+                                                Fees is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -263,7 +296,10 @@ $db->query($sql);
                                         <div class="single-form add_new_class">
                                             <label for="" style="margin-bottom: 0px !important;">Upload Image / Creative </label>
                                             <span class="validation-image">Image size (400px X 600px)</span>
-                                            <input type="file" name="thumbnail" class="form-control" placeholder="Enter type ">
+                                            <input type="file" name="thumbnail" class="form-control" placeholder="Enter type " required>
+                                            <div class="invalid-feedback">
+                                                Image is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-6 mt-3">
@@ -292,39 +328,9 @@ $db->query($sql);
          <!-- back to top end -->
       </div>
       <?php include('const/scripts.php'); ?>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
       <script>
-        
-$(document).ready(function() {
-  // executes when HTML-Document is loaded and DOM is ready
-  var date = new Date();
-  console.log(date);
-  var dd = date.getDate();
-  var mm = date.getMonth() + 1;
-  var yyyy = date.getFullYear();
-
-  //Add a zero if one Digit (eg: 05,09)
-  if (dd < 10) {
-    dd = "0" + dd;
-  }
-
-  //Add a zero if one Digit (eg: 05,09)
-  if (mm < 10) {
-    mm = "0" + mm;
-  }
-
-  minYear = yyyy - 18; //Calculate Minimun Age (<80)
-  maxYear = yyyy - 1; //Calculate Maximum Age (>18)
-
-  var min = minYear + "-" + mm + "-" + dd;
-  var max = maxYear + "-" + mm + "-" + dd;
-  console.log(min);
-  console.log(max);
-
-  document.getElementById("k_dob_start").setAttribute("min", min);
-  document.getElementById("k_dob_start").setAttribute("max", max);
-  document.getElementById("k_dob_start_edit").setAttribute("min", min);
-  document.getElementById("k_dob_start_edit").setAttribute("max", max);
- });
+   
  
  $('#mode').change(function(event) {
     if(this.value == 'Online'){
@@ -423,8 +429,8 @@ $event_time = '0:30';
 
 $time_options = build_time_options($hours, $minutes, $event_time);
 
-$timer = '<select name="event_time_hour" class="form-control" style="display:inline;width:50%;border-radius: 5px;">'.$time_options['hours'].'</select>';
-$timer .='<select name="event_time_minute" class="form-control" style="display:inline;width:50%;border-radius: 5px;">'.$time_options['minutes'].'</select>';
+$timer = '<select name="event_time_hour" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['hours'].'</select>';
+$timer .='<select name="event_time_minute" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['minutes'].'</select>';
 ?>
  $('#session').change(function(event) {
     if(this.value == 's'){
@@ -434,7 +440,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
     }else{
         $('#recurr').removeClass('d-none');
         $('#date_label').html('Start Date');
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date " id="endDate"></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
     });
@@ -451,8 +457,10 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
      });
     $('#recurrence').change(function(event) {
     if(this.value == 'w' || this.value == 'y'){
-        $('#update3').html('<div class="col-md-6 col-lg-4"><div class="single-form"><div class="weekDays-selector"><input type="checkbox" name="week[]" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label></div></div></div>');
+        $('#daysWeek').removeClass('d-none');
+        // $('#update3').html('<div class="col-md-6 col-lg-4"><div class="single-form" id="daysWeek"><div class="weekDays-selector"><input type="checkbox" name="week[]" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label></div></div></div>');
     }else{
+        $('#daysWeek').addClass('d-none');
         $('#update3').html('');
     }
         
@@ -476,6 +484,51 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
       }, false)
     })
 })()
+$('#startDate').change(function(event) {
+    var min = $('#startDate').val();
+    $('#endDate').val('');
+    document.getElementById("endDate").setAttribute("min", min);
+});
+
+$('#recurrence').change(function(event) {
+    var startDate = $('#startDate').val();
+    var endDate = $('#endDate').val();
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(startDate);
+    const secondDate = new Date(endDate);
+    if(this.value == 'd'){
+        const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+        $('#update4').html('<div>Recurrence session : '+diffDays+'</div>');
+    }
+    if(this.value == 'w'){
+        $('#update4').html('');
+    }
+    
+});
+
+$(function(){
+      $('#save_value').click(function(){
+        var val = [];
+        $(':checkbox:checked').each(function(i){
+          val[i] = $(this).val();
+        });
+        console.log(val);
+        var startDate = $('#startDate').val();
+    var endDate = $('#endDate').val();
+    var daysDiff_week = countCertainDays(val,new Date(startDate),new Date(endDate))
+    $('#update4').html('<div>Recurrence session : '+daysDiff_week+'</div>');
+        console.log(daysDiff_week);
+      });
+    });
+    function countCertainDays( days, d0, d1 ) {
+  var ndays = 1 + Math.round((d1-d0)/(24*3600*1000));
+  var sum = function(a,b) {
+    var valueDays = $('#recurrence').find(":selected").val();
+    var daysFor = 7;
+    if(valueDays == 'y'){daysFor = 365;}
+    return a + Math.floor( ( ndays + (d0.getDay()+6-b) % 7 ) / daysFor ); };
+  return days.reduce(sum,0);
+}
     </script>
    </body>
 </html>

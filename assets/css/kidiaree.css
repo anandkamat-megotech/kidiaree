@@ -1144,3 +1144,16 @@ input[type=submit] {
   background: #eb5e36;
   color: #ffffff;
 }
+.weeksave {
+  margin-left: 6px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background: #8c7bdd;
+  color: #fff;
+}
+.nice-select {
+  border: 1px solid #379f75;
+  background: #f6f7f9;
+  border-radius: 0;
+  padding: 0px 25px;
+}
