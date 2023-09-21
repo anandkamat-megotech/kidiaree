@@ -178,6 +178,86 @@ $db->query($sql);
                                         </div>
                                     </div>
                                     </div>
+                                    <div class="col-md-6 col-lg-4 d-none" id="address_section">
+                                        <div class="single-form">
+                                        <select class=" w-100" name="address_use"  id="address_use" required> 
+                                            <option value="">Select Address</option>
+                                            <option value="exising">Use Existing</option>
+                                            <option value="new">Add New</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Mode is empty!
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                    <div class="row d-none" id="address_section_details">
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
+                                            <div class="invalid-feedback">
+                                                Mobile Number is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 " required>
+                                            <div class="invalid-feedback">
+                                                Address Line 1 is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2" required>
+                                            <div class="invalid-feedback">
+                                                Address Line 2 is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="area" name="area" placeholder="Area" required>
+                                            <div class="invalid-feedback">
+                                                Area is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                                            <div class="invalid-feedback">
+                                               City is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="state" name="state" placeholder="State " required>
+                                            <div class="invalid-feedback">
+                                                State is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country " required>  
+                                            <div class="invalid-feedback">
+                                                Country is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode " required>
+                                             <div class="invalid-feedback">
+                                                Pincode is empty!
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                     <div class="col-md-6 col-lg-4" id="update"></div>
                                     
                                     <div class="col-md-6 col-lg-4">
@@ -335,8 +415,18 @@ $db->query($sql);
  $('#mode').change(function(event) {
     if(this.value == 'Online'){
         $('#update').html('<div class="single-form"><input type="text" name="zoom_link" class="form-control" placeholder="Enter joining link "></div>');
+        $('#address_section').addClass('d-none');
     }else{
+        $('#address_section').removeClass('d-none');
         $('#update').html('<div class="single-form"><input type="text" name="zoom_link" class="form-control" placeholder="Enter Map Url "></div>');
+    }
+        
+    });
+ $('#address_use').change(function(event) {
+    if(this.value == 'new'){
+        $('#address_section_details').removeClass('d-none');
+    }else{
+        $('#address_section_details').addClass('d-none');
     }
         
     });
@@ -516,7 +606,7 @@ $(function(){
         var startDate = $('#startDate').val();
     var endDate = $('#endDate').val();
     var daysDiff_week = countCertainDays(val,new Date(startDate),new Date(endDate))
-    $('#update4').html('<div>Recurrence session : '+daysDiff_week+'</div>');
+    $('#update4').html('<div class="col-md-6 col-lg-4">Recurrence session : '+daysDiff_week+'</div>');
         console.log(daysDiff_week);
       });
     });
