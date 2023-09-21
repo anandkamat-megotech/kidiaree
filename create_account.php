@@ -62,8 +62,8 @@
             <div class="container">
                 <!-- Offer Wrap Start -->
                 <div class="offer-wrap">
-                    <div class="row">
-                        <div class="col-6 col-lg-2 mx-auto">
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-6 col-lg-2">
                             <!-- Single offer Start -->
                             <div class="single-offer-02">
                                 <div class="row align-items-center">
@@ -77,7 +77,7 @@
                             </div>
                             <!-- Single Offer End -->
                         </div>
-                        <div class="col-6 col-lg-2 mx-auto">
+                        <div class="col-6 col-lg-2">
                             <!-- Single offer Start -->
                             <div class="single-offer-02 color-02">
                                 <div class="row align-items-center">

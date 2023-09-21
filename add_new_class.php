@@ -132,11 +132,14 @@ $db->query($sql);
                                     <h2 class="title">Class Details</h2>
                                 </div>
                         <div class="login-register-form">
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" name="class_name" class="form-control" placeholder="Enter Class Title ">
+                                            <input type="text" name="class_name" class="form-control" placeholder="Enter Class Title " required>
+                                            <div class="invalid-feedback">
+                                                Class Title is empty!
+                                            </div>
                                          </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
@@ -167,7 +170,7 @@ $db->query($sql);
                                     
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="age">
+                                        <select class=" w-100" name="age" id="ageMin" required>
                                             <option value="">Age Min</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -191,7 +194,7 @@ $db->query($sql);
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="age">
+                                        <select class=" w-100" name="age" id="ageMax" required>
                                             <option value="">Age Max</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -211,6 +214,10 @@ $db->query($sql);
                                             <option>16</option>
                                             <option>18</option>
                                         </select>
+                                        <div id="maxage_error" style="color:red"></div>
+                                        <div class="invalid-feedback">
+                                                Max age is empty!
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- <div class="col-md-6 col-lg-4">
@@ -232,7 +239,7 @@ $db->query($sql);
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <label for="">Date</label>
+                                        <label for="" id="date_label">Date</label>
                                             <input type="date" min="<?php echo date('Y-m-d') ?>" name="price" class="form-control" placeholder="Date">
                                         </div>
                                     </div>
@@ -321,7 +328,7 @@ $(document).ready(function() {
  
  $('#mode').change(function(event) {
     if(this.value == 'Online'){
-        $('#update').html('<div class="single-form"><input type="text" name="zoom_link" class="form-control" placeholder="Enter Zoom_link "></div>');
+        $('#update').html('<div class="single-form"><input type="text" name="zoom_link" class="form-control" placeholder="Enter joining link "></div>');
     }else{
         $('#update').html('<div class="single-form"><input type="text" name="zoom_link" class="form-control" placeholder="Enter Map Url "></div>');
     }
@@ -329,8 +336,8 @@ $(document).ready(function() {
     });
     <?php
 $timenow = time();
-$opentime = strtotime('00:00');
-$closetime = strtotime('23:59');
+$opentime = strtotime('05:00');
+$closetime = strtotime('20:59');
 $select ='<select class=" nice-select w-100 mb-2">';
 if($timenow > $closetime || $timenow <= $opentime){
     $select.= '<option value="Closed">CLOSED</option>';
@@ -338,14 +345,14 @@ if($timenow > $closetime || $timenow <= $opentime){
 } 
 else{
     // you said you wanted the time to start in 1 hour, but had +15 minutes...
-    $deliverytime = strtotime('00:00');
+    $deliverytime = strtotime('05:00');
     // $deliverytime = strtotime('+15 minutes', $timenow);
     // round to next 15 minutes (15 * 60 seconds)
     $deliverytime = ceil($deliverytime / (15*60)) * (15*60);
     // echo $deliverytime;
     // $select.= '<option value="asap">As soon as possible</option>';
     while($deliverytime <= $closetime && $deliverytime >= $opentime) {
-        $select.=  '<option value="'. date('H:i', $deliverytime) .'">' . date('H:i', $deliverytime) . '</option>';
+        $select.=  '<option value="'. date('h:i A', $deliverytime) .'">' . date('h:i A', $deliverytime) . '</option>';
         $deliverytime = strtotime('+15 minutes', $deliverytime);
     }
     $select.=  "</select>"; 
@@ -412,7 +419,7 @@ function build_time_options($hours, $minutes, $time)
 $hours = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23);
 $minutes = array(0,5,10,15,20,25,30,35,40,45,50,55);
 
-$event_time = '1:15';
+$event_time = '0:30';
 
 $time_options = build_time_options($hours, $minutes, $event_time);
 
@@ -422,14 +429,26 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
  $('#session').change(function(event) {
     if(this.value == 's'){
         $('#recurr').toggleClass('d-none');
+        $('#date_label').html('Date');
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Select Time</label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }else{
         $('#recurr').removeClass('d-none');
+        $('#date_label').html('Start Date');
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date "></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
     });
 
+    $('#ageMax').change(function(event) {
+       var minAge = $('#ageMin').val();
+       var maxAge =$('#ageMax').val();
+       if(minAge >= maxAge){
+        $('#maxage_error').html('Maximum Age needs to be more than min age')
+        $('#ageMax').val('')
+       }else{
+        $('#maxage_error').html('');
+       }
+     });
     $('#recurrence').change(function(event) {
     if(this.value == 'w' || this.value == 'y'){
         $('#update3').html('<div class="col-md-6 col-lg-4"><div class="single-form"><div class="weekDays-selector"><input type="checkbox" name="week[]" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label></div></div></div>');
@@ -438,7 +457,25 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
     }
         
     });
+    (function () {
+  'use strict'
 
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
     </script>
    </body>
 </html>

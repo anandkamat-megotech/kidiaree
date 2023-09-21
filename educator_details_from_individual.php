@@ -164,54 +164,96 @@ $succ = $add_url;
                                 <!-- Section Title End -->
 
                                 <div class="login-register-form">
-                                    <form action="" method="POST" enctype="multipart/form-data">
+                                    <form action="" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate onSubmit = "return checkPassword(this)">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name">
+                                            <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" required>
+                                            <div class="invalid-feedback">
+                                                First Name is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name">
+                                            <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" required>
+                                            <div class="invalid-feedback">
+                                                Last Name is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email ID">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email ID" required>
+                                            <div class="invalid-feedback">
+                                                Email ID is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number">
+                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
+                                            <div class="invalid-feedback">
+                                                Mobile Number is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
+                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 " required>
+                                            <div class="invalid-feedback">
+                                                Address Line 1 is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2">
+                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2" required>
+                                            <div class="invalid-feedback">
+                                                Address Line 2 is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="area" name="area" placeholder="Area">
+                                            <input type="text" class="form-control" id="area" name="area" placeholder="Area" required>
+                                            <div class="invalid-feedback">
+                                                Area is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                                            <div class="invalid-feedback">
+                                               City is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="state" name="state" placeholder="State ">
+                                            <input type="text" class="form-control" id="state" name="state" placeholder="State " required>
+                                            <div class="invalid-feedback">
+                                                State is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country "> 
+                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country "> required 
+                                            <div class="invalid-feedback">
+                                                Country is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
+                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode " required>
+                                             <div class="invalid-feedback">
+                                                Pincode is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="Pan" name="pan" placeholder="PAN">
+                                            <input type="text" class="form-control" id="Pan" name="pan" placeholder="PAN" required>
+                                            <div class="invalid-feedback">
+                                                PAN is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
                                             <div class="radio-button">
                                                 <div for="">Do you have a GST Identification Number (GSTIN)?</div>
-                                                <input type="radio" id="type" name="type" value="Individual" checked />
+                                                <input type="radio" id="type" name="type" value="Individual" checked required/>
                                                 <label for="Individual">Yes</label>
-                                                <input type="radio" id="type" style="margin-left: 10px;" name="type" value="Organization" />
+                                                <input type="radio" id="type" style="margin-left: 10px;" name="type" value="Organization" required/>
                                                 <label for="Organization">No</label>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                GSTIN is empty!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="GSTIN" name="GSTIN" placeholder="GSTIN">
+                                            <div class="invalid-feedback">
+                                                GSTIN is empty!
+                                            </div>
                                         </div>
 
                                         <hr class="mt-4 mb-4">
@@ -220,22 +262,40 @@ $succ = $add_url;
                                         </div>
 
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="bname" name="bname" placeholder="Beneficiary Name ">
+                                            <input type="text" class="form-control" id="bname" name="bname" placeholder="Beneficiary Name " required>
+                                            <div class="invalid-feedback">
+                                                Beneficiary Name is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Account Name">
+                                            <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Account Name" required>
+                                            <div class="invalid-feedback">
+                                               Account Name is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name">
+                                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
+                                            <div class="invalid-feedback">
+                                               Bank Name is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Account Number">
+                                            <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Account Number" required>
+                                            <div class="invalid-feedback">
+                                                Account Number is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="re_account_number" name="re_account_number" placeholder="Re-enter Account Number">
+                                            <input type="text" class="form-control" id="re_account_number" name="re_account_number" placeholder="Re-enter Account Number" required>
+                                            <div class="invalid-feedback">
+                                                Account Number not a match
+                                            </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code ">
+                                            <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code " required>
+                                            <div class="invalid-feedback">
+                                                IFSC Code is empty!
+                                            </div>
                                         </div>
 
                                         <div class="section-title mt-3">
@@ -244,11 +304,17 @@ $succ = $add_url;
 
                                         <div class="single-form">
                                             <label for="">PAN Card Photo copy</label>
-                                            <input type="file" class="form-control" id="panDoc" name="panDoc" placeholder="Upload Pan ">
+                                            <input type="file" class="form-control" id="panDoc" name="panDoc" placeholder="Upload Pan " required>
+                                            <div class="invalid-feedback">
+                                                Copy of PAN Card is empty!
+                                            </div>
                                         </div>
                                         <div class="single-form">
                                             <label for="">Adhaar Card Photo copy</label>
-                                            <input type="file" class="form-control" id="addDocpan" name="addDoc" placeholder="Upload Pan ">
+                                            <input type="file" class="form-control" id="addDocpan" name="addDoc" placeholder="Upload Pan " required>
+                                            <div class="invalid-feedback">
+                                                Copy of Aadhaar Card is empty!
+                                            </div>
                                         </div>
 
                                         <div class="form-btn mt-3">
@@ -401,6 +467,54 @@ $(document).ready(function() {
       // $('#idUser').val(response.body.id)
     }               
 });
+
+
+ // is same or not.
+ function checkPassword(form) {
+                account_number = form.account_number.value;
+                re_account_number = form.re_account_number.value;
+  
+                // If password not entered
+                if (account_number == '')
+                    alert ("Please enter Password");
+                      
+                // If confirm password not entered
+                else if (re_account_number == '')
+                    alert ("Please enter confirm password");
+                      
+                // If Not same return False.    
+                else if (account_number != re_account_number) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+  
+                // If same return True.
+                // else{
+                //     alert("Password Match: Welcome to GeeksforGeeks!")
+                //     return true;
+                // }
+            }
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
 }
     </script>
 

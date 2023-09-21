@@ -63,11 +63,13 @@ if(empty($_SESSION['token'])){
                      <div class="card card-table">
                         <div class="card-body">
                            <div class="table-responsive">
-                              <table class="table table-stripped table-hover datatable">
+                              <table class="table table-stripped table-hover">
                                  <thead class="thead-light">
                                     <tr>
                                        <th>Name</th>
                                        <th>Contact</th>
+                                       <th>Email</th>
+                                       <th>Date</th>
                                        <th>Status</th>
 
 
@@ -78,8 +80,10 @@ if(empty($_SESSION['token'])){
                                                         while($row = $getClass->fetch_assoc()){ ?>
                                              
                                     <tr >
-                                       <td onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')"><?php echo $row['name'] ?></td>
-                                       <td><?php echo $row['contact'] ?></td>
+                                       <td onclick="functionChange('<?php echo $row['name']; ?>','<?php echo $row['id']; ?>')"><?php echo $row['name']; ?></td>
+                                       <td><?php echo $row['contact']; ?></td>
+                                       <td><?php echo $row['email']; ?></td>
+                                       <td><?php echo date("d-m-Y", strtotime($row['created_at'])); ?></td>
                                        <td><?php if($row['status'] == 0 ){ echo '<badge class="badge bg-danger">Not Replied</badge>';} elseif($row['status'] == 1){ echo '<badge class="badge bg-success">Replied</badge>';}?></td>
                                     </tr>
                                     <?php } }else{ ?>

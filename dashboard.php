@@ -60,18 +60,18 @@ if(empty($_SESSION['token'])){
       <!-- CSS
          ============================================ -->
       <!-- Icon Font CSS -->
-      <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.24">
+      <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.25">
       <!-- Plugins CSS -->
-      <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.24">
+      <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.25">
       <!-- Main Style CSS -->
-      <link rel="stylesheet" href="assets/css/style.css?v=0.24">
-      <link rel="stylesheet" href="assets/css/kidiaree.css?v=0.24">
+      <link rel="stylesheet" href="assets/css/style.css?v=0.25">
+      <link rel="stylesheet" href="assets/css/kidiaree.css?v=0.25">
    </head>
    <body>
       <div class="main-wrapper">
@@ -697,7 +697,7 @@ if(empty($_SESSION['token'])){
       <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
       <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
       <!-- Main JS -->
-      <script src="assets/js/main.js?v=0.24"></script>
+      <script src="assets/js/main.js?v=0.25"></script>
       <script>
         
 $(document).ready(function() {
