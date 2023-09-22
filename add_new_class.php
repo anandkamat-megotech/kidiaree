@@ -178,6 +178,7 @@ $db->query($sql);
                                         </div>
                                     </div>
                                     </div>
+                                    <div class="col-md-6 col-lg-4" id="update"></div>
                                     <div class="col-md-6 col-lg-4 d-none" id="address_section">
                                         <div class="single-form">
                                         <select class=" w-100" name="address_use"  id="address_use" required> 
@@ -258,7 +259,7 @@ $db->query($sql);
                                         </div>
                                     </div>
                                     <div class="row">
-                                    <div class="col-md-6 col-lg-4" id="update"></div>
+                                    
                                     
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">

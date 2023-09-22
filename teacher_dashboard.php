@@ -80,10 +80,10 @@ $getClass = $db->query("SELECT * FROM products where teacher_id = ".$profile->bo
                      <div class="col-lg-12">
                         <!-- Page Banner Content Start -->
                         <div class="page-banner text-center">
-                           <h2 class="title">Profile</h2>
+                           <h2 class="title">Partner Portal</h2>
                            <ul class="breadcrumb justify-content-center">
                               <li class="breadcrumb-item"><a href="#">Home</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Profile (Teacher) </li>
+                              <li class="breadcrumb-item active" aria-current="page">Partner Portal </li>
                            </ul>
                         </div>
                         <!-- Page Banner Content End -->
@@ -160,33 +160,6 @@ $getClass = $db->query("SELECT * FROM products where teacher_id = ".$profile->bo
                                  </div>
                               </div>
                               <?php if($profile->body[0]->parents_teacher == "YES"){ ?> 
-                              <div class="accordion-item">
-                                 <button class="collapsed" data-bs-toggle="collapse"  data-bs-target="#collapseOne">Kids Details </button>
-                                 <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
-                                    <div class="accordion-body table-responsive">
-                                       <table class="table table-striped">
-                                          <thead>
-                                             <tr>
-                                                <!-- <th scope="col">#</th> -->
-                                                <th scope="col">Name</th>
-                                                <th scope="col">D.O.B (Age)</th>
-                                                <th scope="col">Action</th>
-                                             </tr>
-                                          </thead>
-                                          <tbody>
-                                             <?php foreach($kids->body as $value){   $year = (date('Y') - date('Y',strtotime($value->dob))); ?>
-                                             <tr>
-                                                <!-- <th scope="row"><?php echo $value->id ?></th> -->
-                                                <td><?php echo $value->kid_name ?></td>
-                                                <td><?php echo  $newDate = date("d/m/Y", strtotime( $value->dob)); ?> (<?php echo $year; ?> yrs)</td>
-                                                <td><i class="fa fa-user-edit icon-style" onclick="getKidsDashboard('<?php echo $value->id ?>')"></i><i class="fa fa-trash icon-style"></i> </td>
-                                             </tr>
-                                             <?php } ?>
-                                          </tbody>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
                               <div class="accordion-item">
                                  <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Upcoming Classes & Activities</button>
                                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
