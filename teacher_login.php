@@ -77,7 +77,7 @@ if(!empty($_SESSION['token'])){
                                 <div class="login-register-form">
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
-                                            <input type="text" id="emailorphone" class="form-control" placeholder="Enter phone ">
+                                            <input type="text" id="emailorphone" class="form-control" placeholder="Enter Mobile Number">
                                             <div id="validationError" class="mt-2" style="color: red;"></div>
                                         </div>
                                         <!-- <div class="single-form form-check">
