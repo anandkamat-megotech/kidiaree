@@ -38,10 +38,10 @@ if(empty($_SESSION['token'])){
                <div class="page-header">
                   <div class="row align-items-center">
                      <div class="col">
-                        <h3 class="page-title">Class / Activity</h3>
+                        <h3 class="page-title">Products</h3>
                         <ul class="breadcrumb">
                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                           <li class="breadcrumb-item active">Class / Activity</li>
+                           <li class="breadcrumb-item active">Products</li>
                         </ul>
                      </div>
                   </div>
@@ -54,6 +54,7 @@ if(empty($_SESSION['token'])){
                         <a href="products.php" class="invoices-links active">
                         <i class="feather feather-list"></i>
                         </a>
+                        <a href="../add_new_class.php" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                      </div>
                   </div>
                </div>
@@ -67,7 +68,7 @@ if(empty($_SESSION['token'])){
                                  <thead class="thead-light">
                                     <tr>
                                        <th>Name</th>
-                                       <th>Teacher Name</th>
+                                       <!-- <th>Teacher Name</th> -->
                                        <th>Reason</th>
                                        <th>Product Links</th>
                                        <th>Status</th>
@@ -81,7 +82,6 @@ if(empty($_SESSION['token'])){
                                              
                                     <tr onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')">
                                        <td><?php echo $row['name'] ?></td>
-                                       <td><?php echo $row['teacher_name'] ?></td>
                                        <td><?php echo $row['reason'] ?></td>
                                        <td><a target="_blank" href="../<?php echo $row['product_url'].'?id='.$row['id'] ?>"><?php echo $row['product_url'] ?></a></td>
                                        <td><?php if($row['status'] == 0 && $row['reason'] != ''){ echo '<badge class="badge bg-danger">Not approved</badge>';} elseif($row['status'] == 2){ echo '<badge class="badge bg-warning">Rework</badge>';}elseif($row['status'] == 0 && $row['reason'] == ''){ echo '<badge class="badge bg-dark">Not reviewed</badge>';}else{ echo '<badge class="badge bg-success">Approved</badge>';} ?></td>

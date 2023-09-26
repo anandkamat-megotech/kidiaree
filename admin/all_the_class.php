@@ -24,7 +24,7 @@ if(empty($_SESSION['token'])){
       }
       $where = '';
       // Get member rows
-      $getClass = $db->query("SELECT p.*, u.name as teacher_name FROM products p left join usersmaster u on u.id = p.teacher_id  order by p.id desc");
+      $getClass = $db->query("SELECT p.*, u.name as teacher_name FROM products p left join usersmaster u on u.id = p.teacher_id where status=2  order by p.id desc");
     
       // echo "<pre>";print_r($txns);
       // die;
@@ -38,25 +38,16 @@ if(empty($_SESSION['token'])){
                <div class="page-header">
                   <div class="row align-items-center">
                      <div class="col">
-                        <h3 class="page-title">Class / Activity</h3>
+                        <h3 class="page-title">My Booking</h3>
                         <ul class="breadcrumb">
                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                           <li class="breadcrumb-item active">Class / Activity</li>
+                           <li class="breadcrumb-item active">My Booking</li>
                         </ul>
                      </div>
                   </div>
                </div>
                <!-- <button type="button" id="model_approve" class="btn btn-info mt-1" data-bs-toggle="modal" data-bs-target="#approve-modal"> Modal</button> -->
-               <div class="page-header">
-                  <div class="row align-items-center">
-                     <div class="col"></div>
-                     <div class="col-auto">
-                        <a href="products.php" class="invoices-links active">
-                        <i class="feather feather-list"></i>
-                        </a>
-                     </div>
-                  </div>
-               </div>
+              
                
                <div class="row">
                   <div class="col-sm-12">
@@ -66,11 +57,9 @@ if(empty($_SESSION['token'])){
                               <table class="table table-stripped table-hover datatable">
                                  <thead class="thead-light">
                                     <tr>
+                                       <th>Id</th>
                                        <th>Name</th>
-                                       <th>Teacher Name</th>
-                                       <th>Reason</th>
-                                       <th>Product Links</th>
-                                       <th>Status</th>
+                                       <th>Action</th>
 
 
                                     </tr>
@@ -79,12 +68,10 @@ if(empty($_SESSION['token'])){
                                  <?php if($getClass->num_rows > 0){
                                                         while($row = $getClass->fetch_assoc()){ ?>
                                              
-                                    <tr onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')">
+                                    <tr>
+                                       <td><?php echo '00'.$row['id'] ?></td>
                                        <td><?php echo $row['name'] ?></td>
-                                       <td><?php echo $row['teacher_name'] ?></td>
-                                       <td><?php echo $row['reason'] ?></td>
-                                       <td><a target="_blank" href="../<?php echo $row['product_url'].'?id='.$row['id'] ?>"><?php echo $row['product_url'] ?></a></td>
-                                       <td><?php if($row['status'] == 0 && $row['reason'] != ''){ echo '<badge class="badge bg-danger">Not approved</badge>';} elseif($row['status'] == 2){ echo '<badge class="badge bg-warning">Rework</badge>';}elseif($row['status'] == 0 && $row['reason'] == ''){ echo '<badge class="badge bg-dark">Not reviewed</badge>';}else{ echo '<badge class="badge bg-success">Approved</badge>';} ?></td>
+                                       <td><a href="orders.php?id=<?php echo $row['id']; ?>">View Orders</a></td>
                                     </tr>
                                     <?php } }else{ ?>
                                              <p class="mt-3 text-center">No Class(s) found...</p>

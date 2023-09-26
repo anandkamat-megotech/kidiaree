@@ -30,10 +30,11 @@ $k_dob_start = post_params("k_dob");
 $gender = post_params("gender");
 $grade = post_params("grade");
 $kid_id = post_params("kid_id");
+$board = post_params("board");
 
 
 //Generate OTP and update in database
-$otp = $serviceAddKids->serve($db, $idUser, $k_name, $k_dob_start, $gender, $grade, $kid_id);
+$otp = $serviceAddKids->serve($db, $idUser, $k_name, $k_dob_start, $gender, $grade, $kid_id, $board);
 
 echo response_ok($idUser, time());
 

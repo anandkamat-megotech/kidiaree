@@ -78,7 +78,7 @@ if(!empty($user_details)){
                         <img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor">
                         <div class="user-text">
                            <h6><?php echo $display_name ; ?></h6>
-                           <p class="text-muted mb-0">Administrator</p>
+                           <!-- <p class="text-muted mb-0">Administrator</p> -->
                         </div>
                      </span>
                   </a>
@@ -89,7 +89,7 @@ if(!empty($user_details)){
                         </div>
                         <div class="user-text">
                            <h6><?php echo $display_name ; ?></h6>
-                           <p class="text-muted mb-0">Administrator</p>
+                           <!-- <p class="text-muted mb-0">Administrator</p> -->
                         </div>
                      </div>
                      <a class="dropdown-item" href="logout.php">Logout</a>

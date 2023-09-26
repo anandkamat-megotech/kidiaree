@@ -1017,6 +1017,7 @@ function getKidsDashboard(idKids){
         $('#k_name_edit').val(response.body[0].kid_name);
         $('#k_dob_start_edit').val(response.body[0].dob);
         $('#grade_edit').val(response.body[0].grade).niceSelect('update');
+        $('#board_edit').val(response.body[0].board).niceSelect('update');
         $('#gender_' + response.body[0].gender).prop('checked',true);
         $('#kidsModalEdit').modal('show')
       }
@@ -1040,11 +1041,13 @@ function saveKidsDashboard(data){
   var k_dob =  $('#k_dob_start_edit').val(); 
   var k_name = $('#k_name_edit').val(); 
   var grade =  $('#grade_edit').val(); 
+  var board =  $('#board_edit').val(); 
   var k_id =  $('#k_id').val(); 
   console.log(gender);
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
+  console.log(board);
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -1056,6 +1059,7 @@ function saveKidsDashboard(data){
         k_dob: k_dob,
         k_name: k_name,
         grade: grade,
+        board: board,
         kid_id: k_id
     },
     success: function(msg)
@@ -1087,6 +1091,7 @@ function saveKidsDashboardAdd(){
   var k_dob =  $('#k_dob_start').val(); 
   var k_name = $('#k_name').val(); 
   var grade =  $('#grade').val(); 
+  var board =  $('#board').val(); 
   console.log(gender);
   console.log(k_dob);
   console.log(k_name);
@@ -1101,6 +1106,7 @@ function saveKidsDashboardAdd(){
         gender: gender,
         k_dob: k_dob,
         k_name: k_name,
+        board: board,
         grade: grade
     },
     success: function(msg)

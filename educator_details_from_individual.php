@@ -168,73 +168,73 @@ $succ = $add_url;
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" required>
                                             <div class="invalid-feedback">
-                                                First Name is empty!
+                                                First Name is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" required>
                                             <div class="invalid-feedback">
-                                                Last Name is empty!
+                                                Last Name is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email ID" required>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email ID" required>
                                             <div class="invalid-feedback">
-                                                Email ID is empty!
+                                                Email ID is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
+                                            <input type="text"  class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
                                             <div class="invalid-feedback">
-                                                Mobile Number is empty!
+                                                Mobile Number is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 " required>
                                             <div class="invalid-feedback">
-                                                Address Line 1 is empty!
+                                                Address Line 1 is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2" required>
                                             <div class="invalid-feedback">
-                                                Address Line 2 is empty!
+                                                Address Line 2 is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="area" name="area" placeholder="Area" required>
                                             <div class="invalid-feedback">
-                                                Area is empty!
+                                                Area is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
                                             <div class="invalid-feedback">
-                                               City is empty!
+                                               City is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="state" name="state" placeholder="State " required>
                                             <div class="invalid-feedback">
-                                                State is empty!
+                                                State is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country "> required 
+                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country " required>  
                                             <div class="invalid-feedback">
-                                                Country is empty!
+                                                Country is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode " required>
                                              <div class="invalid-feedback">
-                                                Pincode is empty!
+                                                Pincode is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="Pan" name="pan" placeholder="PAN" required>
                                             <div class="invalid-feedback">
-                                                PAN is empty!
+                                                PAN is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
@@ -246,13 +246,13 @@ $succ = $add_url;
                                                 <label for="Organization">No</label>
                                             </div>
                                             <div class="invalid-feedback">
-                                                GSTIN is empty!
+                                                GSTIN is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="GSTIN" name="GSTIN" placeholder="GSTIN">
                                             <div class="invalid-feedback">
-                                                GSTIN is empty!
+                                                GSTIN is required!
                                             </div>
                                         </div>
 
@@ -264,25 +264,25 @@ $succ = $add_url;
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="bname" name="bname" placeholder="Beneficiary Name " required>
                                             <div class="invalid-feedback">
-                                                Beneficiary Name is empty!
+                                                Beneficiary Name is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Account Name" required>
                                             <div class="invalid-feedback">
-                                               Account Name is empty!
+                                               Account Name is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
                                             <div class="invalid-feedback">
-                                               Bank Name is empty!
+                                               Bank Name is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Account Number" required>
                                             <div class="invalid-feedback">
-                                                Account Number is empty!
+                                                Account Number is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
@@ -294,7 +294,7 @@ $succ = $add_url;
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code " required>
                                             <div class="invalid-feedback">
-                                                IFSC Code is empty!
+                                                IFSC Code is required!
                                             </div>
                                         </div>
 
@@ -306,14 +306,14 @@ $succ = $add_url;
                                             <label for="">PAN Card Photo copy</label>
                                             <input type="file" class="form-control" id="panDoc" name="panDoc" placeholder="Upload Pan " required>
                                             <div class="invalid-feedback">
-                                                Copy of PAN Card is empty!
+                                                Copy of PAN Card is required!
                                             </div>
                                         </div>
                                         <div class="single-form">
                                             <label for="">Adhaar Card Photo copy</label>
                                             <input type="file" class="form-control" id="addDocpan" name="addDoc" placeholder="Upload Pan " required>
                                             <div class="invalid-feedback">
-                                                Copy of Aadhaar Card is empty!
+                                                Copy of Aadhaar Card is required!
                                             </div>
                                         </div>
 
@@ -468,23 +468,23 @@ $(document).ready(function() {
     }               
 });
 
-
- // is same or not.
- function checkPassword(form) {
+}
+// is same or not.
+function checkPassword(form) {
                 account_number = form.account_number.value;
                 re_account_number = form.re_account_number.value;
   
                 // If password not entered
                 if (account_number == '')
-                    alert ("Please enter Password");
+                    alert ("Please check the details entered");
                       
                 // If confirm password not entered
                 else if (re_account_number == '')
-                    alert ("Please enter confirm password");
+                    alert ("Please check the details entered");
                       
                 // If Not same return False.    
                 else if (account_number != re_account_number) {
-                    alert ("\nPassword did not match: Please try again...")
+                    alert ("\nPlease check the details entered")
                     return false;
                 }
   
@@ -515,8 +515,17 @@ $(document).ready(function() {
       }, false)
     })
 })()
-}
+
+
+$(document).ready(function () {  
+        $("#Pan").keyup(function () {  
+            $(this).val($(this).val().toUpperCase());  
+        });  
+    });  
     </script>
+
+
+
 
 </body>
 

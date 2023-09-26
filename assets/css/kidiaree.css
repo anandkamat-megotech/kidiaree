@@ -1166,3 +1166,9 @@ label:focus-visible {
   outline: 1px solid #379f75;
   /* border-radius: 3px; */
 }
+.flaticon-phone-call {
+  color: #8c7bdd !important;
+}
+.fa-envelope {
+  color: #4a9bd8 !important;
+}

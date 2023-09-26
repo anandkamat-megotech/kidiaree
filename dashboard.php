@@ -478,6 +478,14 @@ if(empty($_SESSION['token'])){
                                                     </select>
                                                    <!-- Single Form End -->
                                                 </div>
+                                                <div class="col-md-6">
+                                                   <!-- Single Form Start -->
+                                                   <select class="mt-3 mb-3 w-100" name="board" id="board">
+                                                        <option>State</option>
+                                                        <option>CBSE</option>
+                                                    </select>
+                                                   <!-- Single Form End -->
+                                                </div>
                                              </div>
                                           </form>
                                        </div>
@@ -524,9 +532,9 @@ if(empty($_SESSION['token'])){
                                                 <div class="col-md-6">
                                                    <!-- Single Form Start -->
                                                    <div class="radio-button m-3">
-                                                        <input type="radio" id="gender_Male" name="gender" value="Male" checked />
+                                                        <input type="radio" id="gender_Male" name="gender_edit" value="Male" checked />
                                                         <label for="huey">Male</label>
-                                                        <input type="radio" id="gender_Female" style="margin-left: 10px;" name="gender" value="Female" />
+                                                        <input type="radio" id="gender_Female" style="margin-left: 10px;" name="gender_edit" value="Female" />
                                                         <label for="Female">Female</label>
                                                     </div>
                                                    <!-- Single Form End -->
@@ -548,6 +556,14 @@ if(empty($_SESSION['token'])){
                                                         <option>Grade 8</option>
                                                         <option>Grade 9</option>
                                                         <option>Grade 10</option>
+                                                    </select>
+                                                   <!-- Single Form End -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                   <!-- Single Form Start -->
+                                                   <select class="mt-3 mb-3 w-100" name="board" id="board_edit">
+                                                        <option>State</option>
+                                                        <option>CBSE</option>
                                                     </select>
                                                    <!-- Single Form End -->
                                                 </div>

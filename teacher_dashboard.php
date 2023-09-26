@@ -106,9 +106,6 @@ $getClass = $db->query("SELECT * FROM products where teacher_id = ".$profile->bo
                               <h3 class="title">Settings</h3>
                               <div class="lessons-time">
                                  <a href="add_new_class.php" class="btn btn-primary btn-sm-add-student">  Add New Class</a> 
-                                 <?php if($profile->body[0]->parents_teacher == "YES"){ ?>
-                                 <button class="btn btn-primary btn-sm-add-student" href="#" data-bs-toggle="modal" data-bs-target="#kidsModal">  Add New Child</button> 
-                                 <?php } ?>
                               </div>
                            </div>
                            <!-- Course Accordion Start -->

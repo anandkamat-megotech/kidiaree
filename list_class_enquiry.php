@@ -258,7 +258,6 @@ console.log(url);
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        alert('Thanks!');
         window.location.href = 'educator_details_thank_you_msg.php';
       } else {
         // $('#otpError').html('Otp is incorrect!');

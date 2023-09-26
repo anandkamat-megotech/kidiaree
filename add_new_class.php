@@ -25,7 +25,9 @@ if (isset($_POST['class_form'])) {
     $thumbnails_url = '';
     $msg = '';
     $target_dir = "assets/images/classes/";
-    $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
+    $temp = explode(".", $_FILES["thumbnail"]["name"]);
+    $newfilename = $_FILES["thumbnail"]["name"].round(microtime(true)) . '.' . end($temp);
+    $target_file = $target_dir . $newfilename;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
@@ -74,11 +76,109 @@ if (file_exists($target_file)) {
   $product_url = 'creative_writing_lab_single.php';
     // die;
 include('dbConfig.php');
-$age_tags = '-:-'.$_POST['age'].'-:-';
+// print_r($_POST);
+// die;
+$age_tags = '-:-';
+for($i=$_POST['age']; $i<=$_POST['ageMax']; $i++) {
+    $age_tags.= $i.'-:-';
+  }
 $sql = "INSERT INTO products (name, sub_name, description,tags,teacher_id,price,type,thumbnail,age,age_tags,status,product_url)
-VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age']."', '".$age_tags."', '0', '".$product_url."')";
+VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age'].'-'.$_POST['ageMax']."', '".$age_tags."', '0', '".$product_url."')";
+// die;
 $db->query($sql);
 }
+?>
+<?php
+$timenow = time();
+$opentime = strtotime('05:00');
+$closetime = strtotime('20:59');
+$select ='<select class=" nice-select w-100 mb-2">';
+if($timenow > $closetime || $timenow <= $opentime){
+    $select.= '<option value="Closed">CLOSED</option>';
+    $select.= "</select>"; 
+} 
+else{
+    // you said you wanted the time to start in 1 hour, but had +15 minutes...
+    $deliverytime = strtotime('05:00');
+    // $deliverytime = strtotime('+15 minutes', $timenow);
+    // round to next 15 minutes (15 * 60 seconds)
+    $deliverytime = ceil($deliverytime / (15*60)) * (15*60);
+    // echo $deliverytime;
+    // $select.= '<option value="asap">As soon as possible</option>';
+    while($deliverytime <= $closetime && $deliverytime >= $opentime) {
+        $select.=  '<option value="'. date('h:i A', $deliverytime) .'">' . date('h:i A', $deliverytime) . '</option>';
+        $deliverytime = strtotime('+15 minutes', $deliverytime);
+    }
+    $select.=  "</select>"; 
+}
+
+
+
+
+function pad_number(&$item, $key, $pad = 2)
+{
+	$item = sprintf('%0'.$pad.'d', $item);
+}
+
+function build_time_options($hours, $minutes, $time)
+{
+	// pad hours and minutes with 0
+	array_walk($hours, 'pad_number');
+	array_walk($minutes, 'pad_number');
+	$time_hour_options = '';
+	$time_minute_options = '';
+	
+	$time_components = explode(':', $time);
+
+	foreach($hours as $hour)
+	{
+		if(count($time_components) == 2)
+		{
+			if($time_components[0] == $hour)
+			{
+				$time_hour_options .= '<option selected="selected">'.$hour.' hour</option>';
+			}
+			else
+			{
+				$time_hour_options .= '<option>'.$hour.' hours</option>';
+			}
+		}
+		else
+		{
+			$time_hour_options .= '<option>'.$hour.' hour</option>';
+		}
+	}
+	foreach($minutes as $minute)
+	{
+		if(count($time_components) == 2)
+		{
+			if($time_components[1] == $minute)
+			{
+				$time_minute_options .= '<option selected="selected">'.$minute.' minutes</option>';
+			}
+			else
+			{
+				$time_minute_options .= '<option>'.$minute.' minutes</option>';
+			}
+		}
+		else
+		{
+			$time_minute_options .= '<option>'.$minute.' minutes</option>';
+		}
+	}
+	
+	return array('hours' => $time_hour_options, 'minutes' => $time_minute_options);
+}
+	
+$hours = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23);
+$minutes = array(0,15,30,45);
+
+$event_time = '0:30';
+
+$time_options = build_time_options($hours, $minutes, $event_time);
+
+$timer = '<select name="event_time_hour" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['hours'].'</select>';
+$timer .='<select name="event_time_minute" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['minutes'].'</select>';
 ?>
 <?php
 
@@ -181,7 +281,7 @@ $db->query($sql);
                                     <div class="col-md-6 col-lg-4" id="update"></div>
                                     <div class="col-md-6 col-lg-4 d-none" id="address_section">
                                         <div class="single-form">
-                                        <select class=" w-100" name="address_use"  id="address_use" required> 
+                                        <select class=" w-100" name="address_use"  id="address_use"> 
                                             <option value="">Select Address</option>
                                             <option value="exising">Use Existing</option>
                                             <option value="new">Add New</option>
@@ -195,15 +295,7 @@ $db->query($sql);
                                     <div class="row d-none" id="address_section_details">
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
-                                            <div class="invalid-feedback">
-                                                Mobile Number is empty!
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 " required>
+                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
                                             <div class="invalid-feedback">
                                                 Address Line 1 is empty!
                                             </div>
@@ -211,7 +303,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2" required>
+                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2">
                                             <div class="invalid-feedback">
                                                 Address Line 2 is empty!
                                             </div>
@@ -219,7 +311,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="area" name="area" placeholder="Area" required>
+                                            <input type="text" class="form-control" id="area" name="area" placeholder="Area">
                                             <div class="invalid-feedback">
                                                 Area is empty!
                                             </div>
@@ -227,7 +319,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
                                             <div class="invalid-feedback">
                                                City is empty!
                                             </div>
@@ -235,7 +327,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="state" name="state" placeholder="State " required>
+                                            <input type="text" class="form-control" id="state" name="state" placeholder="State ">
                                             <div class="invalid-feedback">
                                                 State is empty!
                                             </div>
@@ -243,7 +335,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country " required>  
+                                            <input type="text" class="form-control" id="country" name="country" placeholder="Country ">  
                                             <div class="invalid-feedback">
                                                 Country is empty!
                                             </div>
@@ -251,7 +343,7 @@ $db->query($sql);
                                         </div>
                                         <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode " required>
+                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                              <div class="invalid-feedback">
                                                 Pincode is empty!
                                             </div>
@@ -264,24 +356,24 @@ $db->query($sql);
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
                                         <select class=" w-100" name="age" id="ageMin" required>
-                                            <option value="">Age Min</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
-                                            <option>11</option>
-                                            <option>12</option>
-                                            <option>13</option>
-                                            <option>14</option>
-                                            <option>15</option>
-                                            <option>16</option>
-                                            <option>18</option>
+                                            <option value="">Minimum Age</option>
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="03">3</option>
+                                            <option value="04">4</option>
+                                            <option value="05">5</option>
+                                            <option value="06">6</option>
+                                            <option value="07">7</option>
+                                            <option value="08">8</option>
+                                            <option value="09">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">18</option>
                                         </select>
                                         <div class="invalid-feedback">
                                                 Minimum age is empty!
@@ -290,25 +382,25 @@ $db->query($sql);
                                     </div>
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="age" id="ageMax" required>
-                                            <option value="">Age Max</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
-                                            <option>11</option>
-                                            <option>12</option>
-                                            <option>13</option>
-                                            <option>14</option>
-                                            <option>15</option>
-                                            <option>16</option>
-                                            <option>18</option>
+                                        <select class=" w-100" name="ageMax" id="ageMax" required>
+                                            <option value="">Maximum Age</option>
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="03">3</option>
+                                            <option value="04">4</option>
+                                            <option value="05">5</option>
+                                            <option value="06">6</option>
+                                            <option value="07">7</option>
+                                            <option value="08">8</option>
+                                            <option value="09">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">18</option>
                                         </select>
                                         <div id="maxage_error" style="color:red"></div>
                                         <div class="invalid-feedback">
@@ -325,7 +417,7 @@ $db->query($sql);
                                     
                                     <div class="col-md-6 col-lg-4">
                                         <div class="single-form">
-                                        <select class=" w-100" name="type"  id="session" required>
+                                        <select class=" w-100" name="session"  id="session" required>
                                             <option value="">Select Class type</option>
                                             <option value="s">Single-Session Class/Workshop/Camp</option>
                                             <option value="m">Multi-Session Class/Workshop/Camp</option>
@@ -348,15 +440,20 @@ $db->query($sql);
                                     </div>
                                     <div class="row" id="update2"></div>
                                     <div class="row">
-                                    <div class="col-md-6 col-lg-4 d-none" id="recurr" required><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select>
+                                    <div class="col-md-6 col-lg-4 d-none" id="recurr"><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select>
                                     <div class="invalid-feedback">
                                         Class Recurrence is empty!
                                     </div>
                                     </div></div>
                                     <div class="col-md-6 col-lg-4 d-none" id="daysWeek"><div class="single-form" ><div class="weekDays-selector"><input type="checkbox" name="week[]" value="1" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]" value="2"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]" value="3"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]" value="4"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]" value="5"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]" value="6"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]" value="7"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label><button id="save_value" class="weeksave">save</button></div></div></div>
                                     </div>
+                                    <div class="row mt-2 d-none" id="update4"></div>
+                                    <div class="row" id="update5"></div>
+                                    
+                                    
+                                    
                                     <div class="row" id="update3"></div>
-                                    <div class="row" id="update4"></div>
+                                    
 
                                     
 
@@ -431,107 +528,19 @@ $db->query($sql);
     }
         
     });
-    <?php
-$timenow = time();
-$opentime = strtotime('05:00');
-$closetime = strtotime('20:59');
-$select ='<select class=" nice-select w-100 mb-2">';
-if($timenow > $closetime || $timenow <= $opentime){
-    $select.= '<option value="Closed">CLOSED</option>';
-    $select.= "</select>"; 
-} 
-else{
-    // you said you wanted the time to start in 1 hour, but had +15 minutes...
-    $deliverytime = strtotime('05:00');
-    // $deliverytime = strtotime('+15 minutes', $timenow);
-    // round to next 15 minutes (15 * 60 seconds)
-    $deliverytime = ceil($deliverytime / (15*60)) * (15*60);
-    // echo $deliverytime;
-    // $select.= '<option value="asap">As soon as possible</option>';
-    while($deliverytime <= $closetime && $deliverytime >= $opentime) {
-        $select.=  '<option value="'. date('h:i A', $deliverytime) .'">' . date('h:i A', $deliverytime) . '</option>';
-        $deliverytime = strtotime('+15 minutes', $deliverytime);
-    }
-    $select.=  "</select>"; 
-}
-
-
-
-
-function pad_number(&$item, $key, $pad = 2)
-{
-	$item = sprintf('%0'.$pad.'d', $item);
-}
-
-function build_time_options($hours, $minutes, $time)
-{
-	// pad hours and minutes with 0
-	array_walk($hours, 'pad_number');
-	array_walk($minutes, 'pad_number');
-	$time_hour_options = '';
-	$time_minute_options = '';
-	
-	$time_components = explode(':', $time);
-
-	foreach($hours as $hour)
-	{
-		if(count($time_components) == 2)
-		{
-			if($time_components[0] == $hour)
-			{
-				$time_hour_options .= '<option selected="selected">'.$hour.' hour</option>';
-			}
-			else
-			{
-				$time_hour_options .= '<option>'.$hour.' hours</option>';
-			}
-		}
-		else
-		{
-			$time_hour_options .= '<option>'.$hour.' hour</option>';
-		}
-	}
-	foreach($minutes as $minute)
-	{
-		if(count($time_components) == 2)
-		{
-			if($time_components[1] == $minute)
-			{
-				$time_minute_options .= '<option selected="selected">'.$minute.' minutes</option>';
-			}
-			else
-			{
-				$time_minute_options .= '<option>'.$minute.' minutes</option>';
-			}
-		}
-		else
-		{
-			$time_minute_options .= '<option>'.$minute.' minutes</option>';
-		}
-	}
-	
-	return array('hours' => $time_hour_options, 'minutes' => $time_minute_options);
-}
-	
-$hours = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23);
-$minutes = array(0,5,10,15,20,25,30,35,40,45,50,55);
-
-$event_time = '0:30';
-
-$time_options = build_time_options($hours, $minutes, $event_time);
-
-$timer = '<select name="event_time_hour" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['hours'].'</select>';
-$timer .='<select name="event_time_minute" class="form-control" style="display:inline;width:50%;padding: 8px 25px;">'.$time_options['minutes'].'</select>';
-?>
+    
  $('#session').change(function(event) {
     if(this.value == 's'){
         $('#recurr').toggleClass('d-none');
+        $('#update4').addClass('d-none');
         $('#date_label').html('Date');
         $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Select Time</label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }else{
+        $('#update4').removeClass('d-none');
         $('#recurr').removeClass('d-none');
         $('#date_label').html('Start Date');
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">END Date</label><input type="date" name="price" class="form-control" placeholder="End Date " id="endDate"></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">End Date</label><input type="date" name="price" class="form-control" placeholder="End Date " id="endDate"></div></div>');
+        $('#update5').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
     });
@@ -539,7 +548,9 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
     $('#ageMax').change(function(event) {
        var minAge = $('#ageMin').val();
        var maxAge =$('#ageMax').val();
-       if(minAge >= maxAge){
+       console.log(minAge);
+       console.log(maxAge);
+       if(minAge > maxAge){
         $('#maxage_error').html('Maximum Age needs to be more than min age')
         $('#ageMax').val('')
        }else{
@@ -588,7 +599,7 @@ $('#recurrence').change(function(event) {
     const firstDate = new Date(startDate);
     const secondDate = new Date(endDate);
     if(this.value == 'd'){
-        const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+        const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay)+1);
         $('#update4').html('<div>Recurrence session : '+diffDays+'</div>');
     }
     if(this.value == 'w'){

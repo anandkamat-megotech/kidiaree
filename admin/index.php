@@ -19,10 +19,10 @@ session_start();
                   <div class="row">
                      <div class="col-sm-12">
                         <div class="page-sub-header">
-                           <h3 class="page-title">Welcome Admin!</h3>
+                           <h3 class="page-title">Welcome <?php echo $role_name; ?>!</h3>
                            <ul class="breadcrumb">
                               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                              <li class="breadcrumb-item active">Admin</li>
+                              <li class="breadcrumb-item active"><?php echo $role_name; ?></li>
                            </ul>
                         </div>
                      </div>
@@ -44,6 +44,7 @@ session_start();
                         </div>
                      </div>
                   </div>
+                  <?php if($role == '1'){ ?>
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-comman w-100">
                         <div class="card-body">
@@ -59,12 +60,13 @@ session_start();
                         </div>
                      </div>
                   </div>
+                  <?php } ?>
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-comman w-100">
                         <div class="card-body">
                            <div class="db-widgets d-flex justify-content-between align-items-center">
                               <div class="db-info">
-                                 <h6>Acrivities</h6>
+                                 <h6>Classes / Acrivities</h6>
                                  <h3>30+</h3>
                               </div>
                               <div class="db-icon">
@@ -91,6 +93,7 @@ session_start();
                   </div>
                </div>
                <div class="row">
+               <?php if($role == '1'){ ?>
                   <div class="col-md-12 col-lg-6">
                      <div class="card card-chart">
                         <div class="card-header">
@@ -112,6 +115,7 @@ session_start();
                         </div>
                      </div>
                   </div>
+                  <?php } ?>
                   <div class="col-md-12 col-lg-6">
                      <div class="card card-chart">
                         <div class="card-header">

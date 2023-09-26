@@ -131,7 +131,7 @@ $succ = $add_url;
                              <div class="col-lg-6 mx-auto mb-4">
                             <h3 class="text-center" style="color: #eb5e36 !important;">Contact Kidiaree</h3>
                             <p class="mt-3 text-send"> <a target="_blank" href="https://api.whatsapp.com/send?phone=919833992919&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i>  Send a message</a></p>
-                        <p class="text-send"><a href="tel:+919833992919"><i class="flaticon-phone-call"></i> +91 9820074277</a></p>
+                        <p class="text-send"><a href="tel:+919833992919"><i class="flaticon-phone-call"></i> +91 98339 92919</a></p>
         <p class="text-send"><a target="_blank" href="mailto:saumyasaraogi@kidiaree.in" class="whatsapp-button"><i class="far fa-envelope"></i> Send an Email</a></p>
 
                         </div>
