@@ -159,7 +159,7 @@ $succ = $add_url;
                              <div class="login-register-box">
                                 <!-- Section Title Start -->
                                 <div class="section-title">
-                                    <h2>Patner Details</h2>
+                                    <h2>Partner Details</h2>
                                 </div>
                                 <!-- Section Title End -->
 
