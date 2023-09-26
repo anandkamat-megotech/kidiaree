@@ -1172,3 +1172,17 @@ label:focus-visible {
 .fa-envelope {
   color: #4a9bd8 !important;
 }
+.desktop-only {
+  display: none;
+}
+.thankyou-section {
+  margin-top: 15px !important;
+}
+@media only screen and (orientation: landscape) { 
+  .desktop-only {
+    display: inline-block;
+  }
+  .thankyou-section {
+    margin-top: 85px !important;
+  }
+}

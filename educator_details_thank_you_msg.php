@@ -127,7 +127,7 @@ $succ = $add_url;
                         <div class="col-lg-6 mx-auto">
 
                              <!-- Login & Register Box Start -->
-                             <div class="login-register-box" style="margin-top: 15px !important;">
+                             <div class="login-register-box thankyou-section">
                              <div class="col-lg-6 mx-auto mb-4">
                             <h3 class="text-center" style="color: #eb5e36 !important;">Contact Kidiaree</h3>
                             <p class="mt-3 text-send"> <a target="_blank" href="https://api.whatsapp.com/send?phone=919833992919&text=Hello" class="whatsapp-button"><i class="fab fa-whatsapp"></i>  Send a message</a></p>
