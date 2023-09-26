@@ -71,7 +71,7 @@ if(!empty($_SESSION['token'])){
         <p class="text-send"><a target="_blank" href="mailto:saumyasaraogi@kidiaree.in" class="whatsapp-button"><i class="far fa-envelope"></i> Send an Email</a></p>
 
                         </div>
-                        <div class="col-lg-6 mx-auto">
+                        <div class="col-lg-6 mx-auto enqua">
                         <div class="login-register-box">
                         <div class="login-register-form">
                             <h4 class="text-center">Alternatively, please share your details below, for us to contact you</h4>

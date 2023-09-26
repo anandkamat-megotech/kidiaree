@@ -7713,7 +7713,7 @@ textarea:-ms-input-placeholder {
 /*----------------------------------------*/
 .page-banner-section {
   padding-top: 90px;
-  min-height: 500px;
+  min-height: 300px;
   display: flex;
   align-items: center;
   background-repeat: no-repeat;
@@ -10018,7 +10018,7 @@ textarea:-ms-input-placeholder {
 /*  28 - Login Register CSS
 /*----------------------------------------*/
 .login-register-section .login-register-wrap {
-  margin-top: -50px;
+  /* margin-top: -50px; */
 }
 
 .login-register-section .login-register-wrap .section-title .title {

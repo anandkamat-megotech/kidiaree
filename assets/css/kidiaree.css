@@ -1185,4 +1185,11 @@ label:focus-visible {
   .thankyou-section {
     margin-top: 85px !important;
   }
+  .enqua .login-register-box {
+    margin-top: 0px !important;
+  }
+  .section-padding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 }

@@ -267,7 +267,7 @@ $succ = $add_url;
                                             </div>
                                             
                                             <div class="invalid-feedback">
-                                                GSTIN is empty!
+                                                GSTIN is required!
                                             </div>
                                         </div>
                                         <div class="single-form">

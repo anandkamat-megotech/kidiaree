@@ -1076,7 +1076,26 @@ function saveKidsDashboard(data){
     }               
 });
 }
-
+function saveDetailsUser(a) {
+  alert('here');
+  var idUser =  localStorage.getItem("idUser");
+  var gender_value = 'Male';
+  var ele = document.getElementsByName('gender');
+ 
+            for (let i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                gender_value = ele[i].value;
+            }
+  var gender = gender_value;
+  var k_dob =  $('#k_dob_start').val(); 
+  var k_name = $('#k_name').val(); 
+  var grade =  $('#grade').val(); 
+  var board =  $('#board').val(); 
+  if( k_name == '' ) {
+    $("#k_name").after(' <p class="text-danger"> Name is required</p>');
+  }
+  
+}
 
 function saveKidsDashboardAdd(){
   var idUser =  localStorage.getItem("idUser");

@@ -17,20 +17,20 @@
 	============================================ -->
 
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.26">
+    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.27">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.26">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.27">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=0.26">
-    <link rel="stylesheet" href="assets/css/kidiaree.css?v=0.26">
+    <link rel="stylesheet" href="assets/css/style.css?v=0.27">
+    <link rel="stylesheet" href="assets/css/kidiaree.css?v=0.27">
 
 </head>
 

@@ -238,7 +238,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" name="class_name" class="form-control" placeholder="Enter Class Title " required>
                                             <div class="invalid-feedback">
-                                                Class Title is empty!
+                                                Class Title is required!
                                             </div>
                                          </div>
                                     </div>
@@ -246,7 +246,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" name="sub_name" class="form-control" placeholder="Enter sub-name " required>
                                             <div class="invalid-feedback">
-                                                Sub name is empty!
+                                                Sub name is required!
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +254,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" name="description" class="form-control" placeholder="Enter Description - 'About the Class' " required>
                                             <div class="invalid-feedback">
-                                                Description is empty!
+                                                Description is required!
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +262,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" name="tags" class="form-control" placeholder="Enter Suggested Tags (tag1, tag2) " required>
                                             <div class="invalid-feedback">
-                                                Suggested Tags is empty!
+                                                Suggested Tags is required!
                                             </div>
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <option>Offline</option>
                                         </select>
                                         <div class="invalid-feedback">
-                                            Mode is empty!
+                                            Mode is required!
                                         </div>
                                     </div>
                                     </div>
@@ -287,7 +287,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <option value="new">Add New</option>
                                         </select>
                                         <div class="invalid-feedback">
-                                            Mode is empty!
+                                            Mode is required!
                                         </div>
                                     </div>
                                     </div>
@@ -297,7 +297,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
                                             <div class="invalid-feedback">
-                                                Address Line 1 is empty!
+                                                Address Line 1 is required!
                                             </div>
                                         </div>
                                         </div>
@@ -305,7 +305,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2">
                                             <div class="invalid-feedback">
-                                                Address Line 2 is empty!
+                                                Address Line 2 is required!
                                             </div>
                                         </div>
                                         </div>
@@ -313,7 +313,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="area" name="area" placeholder="Area">
                                             <div class="invalid-feedback">
-                                                Area is empty!
+                                                Area is required!
                                             </div>
                                         </div>
                                         </div>
@@ -321,7 +321,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="city" name="city" placeholder="City">
                                             <div class="invalid-feedback">
-                                               City is empty!
+                                               City is required!
                                             </div>
                                         </div>
                                         </div>
@@ -329,7 +329,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="state" name="state" placeholder="State ">
                                             <div class="invalid-feedback">
-                                                State is empty!
+                                                State is required!
                                             </div>
                                         </div>
                                         </div>
@@ -337,7 +337,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="country" name="country" placeholder="Country ">  
                                             <div class="invalid-feedback">
-                                                Country is empty!
+                                                Country is required!
                                             </div>
                                         </div>
                                         </div>
@@ -345,7 +345,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                              <div class="invalid-feedback">
-                                                Pincode is empty!
+                                                Pincode is required!
                                             </div>
                                         </div>
                                         </div>
@@ -376,7 +376,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <option value="17">18</option>
                                         </select>
                                         <div class="invalid-feedback">
-                                                Minimum age is empty!
+                                                Minimum age is required!
                                         </div>
                                         </div>
                                     </div>
@@ -404,7 +404,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         </select>
                                         <div id="maxage_error" style="color:red"></div>
                                         <div class="invalid-feedback">
-                                                Maximum age is empty!
+                                                Maximum age is required!
                                         </div>
                                     </div>
                                     </div>
@@ -424,7 +424,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <option value="m">Regular Classes</option>
                                         </select>
                                         <div class="invalid-feedback">
-                                                Class type is empty!
+                                                Class type is required!
                                             </div>
                                         </div>
                                     </div>
@@ -433,7 +433,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                         <label for="" id="date_label">Date</label>
                                             <input type="date" min="<?php echo date('Y-m-d') ?>" name="price" class="form-control" placeholder="Date" id=startDate required>
                                             <div class="invalid-feedback">
-                                                Date is empty!
+                                                Date is required!
                                             </div>
                                         </div>
                                     </div>
@@ -442,7 +442,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                     <div class="row">
                                     <div class="col-md-6 col-lg-4 d-none" id="recurr"><div class="single-form"><select class=" w-100" name="recurrence"  id="recurrence"><option value="">Select Class Recurrence</option><option value="d">Daily</option><option value="w">Weekly</option><option value="y">Yearly</option></select>
                                     <div class="invalid-feedback">
-                                        Class Recurrence is empty!
+                                        Class Recurrence is required!
                                     </div>
                                     </div></div>
                                     <div class="col-md-6 col-lg-4 d-none" id="daysWeek"><div class="single-form" ><div class="weekDays-selector"><input type="checkbox" name="week[]" value="1" id="weekday-mon" class="weekday" /><label for="weekday-mon">MON</label><input type="checkbox"  name="week[]" value="2"  id="weekday-tue" class="weekday" /><label for="weekday-tue">TUE</label><input type="checkbox"  name="week[]" value="3"  id="weekday-wed" class="weekday" /><label for="weekday-wed">WED</label><input type="checkbox"  name="week[]" value="4"  id="weekday-thu" class="weekday" /><label for="weekday-thu">THU</label><input type="checkbox"  name="week[]" value="5"  id="weekday-fri" class="weekday" /><label for="weekday-fri">FRI</label><input type="checkbox"  name="week[]" value="6"  id="weekday-sat" class="weekday" /><label for="weekday-sat">SAT</label><input type="checkbox"  name="week[]" value="7"  id="weekday-sun" class="weekday" /><label for="weekday-sun">SUN</label><button id="save_value" class="weeksave">save</button></div></div></div>
@@ -465,7 +465,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <label for="" style="text-transform: unset !important;">Fees (Inclusive of GST)</label>
                                             <input type="text" name="price" class="form-control" placeholder="" required>
                                             <div class="invalid-feedback">
-                                                Fees is empty!
+                                                Fees is required!
                                             </div>
                                         </div>
                                     </div>
@@ -476,7 +476,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
                                             <span class="validation-image">Image size (400px X 600px)</span>
                                             <input type="file" name="thumbnail" class="form-control" placeholder="Enter type " required>
                                             <div class="invalid-feedback">
-                                                Image is empty!
+                                                Image is required!
                                             </div>
                                         </div>
                                     </div>
