@@ -40,11 +40,15 @@ $to  = "";
 if(!empty($_GET['to'])){
     $to = $_GET['to'];
 }
+$idProduct  = "";
+if(!empty($_GET['id'])){
+    $idProduct = $_GET['id'];
+}
 
 //Get idUser of from usersmaster
 $idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
 
-$json = $serviceGetPaymentsOrder->serve($db, $teacher, $date, $from, $to);
+$json = $serviceGetPaymentsOrder->serve($db, $teacher, $date, $from, $to, $idProduct);
 
 echo response_ok($json, time());
 

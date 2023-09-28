@@ -56,7 +56,7 @@ $role = $user_details->body[0]->idRole;
                      <li class="submenu <?php echo basename($_SERVER['PHP_SELF']) == 'orders.php' ||  basename($_SERVER['PHP_SELF']) == 'transactions.php' ? 'active' : ''; ?>">
                         <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Sales</span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="all_the_class.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'all_the_class.php' ? 'active' : ''; ?>">My Bookings</a></li>
+                           <li><a href="all_the_class.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'all_the_class.php' || basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : ''; ?>">My Bookings</a></li>
                            <li><a href="transactions.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'transactions.php' ? 'active' : ''; ?>">Transactions</a></li>
                         </ul>
                      </li>

@@ -32,7 +32,7 @@ $dataTeachers = $getTeacher->fetch_assoc();
        
        
         <!-- Page Banner Start -->
-        <div class="section page-banner-section" style="background-image: url(assets/images/bg/page-banner.jpg);">
+        <div class="section page-banner-section class-details" style="background-image: url(assets/images/bg/page-banner.jpg);">
             <div class="shape-1">
                 <img src="assets/images/shape/shape-7.png" alt="">
             </div>

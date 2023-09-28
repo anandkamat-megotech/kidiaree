@@ -1193,3 +1193,8 @@ label:focus-visible {
     padding-bottom: 20px;
 }
 }
+@media only screen and (orientation: landscape) { 
+.class-details {
+  min-height: 400px;
+}
+}

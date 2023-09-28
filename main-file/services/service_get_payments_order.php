@@ -3,7 +3,7 @@
 class ServiceGetPaymentsOrder{
     
     
-    public function serve($db, $teacher, $date, $from, $to) {
+    public function serve($db, $teacher, $date, $from, $to, $idProduct) {
         $where = '';
         if(!empty($teacher) || !empty($date) || !empty($from)){
             $where = 'where ';
@@ -11,6 +11,10 @@ class ServiceGetPaymentsOrder{
 
         if(!empty($teacher)){
             $where .= " upm.teacher_name = '".$teacher."'";
+        }
+        
+        if(!empty($idProduct)){
+            $where .= " AND upm.idProduct = '".$idProduct."'";
         }
 
         if(!empty($date)){
