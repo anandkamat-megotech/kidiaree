@@ -814,6 +814,7 @@ console.log(url);
 
 function resendOtp(){
   var emailorphone = $('#emailorphone').val();
+  alert('ere');
   var params1 = emailorphone;
   
   let url = 'validate_mobile.php';
@@ -855,7 +856,7 @@ function resendOtp(){
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
             var params2 = response.body.id;
-            window.location.href = 'otp.php?mobile='+params1+'&idUser'+params2;
+            // window.location.href = 'otp.php?mobile='+params1+'&idUser='+params2;
             $('#idUser').val(response.body.id)
           }               
       });
@@ -890,8 +891,8 @@ console.log(idUser);
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        // window.location.href = response.body.url+'?token='+response.body.token;
-        // localStorage.setItem("token", response.body.token);
+        window.location.href = response.body.url+'?token='+response.body.token;
+        localStorage.setItem("token", response.body.token);
       } else {
         $('#otpError').html('OTP is incorrect!');
       }

@@ -8,6 +8,7 @@ if(!empty($_SESSION['token'])){
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
+  
 
 <?php include('const/head.php'); ?>
 
@@ -73,7 +74,6 @@ if(!empty($_SESSION['token'])){
                 <div class="row g-3">
                     <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
                     <input type="hidden" id="idUser" value="<?php echo $_GET['idUser'] ?>">
-                    <input type="text" id="otpField">
                   <div class="col">
                     <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   </div>
@@ -92,7 +92,7 @@ if(!empty($_SESSION['token'])){
 					<button class="btn btn-primary"  onclick="VerifyOtp()">Verify</button>
 				</div>
 </div>
-              <p class="text-center text-muted mb-0">Not received your code? <a onclick="resendOtp()" disabled>Resend code</a></p>
+              <p class="text-center text-muted mb-0">Not received OTP ? <a onclick="resendOtp()" id="otpresendtext" class="d-none text-primary">Resend code</a> <span id="otpresendtext1">Resend code (<span id="timer"></span>)</span></p>
             </div>
           </div>
         </div>
@@ -198,56 +198,42 @@ else if (this.value.length == this.maxLength) {
    $(this).blur().next('.form-control').focus();
 }
 });
+setTimeout(function(){
+  //  $('#loader').addClass('d-none');  
+// toggle another class
+$('#otpresendtext').removeClass('d-none');  
+$('#otpresendtext1').addClass('d-none');  
+},10000);
 
-document.addEventListener('deviceready', onDeviceReady, false);
 
-function onDeviceReady() {
-    // Request permission to read SMS messages
-    cordova.plugins.permissions.requestPermission(cordova.plugins.permissions.READ_SMS, successCallback, errorCallback);
+let timerOn = true;
+
+function timer(remaining) {
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+  
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  document.getElementById('timer').innerHTML =  s;
+  remaining -= 1;
+  
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    return;
+  }
+
+  if(!timerOn) {
+    // Do validate stuff here
+    return;
+  }
+  
+  // Do timeout stuff here
+  // alert('Timeout for otp');
 }
 
-function successCallback(status) {
-    if (status.hasPermission) {
-        // Permission granted, now read SMS messages
-        readSMS();
-    } else {
-        // Permission denied
-        console.error('SMS permission is required.');
-    }
-}
-
-function errorCallback(status) {
-    console.error('Error requesting SMS permission: ' + status.error);
-}
-
-function readSMS() {
-    // Use the cordova-plugin-sms-receive plugin to read SMS messages
-    SmsReceive.startWatch(function(message) {
-        // Parse the message content to extract the OTP (you may use regular expressions here)
-        const otp = extractOTP(message);
-
-        // Display the OTP in your app's interface
-        if (otp) {
-            document.getElementById('otpField').value = otp;
-        }
-    }, function() {
-        console.error('Error starting SMS watch');
-    });
-}
-
-function extractOTP(message) {
-    // Use regular expressions or any other method to extract the OTP from the message
-    // For example, you can search for a 6-digit number in the message
-    const otpRegex = /\b\d{6}\b/;
-    const match = message.match(otpRegex);
-
-    if (match) {
-        return match[0];
-    }
-
-    return null;
-}
-
+timer(10);
     </script>
 
 </body>
