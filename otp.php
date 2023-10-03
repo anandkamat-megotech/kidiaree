@@ -73,6 +73,7 @@ if(!empty($_SESSION['token'])){
                 <div class="row g-3">
                     <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
                     <input type="hidden" id="idUser" value="<?php echo $_GET['idUser'] ?>">
+                    <input type="text" id="otpField">
                   <div class="col">
                     <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   </div>
@@ -197,6 +198,56 @@ else if (this.value.length == this.maxLength) {
    $(this).blur().next('.form-control').focus();
 }
 });
+
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    // Request permission to read SMS messages
+    cordova.plugins.permissions.requestPermission(cordova.plugins.permissions.READ_SMS, successCallback, errorCallback);
+}
+
+function successCallback(status) {
+    if (status.hasPermission) {
+        // Permission granted, now read SMS messages
+        readSMS();
+    } else {
+        // Permission denied
+        console.error('SMS permission is required.');
+    }
+}
+
+function errorCallback(status) {
+    console.error('Error requesting SMS permission: ' + status.error);
+}
+
+function readSMS() {
+    // Use the cordova-plugin-sms-receive plugin to read SMS messages
+    SmsReceive.startWatch(function(message) {
+        // Parse the message content to extract the OTP (you may use regular expressions here)
+        const otp = extractOTP(message);
+
+        // Display the OTP in your app's interface
+        if (otp) {
+            document.getElementById('otpField').value = otp;
+        }
+    }, function() {
+        console.error('Error starting SMS watch');
+    });
+}
+
+function extractOTP(message) {
+    // Use regular expressions or any other method to extract the OTP from the message
+    // For example, you can search for a 6-digit number in the message
+    const otpRegex = /\b\d{6}\b/;
+    const match = message.match(otpRegex);
+
+    if (match) {
+        return match[0];
+    }
+
+    return null;
+}
+
     </script>
 
 </body>
