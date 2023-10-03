@@ -757,7 +757,7 @@ function register(){
 }
 function sendOtp(){
   var emailorphone = $('#emailorphone').val();
-  var params1 = md5 (emailorphone);
+  var params1 = emailorphone;
   
   let url = 'validate_mobile.php';
   function validatePhoneNumber(input_str) {
@@ -797,8 +797,65 @@ function sendOtp(){
             let response = JSON.parse(msg);
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
-            var params2 = md5 (response.body.id);
-            window.location.href = 'otp.php?params='+params1+'&'+params2;
+            var params2 = response.body.id;
+            window.location.href = 'otp.php?mobile='+params1+'&idUser'+params2;
+            $('#idUser').val(response.body.id)
+          }               
+      });
+       }
+  }else{
+    document.getElementById("emailorphone").focus();
+   	$("#validationError").text('This field is required.')
+  }
+
+console.log(url);
+ 
+}
+
+function resendOtp(){
+  var emailorphone = $('#emailorphone').val();
+  var params1 = emailorphone;
+  
+  let url = 'validate_mobile.php';
+  function validatePhoneNumber(input_str) {
+    var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+  
+    return re.test(input_str);
+  }
+
+  var datavalue = validatePhoneNumber(emailorphone);
+  console.log(datavalue);
+  if(datavalue){
+    url = 'validate_mobile.php';
+  }
+
+  // var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
+  var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+  
+  if(emailorphone){
+  		 if(!regex.test(emailorphone)){
+          document.getElementById("emailorphone").focus();
+          $("#validationError").text("Please enter valid phone number.")
+       }else{
+         $("#validationError").text('')
+         $.ajax({
+          url: './main-file/'+url,
+          type:'POST',
+          data:
+          {
+              // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+              data: $('#emailorphone').val()
+          },
+          success: function(msg)
+          {
+            // var element = document.getElementById("optSendModal");
+            //   element.classList.add("show");
+            //   element.classList.add("d-block");
+            let response = JSON.parse(msg);
+            console.log(response.body.id);
+            localStorage.setItem("idUser", response.body.id);
+            var params2 = response.body.id;
+            window.location.href = 'otp.php?mobile='+params1+'&idUser'+params2;
             $('#idUser').val(response.body.id)
           }               
       });
@@ -833,8 +890,8 @@ console.log(idUser);
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = response.body.url+'?token='+response.body.token;
-        localStorage.setItem("token", response.body.token);
+        // window.location.href = response.body.url+'?token='+response.body.token;
+        // localStorage.setItem("token", response.body.token);
       } else {
         $('#otpError').html('OTP is incorrect!');
       }

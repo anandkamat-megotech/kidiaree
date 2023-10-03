@@ -68,10 +68,11 @@ if(!empty($_SESSION['token'])){
           <div class="row g-0">
             <div class="col-10 col-lg-9 col-xl-8 mx-auto">
               <h3 class="fw-600 mb-4">Validate OTP</h3>
-              <p class="text-muted mb-4">Please enter the OTP (one time password) to verify your account. A Code has been sent to <span class="text-dark">*******179</span></p>
+              <p class="text-muted mb-4">Please enter the OTP (one time password) to verify your account. A Code has been sent to <span class="text-dark"><?php echo $_GET['mobile'] ?></span></p>
               <div id="otp-screen" >
                 <div class="row g-3">
-                    <input type="hidden" id="idUser" value="<?php echo $_GET['id'] ?>">
+                    <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
+                    <input type="hidden" id="idUser" value="<?php echo $_GET['idUser'] ?>">
                   <div class="col">
                     <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   </div>
@@ -90,7 +91,7 @@ if(!empty($_SESSION['token'])){
 					<button class="btn btn-primary"  onclick="VerifyOtp()">Verify</button>
 				</div>
 </div>
-              <p class="text-center text-muted mb-0">Not received your code? <a onclick="sendOtp()">Resend code</a></p>
+              <p class="text-center text-muted mb-0">Not received your code? <a onclick="resendOtp()" disabled>Resend code</a></p>
             </div>
           </div>
         </div>
