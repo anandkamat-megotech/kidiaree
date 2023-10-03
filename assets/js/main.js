@@ -757,6 +757,8 @@ function register(){
 }
 function sendOtp(){
   var emailorphone = $('#emailorphone').val();
+  var params1 = md5 (emailorphone);
+  
   let url = 'validate_mobile.php';
   function validatePhoneNumber(input_str) {
     var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -789,12 +791,14 @@ function sendOtp(){
           },
           success: function(msg)
           {
-            var element = document.getElementById("optSendModal");
-              element.classList.add("show");
-              element.classList.add("d-block");
+            // var element = document.getElementById("optSendModal");
+            //   element.classList.add("show");
+            //   element.classList.add("d-block");
             let response = JSON.parse(msg);
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
+            var params2 = md5 (response.body.id);
+            window.location.href = 'otp.php?params='+params1+'&'+params2;
             $('#idUser').val(response.body.id)
           }               
       });
@@ -809,14 +813,20 @@ console.log(url);
 }
 
 function VerifyOtp(){
+var otp = $("input[name='otp[]']")
+.map(function(){return $(this).val();}).get().join("");
+var idUser = $('#idUser').val();
+console.log(otp);
+console.log(idUser);
+//   alert('here');
   $.ajax({
     url: './main-file/validate_otp.php',
     type:'POST',
     data:
     {
         // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
-        otp: $('#partitioned').val(),
-        idUser: $('#idUser').val()
+        otp: otp,
+        idUser: idUser
     },
     success: function(msg)
     {

@@ -168,15 +168,13 @@ if(empty($_SESSION['token'])){
                               <table class="table table-stripped table-hover datatable">
                                  <thead class="thead-light">
                                     <tr>
-                                       <th>Id</th>
+                                       <th>listing ID</th>
                                        <th>Name</th>
                                        <th>Category</th>
                                        <th>Status</th>
                                        <th>Total Seats</th>
                                        <th>Booked Seats</th>
                                        <th>Action</th>
-
-
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -190,7 +188,7 @@ if(empty($_SESSION['token'])){
                                        <td></td>
                                        <td></td>
                                        <td></td>
-                                       <td><a href="orders.php?id=<?php echo $row['id']; ?>">View Orders</a></td>
+                                       <td><a href="orders.php?id=<?php echo $row['id']; ?>">View details</a></td>
                                     </tr>
                                     <?php } }else{ ?>
                                              <p class="mt-3 text-center">No Class(s) found...</p>

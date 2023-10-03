@@ -54,7 +54,7 @@ if(empty($_SESSION['token'])){
                         <a href="products.php" class="invoices-links active">
                         <i class="feather feather-list"></i>
                         </a>
-                        <a href="../add_new_class.php" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                        <a href="../add_new_class.php" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Class/Activity</a>
                      </div>
                   </div>
                </div>

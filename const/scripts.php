@@ -23,4 +23,5 @@
 
 
     <!-- Main JS -->
+    <script src="assets/js/md5.min.js?v=0.27"></script>
     <script src="assets/js/main.js?v=0.27"></script>
