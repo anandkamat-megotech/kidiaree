@@ -798,7 +798,7 @@ function sendOtp(){
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
             var params2 = response.body.id;
-            window.location.href = 'otp.php?mobile='+params1+'&idUser'+params2;
+            window.location.href = 'otp.php?mobile='+params1+'&idUser='+params2;
             $('#idUser').val(response.body.id)
           }               
       });

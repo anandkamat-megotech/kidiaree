@@ -1198,3 +1198,8 @@ label:focus-visible {
   min-height: 400px;
 }
 }
+@media only screen and (orientation: portrait) { 
+  #otp-screen div .col input {
+    padding: 5px 2px !important;
+  }
+}
