@@ -69,7 +69,7 @@ if(!empty($_SESSION['token'])){
           <div class="row g-0">
             <div class="col-10 col-lg-9 col-xl-8 mx-auto">
               <h3 class="fw-600 mb-4">Validate OTP</h3>
-              <p class="text-muted mb-4">Please enter the OTP (one time password) to verify your account. A Code has been sent to <span class="text-dark"><?php echo $_GET['mobile'] ?></span></p>
+              <p class="text-muted mb-4">Please enter the OTP (one time password) to verify your account. A OTP has been sent to <span class="text-dark"><?php echo $_GET['mobile'] ?></span></p>
               <div id="otp-screen" >
                 <div class="row g-3">
                     <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
