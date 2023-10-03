@@ -88,11 +88,13 @@ if(!empty($_SESSION['token'])){
                   </div>
                 </div>
                 <div id="otpError" class="mt-2" style="color: red;"></div>
+                
                 <div class="d-grid my-4">
 					<button class="btn btn-primary"  onclick="VerifyOtp()">Verify</button>
 				</div>
 </div>
-              <p class="text-center text-muted mb-0">Not received OTP ? <a onclick="resendOtp()" id="otpresendtext" class="d-none text-primary">Resend code</a> <span id="otpresendtext1">Resend code (<span id="timer"></span>)</span></p>
+<div id="successmsg" class="mt-2 text-center" style="color: green;"></div>              
+<p class="text-center text-muted mb-0">Not received OTP ? <a onclick="resendOtp()" id="otpresendtext" class="d-none text-primary">Resend code</a> <span id="otpresendtext1">Resend OTP (<span id="timer"></span>)</span></p>
             </div>
           </div>
         </div>
@@ -234,6 +236,8 @@ function timer(remaining) {
 }
 
 timer(10);
+
+
     </script>
 
 </body>

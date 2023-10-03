@@ -811,10 +811,14 @@ function sendOtp(){
 console.log(url);
  
 }
+function resetAll(){
+  //  $("#contactForm").show();
+  $('#successmsg').remove(); // Removing it as with next form submit you will be adding the div again in your code. 
+  
+  }
 
 function resendOtp(){
   var emailorphone = $('#emailorphone').val();
-  alert('ere');
   var params1 = emailorphone;
   
   let url = 'validate_mobile.php';
@@ -856,6 +860,10 @@ function resendOtp(){
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
             var params2 = response.body.id;
+            $('#successmsg').html("OTP sent successfully!")
+            .hide()
+            .fadeIn(1500, function() { $('#successmsg'); });
+           setTimeout(resetAll,3000);
             // window.location.href = 'otp.php?mobile='+params1+'&idUser='+params2;
             $('#idUser').val(response.body.id)
           }               
