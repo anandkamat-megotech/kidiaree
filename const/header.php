@@ -149,7 +149,7 @@ if(!empty($_SESSION['token'])){
                     <ul class="main-menu">
                         <?php if(!empty($_SESSION['token'])){  ?>
                     <?php if(!empty($profile->body[0]->parents_teacher)){ ?>
-                    <li><a href="<?php if($profile->body[0]->idRole == 3){ echo '#';}else{ echo'#';} ?>"><b class="color1-k ">Kid</b> details</a>
+                    <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>"><b class="color1-k ">Kid</b> details</a>
                             <ul class="sub-menu">
                                 <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">Add new child</a></li>
                             </ul>
