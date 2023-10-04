@@ -1203,3 +1203,7 @@ label:focus-visible {
     padding: 5px 2px !important;
   }
 }
+.row.pin input {
+  flex: 1 0 0%;
+  margin-right: 10px;
+}

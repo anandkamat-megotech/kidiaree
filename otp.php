@@ -70,22 +70,23 @@ if(!empty($_SESSION['token'])){
             <div class="col-10 col-lg-9 col-xl-8 mx-auto">
               <h3 class="fw-600 mb-4">Validate OTP</h3>
               <p class="text-muted mb-4">Please enter the OTP (one time password) to verify your account. A OTP has been sent to <span class="text-dark"><?php echo $_GET['mobile'] ?></span></p>
-              <div id="otp-screen" >
-                <div class="row g-3">
-                    <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
+              <input type="hidden" id="emailorphone" value="<?php echo $_GET['mobile'] ?>">
                     <input type="hidden" id="idUser" value="<?php echo $_GET['idUser'] ?>">
-                  <div class="col">
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
-                  </div>
-                  <div class="col">
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
-                  </div>
-                  <div class="col">
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
-                  </div>
-                  <div class="col">
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
-                  </div>
+                    <input type="hidden" name="one-time-code">
+              <div id="otp-screen" >
+                <div class="row g-3 pin">
+                  <!-- <div class="col"> -->
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}" autofocus>
+                  <!-- </div> -->
+                  <!-- <div class="col"> -->
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                  <!-- </div> -->
+                  <!-- <div class="col"> -->
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                  <!-- </div> -->
+                  <!-- <div class="col"> -->
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                  <!-- </div> -->
                 </div>
                 <div id="otpError" class="mt-2" style="color: red;"></div>
                 
@@ -238,6 +239,71 @@ function timer(remaining) {
 timer(10);
 
 
+if ('OTPCredential' in window) {
+      window.addEventListener('DOMContentLoaded', e => {
+        const input = document.querySelector('input[autocomplete="one-time-code"]');
+        if (!input) return;
+        const ac = new AbortController();
+        const form = input.closest('form');
+        if (form) {
+          form.addEventListener('submit', e => {
+            ac.abort();
+          });
+        }
+        navigator.credentials.get({
+          otp: { transport:['sms'] },
+          signal: ac.signal
+        }).then(otp => {
+          input.value = otp.code;
+          if (form) form.submit();
+        }).catch(err => {
+          console.log(err);
+        });
+      });
+    }
+
+
+    // DOM utility functions:
+
+const els = (sel, par) => (par || document).querySelectorAll(sel);
+
+
+// Task: multiple inputs "field"
+
+els(".pin").forEach((elGroup) => {
+
+  const elsInput = [...elGroup.children];
+  const len = elsInput.length;
+  
+  const handlePaste = (ev) => {
+    const clip = ev.clipboardData.getData('text');     // Get clipboard data
+    const pin = clip.replace(/\s/g, "");               // Sanitize string
+    const ch = [...pin];                               // Create array of chars
+    elsInput.forEach((el, i) => el.value = ch[i]??""); // Populate inputs
+    elsInput[pin.length - 1].focus();                  // Focus input
+  };
+
+  const handleInput = (ev) => {
+    const elInp = ev.currentTarget;
+    const i = elsInput.indexOf(elInp);
+    if (elInp.value && (i+1) % len) elsInput[i + 1].focus();  // focus next
+  };
+  
+  const handleKeyDn = (ev) => {
+    const elInp = ev.currentTarget
+    const i = elsInput.indexOf(elInp);
+    if (!elInp.value && ev.key === "Backspace" && i) elsInput[i - 1].focus(); // Focus previous
+  };
+  
+  
+  // Add the same events to every input in group:
+  elsInput.forEach(elInp => {
+    elInp.addEventListener("paste", handlePaste);   // Handle pasting
+    elInp.addEventListener("input", handleInput);   // Handle typing
+    elInp.addEventListener("keydown", handleKeyDn); // Handle deleting
+  });
+  
+});
     </script>
 
 </body>

@@ -1,4 +1,8 @@
-<?php include_once 'global.php'; ?>
+<?php
+
+use Spipu\Html2Pdf\Tag\Html\Em;
+
+ include_once 'global.php'; ?>
 <?php 
 if(!empty($_GET['token'])){
    $_SESSION['token'] = $_GET['token'];
@@ -20,8 +24,7 @@ curl_close($ch);
 $profile =json_decode($resultProfile);
 
 if (isset($_POST['class_form'])) {
-    // print_r($profile);
-    // print_r($_POST);
+    
     $thumbnails_url = '';
     $msg = '';
     $target_dir = "assets/images/classes/";
@@ -82,17 +85,54 @@ $age_tags = '-:-';
 for($i=$_POST['age']; $i<=$_POST['ageMax']; $i++) {
     $age_tags.= $i.'-:-';
   }
-$sql = "INSERT INTO products (name, sub_name, description,tags,teacher_id,price,type,thumbnail,age,age_tags,status,product_url)
-VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age'].'-'.$_POST['ageMax']."', '".$age_tags."', '0', '".$product_url."')";
+  $address = '';
+  if(!empty($_POST['address_use'])){
+    $address .= ' '.$_POST['address_use'];
+  }
+  if(!empty($_POST['addressLine1'])){
+    $address .= ', '.$_POST['addressLine1'];
+  }
+  if(!empty($_POST['addressLine2'])){
+    $address .= ', '.$_POST['addressLine2'];
+  }
+  if(!empty($_POST['area'])){
+    $address .= ', '.$_POST['area'];
+  }
+  if(!empty($_POST['city'])){
+    $address .= ', '.$_POST['city'];
+  }
+  if(!empty($_POST['state'])){
+    $address .= ', '.$_POST['state'];
+  }
+  if(!empty($_POST['country'])){
+    $address .= ', '.$_POST['country'];
+  }
+  if(!empty($_POST['pincode'])){
+    $address .= ', '.$_POST['pincode'];
+  }
+
+  $links = '';
+  if(!empty($_POST['zoom_link'])){
+    $links = ', '.$_POST['zoom_link'];
+  }
+  $session = '';
+  if(!empty($_POST['session'])){
+    $session = ', '.$_POST['session'];
+  }
+echo $sql = "INSERT INTO products (name, sub_name, description,tags,teacher_id,price,type,thumbnail,age,age_tags,status,product_url,address, links,category,start_date,end_date,recurrence,slots,time_start,duration)
+VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age'].'-'.$_POST['ageMax']."', '".$age_tags."', '0', '".$product_url."','".$address."','$links')";
 // die;
+print_r($profile);
+    print_r($_POST);
+    die;
 $db->query($sql);
 }
 ?>
 <?php
 $timenow = time();
-$opentime = strtotime('05:00');
+$opentime = strtotime('00:00');
 $closetime = strtotime('20:59');
-$select ='<select class=" nice-select w-100 mb-2">';
+$select ='<select class=" nice-select w-100 mb-2" name="slot_time">';
 if($timenow > $closetime || $timenow <= $opentime){
     $select.= '<option value="Closed">CLOSED</option>';
     $select.= "</select>"; 
@@ -539,7 +579,7 @@ $timer .='<select name="event_time_minute" class="form-control" style="display:i
         $('#update4').removeClass('d-none');
         $('#recurr').removeClass('d-none');
         $('#date_label').html('Start Date');
-        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">End Date</label><input type="date" name="price" class="form-control" placeholder="End Date " id="endDate"></div></div>');
+        $('#update2').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">End Date</label><input type="date" name="end_date" class="form-control" placeholder="End Date " id="endDate"></div></div>');
         $('#update5').html('<div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Enter Start time </label><?php echo $select; ?></div></div><div class="col-md-6 col-lg-4"><div class="single-form"><label for="">Duration</label><?php echo $timer ; ?></div></div>');
     }
         
