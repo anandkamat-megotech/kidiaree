@@ -812,9 +812,12 @@ console.log(url);
  
 }
 function resetAll(){
-  //  $("#contactForm").show();
-  $('#successmsg').remove(); // Removing it as with next form submit you will be adding the div again in your code. 
   
+  $('#otpresendtext').addClass('d-none');  
+$('#otpresendtext1').removeClass('d-none'); 
+  $('#successmsg').addClass('d-none'); // Removing it as with next form submit you will be adding the div again in your code. 
+  let timerOn = true;
+  timer(10); 
   }
 
 function resendOtp(){
@@ -860,6 +863,7 @@ function resendOtp(){
             console.log(response.body.id);
             localStorage.setItem("idUser", response.body.id);
             var params2 = response.body.id;
+            $('#successmsg').removeClass('d-none');
             $('#successmsg').html("OTP sent successfully!")
             .hide()
             .fadeIn(1500, function() { $('#successmsg'); });

@@ -76,16 +76,16 @@ if(!empty($_SESSION['token'])){
               <div id="otp-screen" >
                 <div class="row g-3 pin">
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}" autofocus>
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off"  autofocus>
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off" pattern="\d{1}">
+                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                 </div>
                 <div id="otpError" class="mt-2" style="color: red;"></div>
@@ -228,10 +228,12 @@ function timer(remaining) {
   }
 
   if(!timerOn) {
+    
     // Do validate stuff here
     return;
   }
-  
+  $('#otpresendtext').removeClass('d-none');  
+$('#otpresendtext1').addClass('d-none'); 
   // Do timeout stuff here
   // alert('Timeout for otp');
 }
@@ -299,7 +301,7 @@ els(".pin").forEach((elGroup) => {
   // Add the same events to every input in group:
   elsInput.forEach(elInp => {
     elInp.addEventListener("paste", handlePaste);   // Handle pasting
-    elInp.addEventListener("input", handleInput);   // Handle typing
+    // elInp.addEventListener("input", handleInput);   // Handle typing
     elInp.addEventListener("keydown", handleKeyDn); // Handle deleting
   });
   
