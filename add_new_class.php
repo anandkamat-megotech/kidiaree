@@ -120,11 +120,11 @@ for($i=$_POST['age']; $i<=$_POST['ageMax']; $i++) {
     $session = ', '.$_POST['session'];
   }
 echo $sql = "INSERT INTO products (name, sub_name, description,tags,teacher_id,price,type,thumbnail,age,age_tags,status,product_url,address, links,category,start_date,end_date,recurrence,slots,time_start,duration)
-VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age'].'-'.$_POST['ageMax']."', '".$age_tags."', '0', '".$product_url."','".$address."','$links')";
+VALUES ('".$_POST['class_name']."', '".$_POST['sub_name']."', '".$_POST['description']."', '".$_POST['tags']."', '".$profile->body[0]->id."', '".$_POST['price']."', '".$_POST['type']."', '".$thumbnails_url."', '".$_POST['age'].'-'.$_POST['ageMax']."', '".$age_tags."', '0', '".$product_url."','".$address."','$links','','','','','','','')";
 // die;
-print_r($profile);
-    print_r($_POST);
-    die;
+// print_r($profile);
+//     print_r($_POST);
+//     die;
 $db->query($sql);
 }
 ?>

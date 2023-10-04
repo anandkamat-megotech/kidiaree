@@ -90,6 +90,21 @@ if(empty($_SESSION['token'])){
                               <img src="assets/img/icons/invoices-icon3.svg" alt>
                               </span>
                               <div class="inovices-dash-count">
+                                 <div class="inovices-amount"><?php echo $row['student_name'] ?></div>
+                              </div>
+                           </div>
+                           <p class="inovices-all">Kid Name</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card inovices-card">
+                        <div class="card-body">
+                           <div class="inovices-widget-header">
+                              <span class="inovices-widget-icon">
+                              <img src="assets/img/icons/invoices-icon3.svg" alt>
+                              </span>
+                              <div class="inovices-dash-count">
                                  <div class="inovices-amount"><?php echo $row['c_gross_total'] ?></div>
                               </div>
                            </div>
@@ -124,6 +139,21 @@ if(empty($_SESSION['token'])){
                               </div>
                            </div>
                            <p class="inovices-all">SGST</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card inovices-card">
+                        <div class="card-body">
+                           <div class="inovices-widget-header">
+                              <span class="inovices-widget-icon">
+                              <img src="assets/img/icons/invoices-icon3.svg" alt>
+                              </span>
+                              <div class="inovices-dash-count">
+                                 <div class="inovices-amount"><?php echo $row['net_payable'] ?></div>
+                              </div>
+                           </div>
+                           <p class="inovices-all">Net Payable</p>
                         </div>
                      </div>
                   </div>

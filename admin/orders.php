@@ -132,7 +132,7 @@ if(empty($_SESSION['token'])){
                               <img src="assets/img/icons/invoices-icon3.svg" alt>
                               </span>
                               <div class="inovices-dash-count">
-                                 <div class="inovices-amount"><?php echo $txns->body[0]->type; ?></div>
+                                 <div class="inovices-amount"><?php echo $txns->body[0]->category; ?></div>
                               </div>
                            </div>
                            <p class="inovices-all">Category</p>

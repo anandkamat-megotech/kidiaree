@@ -69,9 +69,10 @@ if(empty($_SESSION['token'])){
                                     <tr>
                                        <th>Name</th>
                                        <!-- <th>Teacher Name</th> -->
-                                       <th>Reason</th>
                                        <th>Product Links</th>
                                        <th>Status</th>
+                                       <th>Reason</th>
+
 
 
                                     </tr>
@@ -82,9 +83,10 @@ if(empty($_SESSION['token'])){
                                              
                                     <tr onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')">
                                        <td><?php echo $row['name'] ?></td>
-                                       <td><?php echo $row['reason'] ?></td>
                                        <td><a target="_blank" href="../<?php echo $row['product_url'].'?id='.$row['id'] ?>"><?php echo $row['product_url'] ?></a></td>
                                        <td><?php if($row['status'] == 0 && $row['reason'] != ''){ echo '<badge class="badge bg-danger">Not approved</badge>';} elseif($row['status'] == 2){ echo '<badge class="badge bg-warning">Rework</badge>';}elseif($row['status'] == 0 && $row['reason'] == ''){ echo '<badge class="badge bg-dark">Not reviewed</badge>';}else{ echo '<badge class="badge bg-success">Approved</badge>';} ?></td>
+                                       <td><?php echo $row['reason'] ?></td>
+                                    
                                     </tr>
                                     <?php } }else{ ?>
                                              <p class="mt-3 text-center">No Class(s) found...</p>
