@@ -36,8 +36,8 @@ body {
     <input type="hidden" name="language" value="EN"> 
     <input type="hidden" name="amount" value="1">
     <input type="hidden" name="currency" value="INR"> 
-    <input type="hidden" name="redirect_url" value="payment-response.php"> 
-    <input type="hidden" name="cancel_url" value="payment-cancel.php"> 
+    <input type="hidden" name="redirect_url" value="https://kidiaree.softwareconnect.in/paymentgetway/ccavResponseHandler.php"> 
+    <input type="hidden" name="cancel_url" value="https://kidiaree.softwareconnect.in/paymentgetway/ccavResponseHandler.php"> 
     
     <div>
     <input type="text" name="billing_name" value="Anand" class="form-field" Placeholder="Billing Name"> 
