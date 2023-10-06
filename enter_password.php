@@ -6,7 +6,11 @@
 // }
 if(isset($_POST['password'])){
     $_SESSION['under_c'] = $_POST['passwordType'];
-    header("Location: ".$_GET['action'].""); exit;
+    $url = 'index.php';
+    if(!empty($_GET['action'])){
+        $url = $_GET['action'];
+    }
+    header("Location: ".$url.""); exit;
 }
 ?>
 <!doctype html>
