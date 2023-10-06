@@ -19,7 +19,7 @@ if(empty($_SESSION['token'])){
       if(isset($_POST['submit_status'])){
          // print_r($_POST);
          // echo "UPDATE `products` SET `reason` = '".$_POST['reason']."',`status` = '".$_POST['status']."' WHERE `products`.`id` = '".$_POST['idClass']."';";
-         $db->query("UPDATE `products` SET `reason` = '".$_POST['reason']."',`status` = '".$_POST['status']."' WHERE `products`.`id` = '".$_POST['idClass']."';");
+         $db->query("UPDATE `enquiry` SET `reason` = '".$_POST['reason']."',`status` = '".$_POST['status']."' WHERE `enquiry`.`id` = '".$_POST['idClass']."';");
          // die;
       }
       $where = '';
@@ -80,7 +80,7 @@ if(empty($_SESSION['token'])){
                                                         while($row = $getClass->fetch_assoc()){ ?>
                                              
                                     <tr >
-                                       <td onclick="functionChange('<?php echo $row['name']; ?>','<?php echo $row['id']; ?>')"><?php echo $row['name']; ?></td>
+                                       <td  style="color:blue;cursor: pointer;" onclick="functionChange('<?php echo $row['name']; ?>','<?php echo $row['id']; ?>')"><?php echo $row['name']; ?></td>
                                        <td><?php echo $row['contact']; ?></td>
                                        <td><?php echo $row['email']; ?></td>
                                        <td><?php echo date("d-m-Y", strtotime($row['created_at'])); ?></td>
@@ -110,7 +110,7 @@ if(empty($_SESSION['token'])){
     <div class="text-center mt-2 mb-4">
     <form action="" class="px-3" method="POST">
     <div class="mb-3">
-        <input class="form-control" type="hidden" id="idClass" name="idClass"  required>
+        <input class="form-control" type="hidden" id="id" name="id"  required>
         <input class="form-control" type="text" id="class_name" name="class_name" required placeholder="Class name">
     </div>
     <div class="mb-3">

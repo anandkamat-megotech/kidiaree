@@ -5,7 +5,8 @@ $where = '';
 // Get member rows
 $getClass = $db->query("SELECT * FROM products where id=".$_GET['id']);
 $data = $getClass->fetch_assoc();
-// print_r($data);
+print_r($data);
+die;
 // echo "SELECT * FROM usersmaster where id=".$data['teacher_id'];
 $getTeacher = $db->query("SELECT * FROM usersmaster where id=".$data['teacher_id']);
 $dataTeachers = $getTeacher->fetch_assoc();

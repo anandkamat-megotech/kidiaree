@@ -2,12 +2,11 @@
 <?php include_once 'dbConfig.php';
 $where = '';
 // Get member rows
-$getClass = $db->query("SELECT * FROM products  order by id desc");
+$getClass = $db->query("SELECT * FROM products where status= 3  order by id desc");
 ?>
 
 <!doctype html>
 <html class="no-js" lang="en">
-
 <?php include('const/head.php'); ?>
 
 <body>
@@ -315,7 +314,7 @@ $getClass = $db->query("SELECT * FROM products  order by id desc");
                                                                                 <p class="time"><i class="fa fa-birthday-cake"></i> <?php echo $row['age'] ;?> Yrs</p>
                                                                             </div>
                                                                         </div>
-                                                                        <h3 class="title mt-2"><a href="<?php echo $row['product_url'] ;?>"><?php echo $row['name'] ;?></a></h3>
+                                                                        <h3 class="title mt-2"><a href="<?php echo $row['product_url'] ;?>?id=<?php echo $row['id'] ;?>"><?php echo $row['name'] ;?></a></h3>
                                                                         <div class="top-meta  mt-2">
                                                                             <span class="price">
                                                                             <span class="sale-price">INR <?php echo $row['price'] ;?></span>

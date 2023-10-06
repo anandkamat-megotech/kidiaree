@@ -79,8 +79,8 @@ if(empty($_SESSION['token'])){
                                  <?php if($getClass->num_rows > 0){
                                                         while($row = $getClass->fetch_assoc()){ ?>
                                              
-                                    <tr onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')">
-                                       <td><?php echo $row['name'] ?></td>
+                                    <tr>
+                                       <td onclick="functionChange('<?php echo $row['name'] ?>','<?php echo $row['id'] ?>')" style="color:blue;cursor: pointer;"><?php echo $row['name'] ?></td>
                                        <td><?php echo $row['teacher_name'] ?></td>
                                        <td><a target="_blank" href="../<?php echo $row['product_url'].'?id='.$row['id'] ?>"><?php echo $row['product_url'] ?></a></td>
                                        <td><?php if($row['status'] == 0 && $row['reason'] != ''){ echo '<badge class="badge bg-danger">Not approved</badge>';} elseif($row['status'] == 2){ echo '<badge class="badge bg-warning">Rework</badge>';}elseif($row['status'] == 0 && $row['reason'] == ''){ echo '<badge class="badge bg-dark">Not reviewed</badge>';}else{ echo '<badge class="badge bg-success">Approved</badge>';} ?></td>
