@@ -1,7 +1,9 @@
  <?php 
 //  include('global.php');
+$uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$lastUriSegment = array_pop($uriSegments);
 if($_SESSION['under_c'] != '1234@kidiaree'){
-    header("Location: enter_password.php"); exit;
+    header("Location: enter_password.php?action=$lastUriSegment"); exit;
 }
 if(!empty($_SESSION['token'])){
     // $_SESSION['token'] = $_GET['token'];
