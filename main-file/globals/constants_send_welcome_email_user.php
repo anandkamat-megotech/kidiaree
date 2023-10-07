@@ -142,6 +142,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif; color:#545454;" align="left">
         <strong>
+            <br>
         <p>Dear [PARENT], </p>
    
         <p style="margin-top:5px">
