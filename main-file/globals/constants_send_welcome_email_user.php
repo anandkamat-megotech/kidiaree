@@ -44,7 +44,7 @@ define("OTP_MAIL_FORMAT", '<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transiti
     display: block !important;
   }
   .u-row {
-    width: calc(100% - 40px) !important;
+    width: calc(100% - 10px) !important;
   }
   .u-col {
     width: 100% !important;
@@ -133,7 +133,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
       <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
       
 <!--[if (mso)|(IE)]><td align="center" width="500" style="background-color: #ffffff;width: 500px;padding: 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
+<div class="u-col u-col-100" style="max-width: 640px;min-width: 500px;display: table-cell;vertical-align: top;">
   <div style="background-color: #ffffff;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
   <!--[if (!mso)&(!IE)]><!--><div style="padding: 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
   
@@ -143,14 +143,13 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif; color:#545454;" align="left">
         <strong>
         <p>Dear [PARENT], </p>
-        <br>
-        <p>
+   
+        <p style="margin-top:5px">
           We’re delighted to have you on board this journey as we build
         the first-of-its-kind platform to discover & book curated
         edutainment activities for kids.
         </p>
-        <br>
-        <p>
+        <p style="margin-top:5px">
          I’m a mother to a 7-year-old and like all parents, I’d love for my
           child to have a wide range of relevant experiences to balance
           learning and play. As a working mother, it was a challenge to
@@ -159,21 +158,20 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           was time-consuming. 
 
         </p>
-          <br>
-          <p>
+  
+          <p style="margin-top:5px">
             Kidiaree aims to solve for this gap, so parents can find the most
             suitable options, both offline & online, all in one place.
             Watch this space for an exciting line-up of activities, workshops,
             classes & much more!
           </p>
-          <br>
-          <p>
+          <p style="margin-top:5px">
             I would love to hear your feedback on your experience as well as
 suggestions on activities you’d like us to bring to you. Simply
 reply to this email!
           </p>
-          <br>
-          <p>
+         
+          <p style="margin-top:10px">
             Love & Regards
           </p>
           <p>
