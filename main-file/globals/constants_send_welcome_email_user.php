@@ -130,7 +130,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
         
 
       
-      <img align="center" border="0" src="https://kidiaree.softwareconnect.in/welcome.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 700px;" width="700"/>
+      <img align="center" border="0" src="https://kidiaree.softwareconnect.in/new_welcome.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 700px;" width="700"/>
       
 
   <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
