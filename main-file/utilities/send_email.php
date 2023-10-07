@@ -29,6 +29,7 @@ function send_mail_to($email, $subject, $content) {
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $subject;
     $mail->MsgHTML($content);
+    $mail->clearAttachments();
     //var_dump($mail->Send());
     if(!$mail->Send()) {
         
