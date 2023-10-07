@@ -31,6 +31,7 @@
 }
 
 @media (max-width: 520px) {
+    
   .u-row-container {
     max-width: 100% !important;
     padding-left: 0px !important;
@@ -80,7 +81,23 @@ a[x-apple-data-detectors=\'true\'] {
   color: inherit !important;
   text-decoration: none !important;
 }
-
+      .events div {
+        display: inline-block;
+        margin: 4%;
+        text-align: center;
+        font-weight: 600;
+      }
+      @media (max-width: 520px) {
+    .events div {
+        margin: 1.3%;
+      }
+    }
+p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+}
 table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } </style>
   
   
@@ -138,45 +155,48 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif; color:#545454;" align="left">
-        <strong>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:15px;font-family:arial,helvetica,sans-serif; color:#545454;" align="justify">
+       
             <br>
         <p>Dear [PARENT], </p>
    
-        <p style="margin-top:5px">
-          We’re delighted to have you on board this journey as we build
-        the first-of-its-kind platform to discover & book curated
-        edutainment activities for kids.
+        <p style="margin-top:10px">
+          We’re delighted to have you on board this journey as we build the first-of-its-kind platform to discover & book curated edutainment activities for kids. 
         </p>
-        <p style="margin-top:5px">
-         I’m a mother to a 7-year-old and like all parents, I’d love for my
-          child to have a wide range of relevant experiences to balance
-          learning and play. As a working mother, it was a challenge to
-          become aware of all available options. Also, keeping up with
-          information that came on social media and messaging groups
-          was time-consuming. 
+        <p style="margin-top:7px">
+        I’m a mother to a 7-year-old and like all parents, I’d love my child to have a wide range of relevant experiences to balance learning and play. As a working mother, it was a challenge to become aware of all available options. Also, keeping up with information that comes on social media and messaging groups is time-consuming. 
 
         </p>
   
-          <p style="margin-top:5px">
-            Kidiaree aims to solve for this gap, so parents can find the most
-            suitable options, both offline & online, all in one place.
-            Watch this space for an exciting line-up of activities, workshops,
-            classes & much more!
+          <p style="margin-top:7px">
+            Kidiaree has been created to solve this gap, so parents can find the most suitable options, both offline & online, all in one place. 
           </p>
-          <p style="margin-top:5px">
-            I would love to hear your feedback on your experience as well as
-suggestions on activities you’d like us to bring to you. Simply
-reply to this email!
+          <p style="margin-top:7px; ">
+           I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
           </p>
-         
+         <div style="margin-top:7px;text-align: center;" class="events">
+         	<div style="color: #EB5F36;">Events</div>
+           <div style="color: #F9BA43;">Activities </div>
+           <div style="color: #369F76;">Workshops</div>
+           <div style="color: #4B9BD6;">Classes </div>
+           <p style="color: #8D7CDB;">& much more! </p>
+        </div>
+        <p style="margin-top:10px; ">
+          I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
+          </p>
+          <p style="margin-top:7px; ">Email Us : <a href="mailto:hello@kidiaree.in">hello@kidiaree.in</a></p>
+          <p style="margin-top:7px; ">WhatsApp Us : <a href="target="_blank" href="https://api.whatsapp.com/send?phone=919833992919&text=Hello">+919833992919</a></p>
+          <p style="margin-top:7px; ">Call Us : <a href="tel:+919833992919">+919833992919</a></p>
           <p style="margin-top:10px">
             Love & Regards
           </p>
           <p>
             Saumya Saraogi
           </p>
-</strong>
+          <p>
+          Founder - Kidiaree
+          </p>
+
       </td>
     </tr>
   </tbody>
