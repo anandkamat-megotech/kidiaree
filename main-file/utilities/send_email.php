@@ -14,11 +14,11 @@ function send_mail_to($email, $subject, $content) {
     $mail = new PHPMailer;
     $mail->isHTML(true);								//Sets Mailer to send message using SMTP
     $mail->Host = 'ssl://smtp.gmail.com';		//Sets the SMTP hosts of your Email hosting, this for Godaddy
-    $mail->Port = '465';								//Sets the default SMTP server port
+    $mail->Port = '587';								//Sets the default SMTP server port
     $mail->SMTPAuth = true;							//Sets SMTP authentication. Utilizes the Username and Password variables
     $mail->Username = 'kamatanand3@gmail.com';					//Sets SMTP username
     $mail->Password = 'L1m1tl3ss1!';					//Sets SMTP password
-    $mail->SMTPSecure = 'SSL';
+    $mail->SMTPSecure = 'tls';
 
     
     //Recipients
