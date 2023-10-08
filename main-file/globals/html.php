@@ -97,7 +97,13 @@ p {
     font-size: 14px;
     line-height: 1.4;
     font-weight: 600;
+    word-spacing: -1px;
 }
+@media (max-width: 520px) {
+      p {
+    word-spacing: -3px;
+}
+    }
 table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } </style>
   
   
