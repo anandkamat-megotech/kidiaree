@@ -97,13 +97,8 @@ p {
     font-size: 14px;
     line-height: 1.4;
     font-weight: 600;
-    word-spacing: -1px;
 }
-@media (max-width: 520px) {
-      p {
-    word-spacing: -3px;
-}
-    }
+
 table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } </style>
   
   
@@ -176,6 +171,9 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   
           <p style="margin-top:7px">
             Kidiaree has been created to solve this gap, so parents can find the most suitable options, both offline & online, all in one place. 
+          </p>
+          <p style="margin-top:7px">
+            Watch this space for an exciting line-up of
           </p>
     
          <div style="margin-top:7px;text-align: center;" class="events">
