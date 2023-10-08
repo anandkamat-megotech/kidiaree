@@ -100,6 +100,7 @@ p {
     line-height: 1.4;
     font-weight: 600;
     word-spacing: -1px;
+    letter-spacing: 0em;
 }
 @media (max-width: 520px) {
       p {
