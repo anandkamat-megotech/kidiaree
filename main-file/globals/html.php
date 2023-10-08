@@ -83,7 +83,7 @@ a[x-apple-data-detectors=\'true\'] {
 }
       .events div {
         display: inline-block;
-        margin-right: 9.5%;
+        margin-right: 12%;
         text-align: center;
         font-weight: 600;
       }
@@ -176,7 +176,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
             Watch this space for an exciting line-up of
           </p>
     
-         <div style="margin-top:7px;" class="events">
+         <div style="margin-top:7px;text-align:center;" class="events">
          	<div style="color: #EB5F36;">Events</div>
            <div style="color: #F9BA43;">Activities </div>
            <div style="color: #369F76;">Workshops</div>
