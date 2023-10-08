@@ -85,7 +85,7 @@ a[x-apple-data-detectors=\'true\'] {
 }
       .events div {
         display: inline-block;
-        margin-right: 9.5%;
+        margin-right: 12%;
         text-align: center;
         font-weight: 600;
       }
