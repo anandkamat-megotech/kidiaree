@@ -173,9 +173,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           <p style="margin-top:7px">
             Kidiaree has been created to solve this gap, so parents can find the most suitable options, both offline & online, all in one place. 
           </p>
-          <p style="margin-top:7px; ">
-           I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
-          </p>
+    
          <div style="margin-top:7px;text-align: center;" class="events">
          	<div style="color: #EB5F36;">Events</div>
            <div style="color: #F9BA43;">Activities </div>
