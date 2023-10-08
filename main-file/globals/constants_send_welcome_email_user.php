@@ -160,8 +160,8 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:15px;font-family:arial,helvetica,sans-serif; color:#545454;" align="justify">
        
-            <br>
-        <p>Dear [PARENT], </p>
+          
+        <p style="margin-top:10px">Dear [PARENT], </p>
    
         <p style="margin-top:10px">
           We’re delighted to have you on board this journey as we build the first-of-its-kind platform to discover & book curated edutainment activities for kids. 
@@ -189,7 +189,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
           </p>
           <p style="margin-top:7px; ">Email Us : <a href="mailto:hello@kidiaree.in">hello@kidiaree.in</a></p>
-          <p style="margin-top:7px; ">WhatsApp Us : <a href="target="_blank" href="https://api.whatsapp.com/send?phone=919833992919&text=Hello">+919833992919</a></p>
+          <p style="margin-top:7px; ">WhatsApp Us : <a  href="https://api.whatsapp.com/send?phone=919833992919&text=Hello">+919833992919</a></p>
           <p style="margin-top:7px; ">Call Us : <a href="tel:+919833992919">+919833992919</a></p>
           <p style="margin-top:10px">
             Love & Regards
