@@ -85,13 +85,13 @@ a[x-apple-data-detectors=\'true\'] {
 }
       .events div {
         display: inline-block;
-        margin: 4%;
+        margin-right: 9.5%;
         text-align: center;
         font-weight: 600;
       }
       @media (max-width: 520px) {
     .events div {
-        margin: 1.1%;
+        margin-right: 2.5%;
       }
     }
 p {
@@ -178,12 +178,12 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
             Watch this space for an exciting line-up of
           </p>
     
-         <div style="margin-top:7px;text-align: center;" class="events">
+         <div style="margin-top:7px;" class="events">
          	<div style="color: #EB5F36;">Events</div>
            <div style="color: #F9BA43;">Activities </div>
            <div style="color: #369F76;">Workshops</div>
            <div style="color: #4B9BD6;">Classes </div>
-           <p style="color: #8D7CDB;">& much more! </p>
+           <p style="color: #8D7CDB;margin-top: 7px;text-align:center;">& much more! </p>
         </div>
         <p style="margin-top:10px; ">
           I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
