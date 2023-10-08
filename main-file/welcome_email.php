@@ -25,7 +25,7 @@ date_default_timezone_set(TIME_ZONE);
 $mailSubject = "Welcome Email";
 $otp = 'Saumya';
 $mailContent = str_replace("[PARENT]", $otp, OTP_MAIL_FORMAT);
-$email = 'saumyasaraogi@gmail.com';
+$email = 'yogeshkirtirawat@gmail.com';
 send_mail_to($email, $mailSubject, $mailContent);
 
 echo response_ok($idUser, time());
