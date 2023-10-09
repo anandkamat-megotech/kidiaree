@@ -22,9 +22,13 @@ $db = $serviceBase->getDb();
 date_default_timezone_set(TIME_ZONE);
 
 
-$mailSubject = "Welcome Email";
-$otp = 'Saumya';
-$mailContent = str_replace("[PARENT]", $otp, OTP_MAIL_FORMAT);
+$mailSubject = "Welcome Kit";
+$name = 'Saumya';
+$username = '7045715869';
+$password = '9373';
+$mailContent = str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
+$mailContent = str_replace("[USERNAME]", $username, OTP_MAIL_FORMAT);
+$mailContent = str_replace("[PASSWORD]", $password, OTP_MAIL_FORMAT);
 $email =  post_params("email");
 send_mail_to($email, $mailSubject, $mailContent);
 

@@ -162,7 +162,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
       <td style="overflow-wrap:break-word;word-break:break-word;padding:15px;font-family:arial,helvetica,sans-serif; color:#545454;" align="justify">
        
           
-        <p style="margin-top:10px">Dear [PARNTER], </p>
+        <p style="margin-top:10px">Dear [PARTNER], </p>
    
         <p style="margin-top:10px">
           I’d like to express my heartfelt gratitude for giving me this incredible opportunity to work together. 
@@ -177,18 +177,17 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           <p style="margin-top:7px">
           As such, please continue to share your invaluable feedback as it will help ensure Kidiaree continues to add value to all stakeholders. 
           </p>
-          <h4 style="margin-top:10px">Listing your offerings on Kidiaree – Let’s get started !</h4>
+          <p style="margin-top:10px;color:#EE7857;">Listing your offerings on Kidiaree – Let’s get started !</p>
           <p style="margin-top:7px">
-          Your login credentials: 
+          Your login credentials : 
           </p>
           <p style="margin-top:7px">
-          Username: [USERNAME] 
+          Username : [USERNAME] 
           </p>
           <p style="margin-top:7px">
-          Temporary Password:   [PASSWORD] -------- (Please  change the same upon first login)
+          Temporary Password :   [PASSWORD] ---(Please change the same upon first login)
           </p>
-          <p style="margin-top:7px">
-           <a href="change_password.php?username=[USERNAME]&password=[PASSWORD]"> Click on this link to login using the above Username & Password:</a>
+          <p style="margin-top:7px">To login using the above Username & Password : <a href="change_password.php?username=[USERNAME]&password=[PASSWORD]">Click here</a>
           </p>
           <p style="margin-top:7px">
           I look forward to a successful and rewarding partnership ahead. Please feel free to reach out to me anytime to discuss ideas, strategies, or any other aspect of our collaboration.
