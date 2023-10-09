@@ -187,7 +187,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           Username : [USERNAME] 
           </p>');
           define("DETAIL_MAIL_FORMAT1",'<p style="margin-top:7px">
-          Temporary Password :   [PASSWORD] ---(Please change the same upon first login)
+          Temporary Password :   [PASSWORD] (Please change the same upon first login)
           </p>');
           define("DETAIL_MAIL_FORMAT2",'<p style="margin-top:7px">To login using the above Username & Password : <a href="[URL]">Click here</a>
           </p>
