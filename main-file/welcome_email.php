@@ -22,7 +22,7 @@ $db = $serviceBase->getDb();
 date_default_timezone_set(TIME_ZONE);
 
 
-$mailSubject = "Welcome Kit";
+$mailSubject = "Welcome Kit from Kidiaree";
 $name = 'Saumya';
 $username = '7045715869';
 $password = '9373';
