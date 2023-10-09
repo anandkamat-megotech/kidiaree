@@ -92,7 +92,7 @@ if(empty($kids)){
 }
 $address = getSingleValue($db, "SELECT count(*) FROM useraddressmapping WHERE idUser = ?", [$idUser]);
 if(!empty($kids) && empty($address)){
-    $url = 'add_address.php ';
+    $url = 'add_address.php';
 }
 
 
