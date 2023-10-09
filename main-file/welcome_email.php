@@ -26,9 +26,9 @@ $mailSubject = "Welcome Kit from Kidiaree";
 $name = 'Saumya';
 $username = '7045715869';
 $password = '9373';
-$mailContent .= str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
-$mailContent .= str_replace("[USERNAME]", $username, OTP_MAIL_FORMAT);
-$mailContent .= str_replace("[PASSWORD]", $password, OTP_MAIL_FORMAT);
+$mailContent = str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
+$mailContent = str_replace("[USERNAME]", $username, DETAIL_MAIL_FORMAT);
+$mailContent = str_replace("[PASSWORD]", $password, DETAIL_MAIL_FORMAT1);
 $email =  post_params("email");
 send_mail_to($email, $mailSubject, $mailContent);
 

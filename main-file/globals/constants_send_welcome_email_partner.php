@@ -182,11 +182,11 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           <p style="margin-top:10px;color:#EE7857;">Listing your offerings on Kidiaree – Let’s get started !</p>
           <p style="margin-top:7px">
           Your login credentials : 
-          </p>
-          <p style="margin-top:7px">
+          </p>');
+          define("DETAIL_MAIL_FORMAT", '<p style="margin-top:7px">
           Username : [USERNAME] 
-          </p>
-          <p style="margin-top:7px">
+          </p>');
+          define("DETAIL_MAIL_FORMAT1",'<p style="margin-top:7px">
           Temporary Password :   [PASSWORD] ---(Please change the same upon first login)
           </p>
           <p style="margin-top:7px">To login using the above Username & Password : <a href="change_password.php?username=[USERNAME]&password=[PASSWORD]">Click here</a>
