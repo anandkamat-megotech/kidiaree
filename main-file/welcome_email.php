@@ -27,8 +27,10 @@ $name = 'Saumya';
 $username = '7045715869';
 $password = '9373';
 $mailContent = str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
-$mailContent = str_replace("[USERNAME]", $username, DETAIL_MAIL_FORMAT);
-$mailContent = str_replace("[PASSWORD]", $password, DETAIL_MAIL_FORMAT1);
+$mailContent .= str_replace("[USERNAME]", $username, DETAIL_MAIL_FORMAT);
+$mailContent .= str_replace("[PASSWORD]", $password, DETAIL_MAIL_FORMAT1);
+$url = 'change_password.php?username='.$username.'&password='.$password;
+$mailContent .= str_replace("[URL]", $url, DETAIL_MAIL_FORMAT2);
 $email =  post_params("email");
 send_mail_to($email, $mailSubject, $mailContent);
 

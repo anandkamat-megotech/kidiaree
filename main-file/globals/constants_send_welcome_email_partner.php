@@ -188,8 +188,8 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           </p>');
           define("DETAIL_MAIL_FORMAT1",'<p style="margin-top:7px">
           Temporary Password :   [PASSWORD] ---(Please change the same upon first login)
-          </p>
-          <p style="margin-top:7px">To login using the above Username & Password : <a href="change_password.php?username=[USERNAME]&password=[PASSWORD]">Click here</a>
+          </p>');
+          define("DETAIL_MAIL_FORMAT2",'<p style="margin-top:7px">To login using the above Username & Password : <a href="[URL]">Click here</a>
           </p>
           <p style="margin-top:7px">
           I look forward to a successful and rewarding partnership ahead. Please feel free to reach out to me anytime to discuss ideas, strategies, or any other aspect of our collaboration.
