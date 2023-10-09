@@ -24,7 +24,7 @@ date_default_timezone_set(TIME_ZONE);
 
 $mailSubject = "Welcome Kit from Kidiaree";
 $name = 'Saumya';
-$username = '7045715869';
+$username = 'saumyasaraogi@kidiaree.in';
 $password = '9373';
 $mailContent = str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
 $mailContent .= str_replace("[USERNAME]", $username, DETAIL_MAIL_FORMAT);
