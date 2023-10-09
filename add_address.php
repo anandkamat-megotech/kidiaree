@@ -78,6 +78,12 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                 <div class="login-register-form">
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
+                                            <input type="text" class="form-control" id="yfname" name="yfname" placeholder="Your First Name">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="ylname" name="ylname" placeholder="Your Last Name">
+                                        </div>
+                                        <div class="single-form">
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                                         </div>
                                         <div class="single-form">

@@ -1,5 +1,5 @@
 <?php
-
+include './globals/constants_send_welcome_email_user.php';
 include './components/component_update_user_profile.php';
 include './services/service_base.php';
 include './services/service_check_token_validity.php';
@@ -9,6 +9,8 @@ include './services/service_upload_to_cloud.php';
 include './utilities/post_parameters.php';
 include './utilities/authorization.php';
 include './validator/validator_string.php';
+include './utilities/send_email.php';
+
 
 
 $serviceBase = new ServiceBase();
@@ -91,6 +93,8 @@ if(!$isCountryValid){
 $pincode = "";
 $pincode = post_params("pincode");
 $email = post_params("email");
+$yfname = post_params("yfname");
+$ylname = post_params("ylname");
 
 $isPincodeValid = $validatorString->validate($pincode);
 
@@ -104,7 +108,11 @@ if(!$isPincodeValid){
 $idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
 
 
-$id = $serviceUpdateUserProfile->serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email);
+$id = $serviceUpdateUserProfile->serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email,$yfname,$ylname);
+$mailSubject = "Welcome Email from Kidiaree";
+$fname = $yfname;
+$mailContent = str_replace("[PARENT]", $fname, OTP_MAIL_FORMAT);
+send_mail_to($email, $mailSubject, $mailContent);
 
 echo response_ok($id, time());
 

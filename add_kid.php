@@ -109,6 +109,17 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                                             <option>Grade 10</option>
                                         </select>
 
+
+                                         <!-- Single Form Start -->
+                                         <select class="mt-3 mb-3 w-100" name="board" id="board" required>
+                                                        <option value="">Select School Board</option>
+                                                        <option>CBSE</option>
+                                                        <option>ICSE</option>
+                                                        <option>State Board</option>
+                                                        <option>IGCSE</option>
+                                                    </select>
+                                                   <!-- Single Form End -->
+
                                         <div class="form-btn mt-3">
                                             <button class="btn" onclick="saveKids()">Next</button>
                                         </div>

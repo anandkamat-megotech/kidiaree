@@ -927,6 +927,7 @@ function saveKids(){
   var k_dob =  $('#k_dob_start').val(); 
   var k_name = $('#k_name').val(); 
   var grade =  $('#grade').val(); 
+  var board =  $('#board').val(); 
   console.log(gender);
   console.log(k_dob);
   console.log(k_name);
@@ -941,6 +942,7 @@ function saveKids(){
         gender: gender,
         k_dob: k_dob,
         k_name: k_name,
+        board: board,
         grade: grade
     },
     success: function(msg)
@@ -961,7 +963,10 @@ function saveAddress(){
   var idUser =  localStorage.getItem("idUser");
   var token =  localStorage.getItem("token");
   console.log(token);
+  console.log(token);
   var email =  $('#email').val(); 
+  var yfname =  $('#yfname').val(); 
+  var ylname =  $('#ylname').val(); 
   var addressLine1 =  $('#addressLine1').val(); 
   var addressLine2 = $('#addressLine2').val(); 
   var area =  $('#area').val(); 
@@ -992,6 +997,8 @@ function saveAddress(){
         city: city,
         state: state,
         country: country,
+        yfname: yfname,
+        ylname: ylname,
         pincode: pincode
     },
     success: function(msg)

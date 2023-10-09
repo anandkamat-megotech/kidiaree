@@ -3,9 +3,9 @@
 class ServiceUpdateUserProfile{
     
     
-    public function serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email) {
-
-            $sqlUpdateEmail = "UPDATE `usersmaster` SET `email` = '$email' WHERE id = $idUser";
+    public function serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email,$yfname,$ylname) {
+            $name = $yfname.' '.$ylname;
+            $sqlUpdateEmail = "UPDATE `usersmaster` SET `email` = '$email', `name` = '$name' WHERE id = $idUser";
             $statementUpdateEmail = query_execute($db, $sqlUpdateEmail);
             $resultUpdateEmail = $statementUpdateEmail->fetchAll(\PDO::FETCH_ASSOC);
 
