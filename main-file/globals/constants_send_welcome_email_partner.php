@@ -1,4 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+
+define("OTP_MAIL_FORMAT", '<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <!--[if gte mso 9]>
@@ -85,7 +87,7 @@ a[x-apple-data-detectors=\'true\'] {
         display: inline-block;
         margin-right: 9%;
         text-align: center;
-        font-weight: 500;
+        font-weight: 600;
       }
       @media (max-width: 520px) {
     .events div {
@@ -96,10 +98,7 @@ p {
     margin: 0;
     font-size: 14px;
     line-height: 1.4;
-    font-weight: 500;
-}
-strong p {
-  font-weight: 600 !important;
+    font-weight: 600;
 }
 
 table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } </style>
@@ -132,7 +131,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
         
 
       
-      <img align="center" border="0" src="https://kidiaree.softwareconnect.in/partner_email.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 700px;" width="700"/>
+      <img align="center" border="0" src="https://kidiaree.softwareconnect.in/new_email_welcome.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 700px;" width="700"/>
       
 
   <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
@@ -162,43 +161,38 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
       <td style="overflow-wrap:break-word;word-break:break-word;padding:15px;font-family:arial,helvetica,sans-serif; color:#545454;" align="justify">
        
           
-        <p style="margin-top:10px">Dear [PARNTER], </p>
+        <p style="margin-top:10px">Dear [PARENT], </p>
    
         <p style="margin-top:10px">
-          I’d like to express my heartfelt gratitude for giving me this incredible opportunity to work together. 
+          We’re delighted to have you on board this journey as we build the first-of-its-kind platform to discover & book curated edutainment activities for kids. 
         </p>
         <p style="margin-top:7px">
-        As shared during our interactions, Kidiaree is a sincere yet ambitious attempt to curate relevant and meaningful learning and entertainment opportunities for kids - the future leaders of the world.  
+        I’m a mother to a 7-year-old and like all parents, I’d love my child to have a wide range of relevant experiences to balance learning and play. As a working mother, it was a challenge to become aware of all available options. Also, keeping up with information that comes on social media and messaging groups is time-consuming. 
+
         </p>
   
           <p style="margin-top:7px">
-          Equally, I aim to build a platform that is trusted by those helping shape our future leaders - educators, coaches and many other varied service providers. 
+            Kidiaree has been created to solve this gap, so parents can find the most suitable options, both offline & online, all in one place. 
           </p>
           <p style="margin-top:7px">
-          As such, please continue to share your invaluable feedback as it will help ensure Kidiaree continues to add value to all stakeholders. 
+            Watch this space for an exciting line-up of
           </p>
-          <h4 style="margin-top:10px">Listing your offerings on Kidiaree – Let’s get started !</h4>
-          <p style="margin-top:7px">
-          Your login credentials: 
+    
+         <div style="margin-top:7px;text-align:center;" class="events">
+         	<div style="color: #EB5F36;">Events</div>
+           <div style="color: #F9BA43;">Activities </div>
+           <div style="color: #369F76;">Workshops</div>
+           <div style="color: #4B9BD6;">Classes </div>
+           <p style="color: #8D7CDB;margin-top: 7px;text-align:center;">& much more! </p>
+        </div>
+        <p style="margin-top:10px; ">
+          I would love to hear your feedback on your experience as well as suggestions on activities you’d like us to bring to you. Simply reach us by your preferred mode:
           </p>
-          <p style="margin-top:7px">
-          Username: [USERNAME] 
-          </p>
-          <p style="margin-top:7px">
-          Temporary Password:   [PASSWORD] -------- (Please  change the same upon first login)
-          </p>
-          <p style="margin-top:7px">
-           <a href="change_password.php?username=[USERNAME]&password=[PASSWORD]"> Click on this link to login using the above Username & Password:</a>
-          </p>
-          <p style="margin-top:7px">
-          I look forward to a successful and rewarding partnership ahead. Please feel free to reach out to me anytime to discuss ideas, strategies, or any other aspect of our collaboration.
-          </p>
-          <p style="margin-top:7px">
-            Once again, Thank you for believing in me.
-          </p>
-        <strong>
+          <p style="margin-top:7px; ">Email Us : <a href="mailto:hello@kidiaree.in">hello@kidiaree.in</a></p>
+          <p style="margin-top:7px; ">WhatsApp Us : <a  href="https://api.whatsapp.com/send?phone=919833992919&text=Hello">+919833992919</a></p>
+          <p style="margin-top:7px; ">Call Us : <a href="tel:+919833992919">+919833992919</a></p>
           <p style="margin-top:10px">
-            Regards
+            Love & Regards
           </p>
           <p>
             Saumya Saraogi
@@ -206,7 +200,6 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
           <p>
           Founder - Kidiaree
           </p>
-          </strong>
 
       </td>
     </tr>
@@ -273,3 +266,5 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
 </body>
 
 </html>
+');
+?> 

@@ -1,5 +1,5 @@
 <?php
-include './globals/constants_send_welcome_email_user.php';
+include './globals/constants_send_welcome_email_partner.php';
 include './globals/constants_new_user_registered_email_db.php';
 include './components/component_validate_email.php';
 include './services/service_base.php';
