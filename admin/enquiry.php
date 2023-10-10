@@ -21,17 +21,22 @@ if(empty($_SESSION['token'])){
          $getUser = $db->query("SELECT * FROM enuiary_details where id=".$_POST['idUser']);
          $data = $getUser->fetch_assoc();
          $name = $data['f_name'].' '.$data['l_name'];
-         $ch = curl_init();
          $db->query("Insert into usersmaster (email, idRole, isProfileSet, isActive,name,mobile) values ('".$data['email']."', 3, 0, 1,'".$name."','".$data['mobile_number']."');");
          $url_send_email = "name=".$data['f_name']."&email=".$data['email'];
-         curl_setopt($ch, CURLOPT_URL,$url_curl_kidiaree_admin."/main-file/welcome_email_partner.php?".$url_send_email);
-         $authorization = "Authorization: Bearer ".$token;
-         curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization ));
-         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         // curl_setopt($ch, CURLOPT_POSTFIELDS,$post);
+         $ch = curl_init();
+         $curlConfig = array(
+            CURLOPT_URL            => "$url_curl_kidiaree_admin/main-file/welcome_email_partner.php",
+            CURLOPT_POST           => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS     => array(
+               'name' => $data['f_name'],
+               'email' => $data['email'],
+            )
+         );
+         curl_setopt_array($ch, $curlConfig);
          $result = curl_exec($ch);
          curl_close($ch);
+         
          // echo "<pre>";print_r($data );
          // echo "here";
          // echo $data['email'];
