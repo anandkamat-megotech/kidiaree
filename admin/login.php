@@ -9,7 +9,12 @@ if(!empty($_SESSION['token'])){
 ?>
    <?php include('inc/head.php') ?>
    <body>
-      
+      <style>
+         .login-wrapper .loginbox .login-right h1 {
+    font-size: 22px;
+    color: #379F75;
+}
+      </style>
 <div class="main-wrapper login-body">
 <div class="login-wrapper">
 <div class="container">

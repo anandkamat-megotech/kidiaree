@@ -18,9 +18,12 @@ if(empty($_SESSION['token'])){
       include_once '../dbConfig.php';
       if(isset($_POST['submit_status'])){
          // print_r($_POST);
-         // echo "UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';";
-         // die;
-         // $db->query("UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';");
+         $getUser = $db->query("SELECT * FROM enuiary_details where id=".$_POST['idUser']);
+         $data = $getUser->fetch_assoc();
+         print_r($data );
+         echo "UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';";
+         die;
+         $db->query("UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';");
          // die;
       }
       $where = '';

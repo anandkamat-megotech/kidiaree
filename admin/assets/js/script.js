@@ -99,6 +99,16 @@ function VerifyUser(){
   });
   }
 function changePassword(){
+  var password = $('#password').val();
+  var confirm_password = $('#re_password').val();
+  if(password == '') {
+    $('#validationError').html('Password is required!');
+    process.exit(0);
+  }
+  if(password != confirm_password) {
+    $('#validationError').html('Password is not same!');
+  }else{
+
     $.ajax({
       url: '../main-file/change_partner_password.php',
       type:'POST',
@@ -131,6 +141,9 @@ function changePassword(){
         // alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
     }              
   });
+  }
+
+    
   }
 
 

@@ -1210,4 +1210,18 @@ label:focus-visible {
 .infotext {
   font-family: cursive;
   color: #ff3800;
+  margin-top: 5px !important;
 }
+.down-arrow-show {
+  float: right;
+    width: 30px;
+}
+@media only screen and (orientation: landscape) { 
+  .down-arrow-show {
+    float: right;
+      width: 30px;
+  }
+  }
+  .contact-form-wrap .single-form input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+    border: 1px solid #379f75;
+  }

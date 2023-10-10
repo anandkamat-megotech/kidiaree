@@ -49,6 +49,13 @@ if(empty($_SESSION['token'])){
 <!doctype html>
 <html class="no-js" lang="en">
    <?php include('const/head.php'); ?>
+   <style>
+      .nice-select {
+         border-radius: 0px !important;
+         height: 50px;
+    line-height: 45px;
+      }
+   </style>
    <body>
       <div class="main-wrapper">
          <!-- Preloader start -->
@@ -231,7 +238,7 @@ if(empty($_SESSION['token'])){
                                        <h5 class="modal-title" id="kidsModalLabel">Kid Details</h5>
                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" align="justify">
                                        <!-- Contact Form Wrap Start -->
                                        <div class="contact-form-wrap">
                                           <form action="#">
@@ -249,13 +256,14 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start" required>
-                                                      <p class="infotext">helps us show you age-relevant options as your child grows</p>
+                                                      <img src="assets/images/Up Arrow (40 x 40 px).png" alt="" style="float: right;">
+                                                      <p class="infotext">helps us show you age-relevant options as your child grows </p>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
                                                 <div class="col-md-6">
                                                    <!-- Single Form Start -->
-                                                   <div class="radio-button m-3">
+                                                   <div class="radio-button mt-2 mb-2">
                                                         <input type="radio" id="gender" name="gender" value="Male" checked  required/>
                                                         <label for="huey">Male</label>
                                                         <input type="radio" id="gender" style="margin-left: 10px;" name="gender" value="Female" required />
@@ -265,7 +273,7 @@ if(empty($_SESSION['token'])){
                                                 </div>
                                                 <div class="col-md-6">
                                                    <!-- Single Form Start -->
-                                                   <select class="mt-3 mb-3 w-100" name="grade" id="grade" required>
+                                                   <select class="mt-2 mb-2 w-100" name="grade" id="grade" required>
                                                         <option>Select Grade</option>
                                                         <option>Pre-school</option>
                                                         <option>Nursery</option>
@@ -286,7 +294,9 @@ if(empty($_SESSION['token'])){
                                                 </div>
                                                 <div class="col-md-6">
                                                    <!-- Single Form Start -->
-                                                   <select class="mt-3 w-100" name="board" id="board" required>
+                                                   <p class="infotext">enable curated offerings for vacations!<img src="assets/images/down Arrow (40 x 40 px).png" class="down-arrow-show" alt="" style="float: right;"></p>
+                                                   
+                                                   <select class="mt-1 w-100" name="board" id="board" required>
                                                         <option value="">Select School Board</option>
                                                         <option>CBSE</option>
                                                         <option>ICSE</option>
@@ -294,7 +304,7 @@ if(empty($_SESSION['token'])){
                                                         <option>IGCSE</option>
                                                     </select>
                                                    <!-- Single Form End -->
-                                                   <p class="infotext">enables curated offerings for vacations!</p>
+                                                   
                                                 </div>
                                              </div>
                                           </form>
