@@ -24,7 +24,7 @@ if(!empty($_SESSION['token'])){
 
 <!-- <form action="index.html"> -->
 <div class="form-group">
-<label>Enter Number <span class="login-danger">*</span></label>
+<label>Username <span class="login-danger">*</span></label>
 <input class="form-control" type="text" id="number" name="number">
 <span class="profile-views"><i class="fas fa-user-circle"></i></span>
 </div>
@@ -32,6 +32,7 @@ if(!empty($_SESSION['token'])){
 <label>Password <span class="login-danger">*</span></label>
 <input class="form-control pass-input" type="text" id="password" name="password">
 <span class="profile-views feather-eye toggle-password"></span>
+<div id="validationError" class="mt-2" style="color: red;"></div>
 </div>
 <div class="forgotpass">
 <div class="remember-me">

@@ -249,6 +249,7 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start" required>
+                                                      <p class="infotext">helps us show you age-relevant options as your child grows</p>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -285,7 +286,7 @@ if(empty($_SESSION['token'])){
                                                 </div>
                                                 <div class="col-md-6">
                                                    <!-- Single Form Start -->
-                                                   <select class="mt-3 mb-3 w-100" name="board" id="board" required>
+                                                   <select class="mt-3 w-100" name="board" id="board" required>
                                                         <option value="">Select School Board</option>
                                                         <option>CBSE</option>
                                                         <option>ICSE</option>
@@ -293,6 +294,7 @@ if(empty($_SESSION['token'])){
                                                         <option>IGCSE</option>
                                                     </select>
                                                    <!-- Single Form End -->
+                                                   <p class="infotext">enables curated offerings for vacations!</p>
                                                 </div>
                                              </div>
                                           </form>

@@ -104,6 +104,14 @@ if(!$isPincodeValid){
 }
 
 
+$idUser = getSingleValue($db, "SELECT id FROM usersmaster WHERE email = ?", [$number]);
+
+//Check whether idUser exists or not
+$rowCountUser = $serviceCheckRecordExistsInTable->serve($db, "usersmaster", $idUser);
+if ($rowCountUser != 0) {
+    echo '{"code": 404, "timestamp": '.time().', "message": "Email already exists"}';
+    return;
+}
 //Get idUser of from usersmaster
 $idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
 

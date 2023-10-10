@@ -3,7 +3,7 @@
 include './components/component_validate_otp.php';
 include './services/service_base.php';
 include './services/service_check_record_exists_in_table.php';
-include './services/service_validate_admin_otp.php';
+include './services/service_validate_admin_pasword.php';
 include './services/service_token_generate.php';
 include './services/service_consumer_pin_generate.php';
 include './utilities/post_parameters.php';
@@ -21,7 +21,7 @@ date_default_timezone_set(TIME_ZONE);
 $serviceCheckRecordExistsInTable = new ServiceCheckRecordExistsInTable();
 $serviceTokenGenerate = new ServiceTokenGenerate();
 $serviceConsumerPinGenerate = new ServiceConsumerPinGenerate();
-$serviceValidateOTP = new ServiceValidateAdminOTP();
+$serviceValidateOTP = new ServiceValidateAdminPasswordSave();
 
 $idUser = "";
 $number = post_params("number");

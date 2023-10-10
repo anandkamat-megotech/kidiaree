@@ -71,18 +71,19 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                              <div class="login-register-box">
                                 <!-- Section Title Start -->
                                 <div class="section-title">
-                                    <h2>Add Kid's</h2>
+                                    <h2>Kid Details</h2>
                                 </div>
                                 <!-- Section Title End -->
 
                                 <div class="login-register-form">
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="k_name" name="k_name" placeholder="Name ">
+                                            <input type="text" class="form-control" id="k_name" name="k_name" placeholder="e.g Kabir Sharma">
                                         </div>
                                         <div class="single-form">
-                                            <label class="display-mobile">Enter DOB</label>
+                                            <label class="">Select Date of birth</label>
                                             <input type="date" class="form-control" id="k_dob_start" name="k_dob" placeholder="dob ">
+                                            <p class="infotext">helps us show you age-relevant options as your child grows</p>
                                         </div>
 
                                         <div class="radio-button m-3">
@@ -93,6 +94,7 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                                         </div>
 
                                         <select class="mt-3 mb-3 w-100" name="grade" id="grade">
+                                            <option value="">Select Grade</option>
                                             <option>Pre-school</option>
                                             <option>Nursery</option>
                                             <option>Junior KG</option>
@@ -111,7 +113,7 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
 
 
                                          <!-- Single Form Start -->
-                                         <select class="mt-3 mb-3 w-100" name="board" id="board" required>
+                                         <select class="mt-3  w-100" name="board" id="board" required>
                                                         <option value="">Select School Board</option>
                                                         <option>CBSE</option>
                                                         <option>ICSE</option>
@@ -119,6 +121,7 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                                                         <option>IGCSE</option>
                                                     </select>
                                                    <!-- Single Form End -->
+                                                   <p class="infotext">enables curated offerings for vacations!</p>
 
                                         <div class="form-btn mt-3">
                                             <button class="btn" onclick="saveKids()">Next</button>

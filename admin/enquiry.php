@@ -18,9 +18,9 @@ if(empty($_SESSION['token'])){
       include_once '../dbConfig.php';
       if(isset($_POST['submit_status'])){
          // print_r($_POST);
-         echo "UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';";
-         die;
-         $db->query("UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';");
+         // echo "UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';";
+         // die;
+         // $db->query("UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';");
          // die;
       }
       $where = '';
@@ -84,7 +84,7 @@ if(empty($_SESSION['token'])){
                                              
                                     <tr >
                                        <td><?php if($row['type'] == 'INDV'){ echo 'Individual'; }else{ echo 'Org';}?></td>
-                                       <td onclick="functionChange('<?php echo $row['f_name'] ?>','<?php echo $row['id'] ?>')" ><?php echo $row['f_name'] ?></td>
+                                       <td style="color:blue;cursor: pointer;"  onclick="functionChange('<?php echo $row['f_name'] ?>','<?php echo $row['id'] ?>')" ><?php echo $row['f_name'] ?></td>
                                        <td><?php echo $row['mobile_number'] ?></td>
                                        <td><a href="../<?php echo $row['panDoc'] ?>" target="_blank">View</a></td>
                                        <td><a href="../<?php echo $row['addDoc'] ?>" target="_blank">View</a></td>
@@ -116,7 +116,7 @@ if(empty($_SESSION['token'])){
     <form action="" class="px-3" method="POST">
     <div class="mb-3">
         <input class="form-control" type="hidden" id="idUser" name="idUser"  required>
-        <input class="form-control" type="text" id="class_name" name="class_name" required placeholder="Class name">
+        <input class="form-control" type="text" id="class_name" name="class_name" required placeholder="Name">
     </div>
     <div class="mb-3">
     <select class="form-control" name="status">

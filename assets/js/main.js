@@ -1012,7 +1012,11 @@ function saveAddress(){
       }
       
       // $('#idUser').val(response.body.id)
-    }               
+    },
+    error: function(xhr){
+      $('#validationError').html('Email already exists');
+      // alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+    }             
 });
 }
 

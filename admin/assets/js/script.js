@@ -91,11 +91,45 @@ function VerifyUser(){
           window.location.href = response.body.url+'?token='+response.body.token;
           localStorage.setItem("token", response.body.token);
         } else {
-          $('#otpError').html('OTP is incorrect!');
+          $('#validationError').html('Password is incorrect!');
         }
         
         // $('#idUser').val(response.body.id)
       }               
+  });
+  }
+function changePassword(){
+    $.ajax({
+      url: '../main-file/change_partner_password.php',
+      type:'POST',
+      data:
+      {
+          // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+          otp: $('#password').val(),
+          number: $('#number').val()
+      },
+      success: function(msg)
+      {
+        let response = JSON.parse(msg);
+        console.log(response);
+        if(response.code == "200"){
+          window.location.href = response.body.url+'?token='+response.body.token;
+          localStorage.setItem("token", response.body.token);
+        } else {
+          $('#validationError').html('Password is incorrect!');
+        }
+        
+        // $('#idUser').val(response.body.id)
+      },
+      error: function(xhr){
+        if(xhr.status == 400){
+          $('#validationError').html('Password only numaric!');
+        }else{
+          $('#validationError').html('User not found');
+        }
+        
+        // alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+    }              
   });
   }
 

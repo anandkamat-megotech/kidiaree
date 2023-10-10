@@ -1207,3 +1207,7 @@ label:focus-visible {
   flex: 1 0 0%;
   margin-right: 10px;
 }
+.infotext {
+  font-family: cursive;
+  color: #ff3800;
+}
