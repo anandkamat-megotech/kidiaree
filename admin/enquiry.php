@@ -21,7 +21,8 @@ if(empty($_SESSION['token'])){
          $getUser = $db->query("SELECT * FROM enuiary_details where id=".$_POST['idUser']);
          $data = $getUser->fetch_assoc();
          $name = $data['f_name'].' '.$data['l_name'];
-         $db->query("Insert into usersmaster (email, idRole, isProfileSet, isActive,name) values ('".$data['email']."', 3, 0, 1,'".$name."');");
+         $ch = curl_init();
+         $db->query("Insert into usersmaster (email, idRole, isProfileSet, isActive,name,mobile) values ('".$data['email']."', 3, 0, 1,'".$name."','".$data['mobile_number']."');");
          $url_send_email = "name=".$data['f_name']."&email=".$data['email'];
          curl_setopt($ch, CURLOPT_URL,$url_curl_kidiaree_admin."/main-file/welcome_email_partner.php?".$url_send_email);
          $authorization = "Authorization: Bearer ".$token;
