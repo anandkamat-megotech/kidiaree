@@ -24,8 +24,8 @@ if(!empty($_SESSION['token'])){
 </div>
 <div class="login-right">
 <div class="login-right-wrap">
-<h1>Welcome to Kidiaree</h1>
-<h2>Sign in</h2>
+<h1 class="text-center">Welcome to Kidiaree</h1>
+<h2 class="mt-5">Sign in</h2>
 
 <!-- <form action="index.html"> -->
 <div class="form-group">

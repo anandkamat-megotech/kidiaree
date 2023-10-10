@@ -20,10 +20,22 @@ if(empty($_SESSION['token'])){
          // print_r($_POST);
          $getUser = $db->query("SELECT * FROM enuiary_details where id=".$_POST['idUser']);
          $data = $getUser->fetch_assoc();
-         print_r($data );
-         echo "UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';";
-         die;
-         $db->query("UPDATE `usersmaster` SET `status` = '1' WHERE `usersmaster`.`id` = '".$_POST['idUser']."';");
+         $name = $data['f_name'].' '.$data['l_name'];
+         $db->query("Insert into usersmaster (email, idRole, isProfileSet, isActive,name) values ('".$data['email']."', 3, 0, 1,'".$name."');");
+         $url_send_email = "name=".$data['f_name']."&email=".$data['email'];
+         curl_setopt($ch, CURLOPT_URL,$url_curl_kidiaree_admin."/main-file/welcome_email_partner.php?".$url_send_email);
+         $authorization = "Authorization: Bearer ".$token;
+         curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization ));
+         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+         // curl_setopt($ch, CURLOPT_POSTFIELDS,$post);
+         $result = curl_exec($ch);
+         curl_close($ch);
+         // echo "<pre>";print_r($data );
+         // echo "here";
+         // echo $data['email'];
+         // die;
+         $db->query("UPDATE `enuiary_details` SET `status` = '1' WHERE `enuiary_details`.`id` = '".$_POST['idUser']."';");
          // die;
       }
       $where = '';

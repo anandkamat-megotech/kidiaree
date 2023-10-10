@@ -95,7 +95,14 @@ function VerifyUser(){
         }
         
         // $('#idUser').val(response.body.id)
-      }               
+      },
+      error: function(xhr){
+        
+          $('#validationError').html('User not found');
+        
+        
+        // alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+    }                
   });
   }
 function changePassword(){
