@@ -23,8 +23,8 @@ date_default_timezone_set(TIME_ZONE);
 
 
 $mailSubject = "Welcome Kit from Kidiaree";
-$name = $_GET['name'];
-$username = $_GET['email'];
+$name =post_params("name");
+$username = post_params("email");
 $password = '*********';
 $mailContent = str_replace("[PARTNER]", $name, OTP_MAIL_FORMAT);
 $mailContent .= str_replace("[USERNAME]", $username, DETAIL_MAIL_FORMAT);
