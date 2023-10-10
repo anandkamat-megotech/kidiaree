@@ -24,7 +24,8 @@ if(empty($_SESSION['token'])){
       }
       $where = '';
       // Get member rows
-      $getClass = $db->query("SELECT p.*, u.name as teacher_name FROM products p left join usersmaster u on u.id = p.teacher_id where p.teacher_id = $user_details->body[0]->id  order by p.id desc");
+      $user_id = $user_details->body[0]->id;
+      $getClass = $db->query("SELECT p.*, u.name as teacher_name FROM products p left join usersmaster u on u.id = p.teacher_id where p.teacher_id = '$user_id'  order by p.id desc");
     
       // echo "<pre>";print_r($txns);
       // die;
