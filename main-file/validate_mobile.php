@@ -39,9 +39,9 @@ if(!$isMobileValid){
 $rowCountMobileExist = $serviceCheckValueExistsInTable->serve($db, "usersmaster", "mobile", $mobile);
 if ($rowCountMobileExist == 0) {
     $serviceCreateUser->serve($db, "mobile", $mobile);
-    $mailSubject = "New User Registered";
-    $mailContent = str_replace("[CONTACT]", $mobile, NEW_USER_MAIL_FORMAT);
-    send_mail_to(ADMIN_MAIL_ID, $mailSubject, $mailContent);
+    // $mailSubject = "New User Registered";
+    // $mailContent = str_replace("[CONTACT]", $mobile, NEW_USER_MAIL_FORMAT);
+    // send_mail_to(ADMIN_MAIL_ID, $mailSubject, $mailContent);
 }
 
 //Get idUser of from usersmaster
