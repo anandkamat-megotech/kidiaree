@@ -22,5 +22,5 @@
 
 <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
 
-<link rel="stylesheet" href="assets/css/style.css?v=0.36">
+<link rel="stylesheet" href="assets/css/style.css?v=0.37">
 </head>
