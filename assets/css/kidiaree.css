@@ -1225,3 +1225,9 @@ label:focus-visible {
   .contact-form-wrap .single-form input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
     border: 1px solid #379f75;
   }
+
+  #not_match{
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+  }
