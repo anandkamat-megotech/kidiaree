@@ -20,7 +20,7 @@ if(!empty($_SESSION['token'])){
     curl_close($ch);
       
     $profile =json_decode($resultProfile_header);
-    print_r($profile->body[0]->idRole);
+    // print_r($profile->body[0]->idRole);
  }
  
 
@@ -149,7 +149,7 @@ if(!empty($_SESSION['token'])){
             <div class="offcanvas-body">
                 <div class="offcanvas-menu">
                     <ul class="main-menu">
-                        <?php if(!empty($_SESSION['token'])){  ?>
+                        <?php if(!empty($_SESSION['token']) && !empty($profile)){  ?>
                     <?php if(!empty($profile->body[0]->parents_teacher)){ ?>
                     <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>"><b class="color1-k ">Kid</b> details</a>
                             <ul class="sub-menu">

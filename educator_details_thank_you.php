@@ -116,7 +116,7 @@ $succ = $add_url;
 
 
         <!-- Login & Register Start -->
-        <div class="section login-register-section section-padding mt-5">
+        <div class="section login-register-section section-padding mt-5" style="margin-top: 9% !important;">
             <div class="container">
 
                 <!-- Login & Register Wrapper Start -->

@@ -260,9 +260,9 @@ $succ = $add_url;
                                         <div class="single-form">
                                             <div class="radio-button">
                                                 <div for="">Do you have a GST Identification Number (GSTIN)?</div>
-                                                <input type="radio" id="type" name="type" value="Individual" checked required/>
+                                                <input type="radio" id="type" name="type" value="yes" checked required/>
                                                 <label for="Individual">Yes</label>
-                                                <input type="radio" id="type" style="margin-left: 10px;" name="type" value="Organization" required/>
+                                                <input type="radio" id="type" style="margin-left: 10px;" name="type" value="no" required/>
                                                 <label for="Organization">No</label>
                                             </div>
                                             
@@ -284,26 +284,12 @@ $succ = $add_url;
                                         </div>
 
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="bname" name="bname" placeholder="Beneficiary Name " required>
-                                            
+                                            <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Beneficiary Account Name" required>
                                             <div class="invalid-feedback">
-                                                Beneficiary Name is required!
+                                                Beneficiary Account Name is required!
                                             </div>
                                         </div>
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="account_name" name="account_name" placeholder="Account Name" required>
-                                            
-                                            <div class="invalid-feedback">
-                                               Account Name is required!
-                                            </div>
-                                        </div>
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
-                                            
-                                            <div class="invalid-feedback">
-                                               Bank Name is required!
-                                            </div>
-                                        </div>
+                                        
                                         <div class="single-form">
                                             <input type="password" class="form-control" id="account_number" name="account_number" placeholder="Account Number" required>
                                             
@@ -317,12 +303,27 @@ $succ = $add_url;
                                             <div class="invalid-feedback">
                                                 Account Number not a match
                                             </div>
+                                            <div id="not_match"></div>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code " required>
                                             
                                             <div class="invalid-feedback">
                                                 IFSC Code is required!
+                                            </div>
+                                            <p id="address_bank"></p>
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
+                                            
+                                            <div class="invalid-feedback">
+                                               Bank Name is required!
+                                            </div>
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="bank_branch" name="bank_branch" placeholder="Branch Name" required>
+                                            <div class="invalid-feedback">
+                                               Branch Name is required!
                                             </div>
                                         </div>
 
@@ -348,7 +349,7 @@ $succ = $add_url;
                                         </div>
 
                                         <div class="form-btn mt-3">
-                                            <button type="submit" class="btn" name="edu_details" >Save Details</button>
+                                            <button type="submit" class="btn" name="edu_details" id="submit_details_inv" disabled>Save Details</button>
                                         </div>
                                     </form>
                                 </div>
@@ -367,19 +368,19 @@ $succ = $add_url;
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="gst_terms" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter Otp</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-      <input id="partitioned" type="text" maxlength="4" />
+      Terms & conditions
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
+        <button type="button" class="btn btn-primary" onclick="gstConfirmation()">Confirm</button>
       </div>
     </div>
   </div>
@@ -550,6 +551,72 @@ $(document).ready(function() {
 
 
 
+
+$(document).ready(function () {  
+        $("#Pan").keyup(function () {  
+            $(this).val($(this).val().toUpperCase());  
+        });  
+        
+    }); 
+    $("#re_account_number").keyup(function () {  
+        var account_number =  $('#account_number').val();   
+        var re_account_number =  $('#re_account_number').val();   
+        if(account_number == re_account_number) {
+            $('#submit_details_inv').prop("disabled", false);
+            $("#not_match").html("");
+        }else{
+            $("#not_match").html("Account number not matched");
+            $('#submit_details_inv').prop("disabled", true);
+        }
+    });  
+   
+    
+    $("#ifsc_code").keyup(function () {  
+
+// HDFC0000182
+var ifsc_code =  $('#ifsc_code').val(); 
+
+$.ajax({
+url: './ifsc.php?ifsc='+ifsc_code,
+type:'POST',
+success: function(msg)
+{
+let response = JSON.parse(msg);
+console.log(response);
+console.log(response.length);
+if(response != "undefined"){
+console.log(response.body.ADDRESS);
+$("#address_bank").html(response.body.ADDRESS);
+$("#bank_name").val(response.body.BANK);
+$("#bank_branch").val(response.body.BRANCH);
+}
+
+
+// $('#idUser').val(response.body.id)
+},
+error: function(xhr){
+alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+}             
+});  
+
+
+});  
+
+$('input[type=radio][name=type]').change(function() {
+    if (this.value == 'yes') {
+        $('#GSTIN').val('');
+        $('#GSTIN').attr('type', 'text');
+    }
+    else if (this.value == 'no') {
+        $('#gst_terms').modal('show');
+    }
+});
+
+function gstConfirmation(){
+    $('#GSTIN').val('No');
+    $('#GSTIN').attr('type', 'hidden');
+    $('#gst_terms').modal('hide');
+}
 
     </script>
 
