@@ -102,9 +102,7 @@ if(!$isPincodeValid){
     echo response_parameters_invalid(time());
     return;
 }
-
-
-$idUser = getSingleValue($db, "SELECT id FROM usersmaster WHERE email = ?", [$number]);
+$idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
 
 //Check whether idUser exists or not
 $rowCountUser = $serviceCheckRecordExistsInTable->serve($db, "usersmaster", $idUser);
@@ -113,7 +111,7 @@ if ($rowCountUser != 0) {
     return;
 }
 //Get idUser of from usersmaster
-$idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
+
 
 
 $id = $serviceUpdateUserProfile->serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email,$yfname,$ylname);
