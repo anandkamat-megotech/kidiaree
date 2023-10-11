@@ -86,12 +86,15 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                                         </div>
-                                        <p class="validationError"></p>
+                                        <p id="validationError"></p>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2">
+                                        </div>
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="area" name="area" placeholder="Area" disabled>
@@ -105,9 +108,7 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="country" name="country" placeholder="Country " disabled> 
                                         </div>
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
-                                        </div>
+                                        
 
 
                                         <div class="form-btn mt-3">

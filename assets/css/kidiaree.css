@@ -1226,7 +1226,7 @@ label:focus-visible {
     border: 1px solid #379f75;
   }
 
-  #not_match{
+  #not_match, #validationError{
     margin-top: 0.25rem;
     font-size: .875em;
     color: #dc3545;

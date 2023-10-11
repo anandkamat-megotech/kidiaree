@@ -1007,8 +1007,8 @@ function saveAddress(){
       console.log(response);
       if(response.code == "200"){
         window.location.href = 'dashboard.php';
-      } else {
-        // $('#otpError').html('Otp is incorrect!');
+      } else if(response.code == '404') {
+        $('#validationError').html('Email already exists');
       }
       
       // $('#idUser').val(response.body.id)
