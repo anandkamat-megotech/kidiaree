@@ -1112,8 +1112,8 @@ function getKidsDashboard(idKids){
 });
 }
 
-function deleteKidsDashboard(idKids){
-  let text = "Are you sure?\nYou want to delete kid.";
+function deleteKidsDashboard(idKids, name){
+  let text = "Do you want to delete "+name+"?";
   if (confirm(text) == true) {
   $.ajax({
     url: './main-file/delete_kids_details.php',

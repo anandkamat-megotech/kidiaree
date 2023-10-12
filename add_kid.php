@@ -112,6 +112,8 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                                             <option>Grade 8</option>
                                             <option>Grade 9</option>
                                             <option>Grade 10</option>
+                                            <option>Grade 11</option>
+                                            <option>Grade 12</option>
                                         </select>
 
 
