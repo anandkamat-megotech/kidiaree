@@ -423,7 +423,7 @@ if(empty($_SESSION['token'])){
                                        <div class="contact-form-wrap">
                                           <form action="#">
                                              <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                    <!-- Single Form Start -->
                                                    <div class="single-form">
                                                       <label for="">Name</label>
