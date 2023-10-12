@@ -1067,6 +1067,9 @@ textarea:-ms-input-placeholder {
     margin-right: 20px;
     padding-right: 20px;
   }
+  .header-cart .cart-btn {
+    display: none;
+  }
 }
 
 .header-cart .cart-btn::before {

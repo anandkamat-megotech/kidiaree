@@ -12,4 +12,4 @@
 
 <script src="assets/plugins/moment/moment.min.js"></script>
 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-<script src="assets/js/script.js?v=0.38"></script>
+<script src="assets/js/script.js?v=0.42"></script>

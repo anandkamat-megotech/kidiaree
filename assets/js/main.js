@@ -1007,16 +1007,10 @@ function saveAddress(){
       console.log(response);
       if(response.code == "200"){
         window.location.href = 'dashboard.php';
-      } else if(response.code == '404') {
-        $('#validationError').html('Email already exists');
       }
       
       // $('#idUser').val(response.body.id)
-    },
-    error: function(xhr){
-      $('#validationError').html('Email already exists');
-      // alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
-    }             
+    }           
 });
 }
 
