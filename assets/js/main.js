@@ -1251,3 +1251,60 @@ function saveKidsDashboardAdd(){
     }               
 });
 }
+
+function getParentDetailsDashboard(id){
+
+  $.ajax({
+    url: './main-file/get_parent_details.php',
+    type:'POST',
+    data:
+    {
+        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+        id: id
+    },
+    success: function(data)
+    {
+      let response = JSON.parse(data);
+      if(response.code == "200"){
+        console.log(data);
+        $('#p_id').val(response.body[0].id);
+        $('#p_name_edit').val(response.body[0].name);
+        $('#p_email_edit').val(response.body[0].email);
+        $('#parentModalEdit').modal('show')
+      }
+      
+      // $('#idUser').val(response.body.id)
+    }               
+});
+}
+
+
+
+function saveParentDashboard(data){
+  var p_name = $('#p_name_edit').val(); 
+  var email =  $('#p_email_edit').val(); 
+  var p_id =  $('#p_id').val(); 
+  $.ajax({
+    url: './main-file/update_parent.php',
+    type:'POST',
+    data:
+    {
+        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+        p_name: p_name,
+        email: email,
+        p_id: p_id
+    },
+    success: function(msg)
+    {
+      let response = JSON.parse(msg);
+      console.log(response);
+      if(response.code == "200"){
+        window.location.href = 'dashboard.php';
+      } else {
+        // $('#otpError').html('Otp is incorrect!');
+      }
+      
+      // $('#idUser').val(response.body.id)
+    }               
+});
+}
