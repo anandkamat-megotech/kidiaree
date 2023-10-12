@@ -112,6 +112,8 @@ if(!empty($_GET['token'])){$_SESSION['token'] = $_GET['token'];}
                                             <option>Grade 8</option>
                                             <option>Grade 9</option>
                                             <option>Grade 10</option>
+                                            <option>Grade 11</option>
+                                            <option>Grade 12</option>
                                         </select>
 
 
@@ -205,7 +207,7 @@ $(document).ready(function() {
   }
 
   minYear = yyyy - 18; //Calculate Minimun Age (<80)
-  maxYear = yyyy - 1; //Calculate Maximum Age (>18)
+  maxYear = yyyy; //Calculate Maximum Age (>18)
 
   var min = minYear + "-" + mm + "-" + dd;
   var max = maxYear + "-" + mm + "-" + dd;

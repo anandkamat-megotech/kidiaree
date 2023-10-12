@@ -132,7 +132,7 @@ if(empty($_SESSION['token'])){
                                                 <!-- <th scope="row"><?php echo $value->id ?></th> -->
                                                 <td><?php echo $value->kid_name ?></td>
                                                 <td><?php echo  $newDate = date("d/m/Y", strtotime( $value->dob)); ?> (<?php echo $year; ?> yrs)</td>
-                                                <td><i class="fa fa-user-edit icon-style" onclick="getKidsDashboard('<?php echo $value->id ?>')"></i><i class="fa fa-trash icon-style"></i> </td>
+                                                <td><i class="fa fa-user-edit icon-style" onclick="getKidsDashboard('<?php echo $value->id ?>')"></i><i class="fa fa-trash icon-style" onclick="deleteKidsDashboard('<?php echo $value->id ?>','<?php echo $value->kid_name ?>')"></i> </td>
                                              </tr>
                                              <?php } ?>
                                           </tbody>
@@ -220,10 +220,10 @@ if(empty($_SESSION['token'])){
                                  <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body mt-2">
                                        <ul class="lessons-list">
-                                          <li><a href=""><i class="fa fa-user"></i> <?php echo strtok($profile->body[0]->email, '@') ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
-                                          <li><a href=""><i class="fa fa-blender-phone"></i> <?php echo $profile->body[0]->mobile; ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
+                                          <li><a href=""><i class="fa fa-user"></i> <?php echo $profile->body[0]->name; ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
                                           <li><a href=""><i class="fa fa-envelope"></i> <?php echo $profile->body[0]->email; ?><span><i class="fa fa-user-edit icon-style"></i></span></a></li>
                                           <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->addressLine2; ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
+                                          <li><a href=""><i class="fa fa-blender-phone"></i> <?php echo $profile->body[0]->mobile; ?> </a></li>
                                        </ul>
                                     </div>
                                  </div>
@@ -289,6 +289,8 @@ if(empty($_SESSION['token'])){
                                                         <option>Grade 8</option>
                                                         <option>Grade 9</option>
                                                         <option>Grade 10</option>
+                                                        <option>Grade 11</option>
+                                                        <option>Grade 12</option>
                                                     </select>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -377,6 +379,8 @@ if(empty($_SESSION['token'])){
                                                         <option>Grade 8</option>
                                                         <option>Grade 9</option>
                                                         <option>Grade 10</option>
+                                                        <option>Grade 11</option>
+                                                        <option>Grade 12</option>
                                                     </select>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -447,7 +451,7 @@ $(document).ready(function() {
   }
 
   minYear = yyyy - 18; //Calculate Minimun Age (<80)
-  maxYear = yyyy - 1; //Calculate Maximum Age (>18)
+  maxYear = yyyy; //Calculate Maximum Age (>18)
 
   var min = minYear + "-" + mm + "-" + dd;
   var max = maxYear + "-" + mm + "-" + dd;
