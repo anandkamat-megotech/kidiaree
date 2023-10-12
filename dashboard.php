@@ -220,11 +220,13 @@ if(empty($_SESSION['token'])){
                                  <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body mt-2">
                                        <ul class="lessons-list">
-                                          <li><a href=""><i class="fa fa-user"></i> <?php echo $profile->body[0]->name; ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
-                                          <li><a href=""><i class="fa fa-envelope"></i> <?php echo $profile->body[0]->email; ?><span><i class="fa fa-user-edit icon-style"></i></span></a></li>
-                                          <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->addressLine2; ?> <span><i class="fa fa-user-edit icon-style"></i></span></a></li>
+                                          <li><a href=""><i class="fa fa-user"></i> <?php echo $profile->body[0]->name; ?> </a></li>
+                                          <li><a href=""><i class="fa fa-envelope"></i> <?php echo $profile->body[0]->email; ?></a></li>
+                                          <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->addressLine2; ?></a></li>
                                           <li><a href=""><i class="fa fa-blender-phone"></i> <?php echo $profile->body[0]->mobile; ?> </a></li>
+                                          <div class="btn btn-primary text-center" style="width: 100%;margin-top: 10px;" onclick="getParentDetailsDashboard('<?php echo $profile->body[0]->id; ?>')">Change Profile Settings</div>
                                        </ul>
+                                       
                                     </div>
                                  </div>
                               </div>
@@ -403,6 +405,46 @@ if(empty($_SESSION['token'])){
                                     <div class="modal-footer">
                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                        <button type="button" class="btn btn-primary" onclick="saveKidsDashboard('none')">Save</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+
+                           <div class="modal fade" id="parentModalEdit" tabindex="-1" aria-labelledby="parentModalEdit" aria-hidden="true">
+                              <div class="modal-dialog">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="parentModalEdit">Edit Profile settings</h5>
+                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <!-- Contact Form Wrap Start -->
+                                       <div class="contact-form-wrap">
+                                          <form action="#">
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                   <!-- Single Form Start -->
+                                                   <div class="single-form">
+                                                      <label for="">Name</label>
+                                                      <input class="form-control" type="hidden" id="p_id" name="p_id" >
+                                                      <input class="form-control" type="text" id="p_name_edit" name="p_name_edit" placeholder="e.g Kabir Sharma">
+                                                   </div>
+                                                   <div class="single-form">
+                                                      <label for="">Email</label>
+                                                      <input class="form-control" type="text" id="p_email_edit" name="p_email_edit" placeholder="Email">
+                                                   </div>
+                                                   <!-- Single Form End -->
+                                                </div>
+
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <!-- Contact Form Wrap End -->
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                       <button type="button" class="btn btn-primary" onclick="saveParentDashboard('none')">Save</button>
                                     </div>
                                  </div>
                               </div>
