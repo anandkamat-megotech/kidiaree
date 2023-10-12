@@ -1112,6 +1112,30 @@ function getKidsDashboard(idKids){
 });
 }
 
+function deleteKidsDashboard(idKids){
+  let text = "Are you sure?\nYou want to delete kid.";
+  if (confirm(text) == true) {
+  $.ajax({
+    url: './main-file/delete_kids_details.php',
+    type:'POST',
+    data:
+    {
+        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+        id: idKids
+    },
+    success: function(data)
+    {
+      let response = JSON.parse(data);
+      if(response.code == "200"){
+        window.location.href = 'dashboard.php';
+      }
+      
+      // $('#idUser').val(response.body.id)
+    }               
+});
+  }
+}
+
 
 function saveKidsDashboard(data){
   var idUser =  localStorage.getItem("idUser");

@@ -132,7 +132,7 @@ if(empty($_SESSION['token'])){
                                                 <!-- <th scope="row"><?php echo $value->id ?></th> -->
                                                 <td><?php echo $value->kid_name ?></td>
                                                 <td><?php echo  $newDate = date("d/m/Y", strtotime( $value->dob)); ?> (<?php echo $year; ?> yrs)</td>
-                                                <td><i class="fa fa-user-edit icon-style" onclick="getKidsDashboard('<?php echo $value->id ?>')"></i><i class="fa fa-trash icon-style"></i> </td>
+                                                <td><i class="fa fa-user-edit icon-style" onclick="getKidsDashboard('<?php echo $value->id ?>')"></i><i class="fa fa-trash icon-style" onclick="deleteKidsDashboard('<?php echo $value->id ?>')"></i> </td>
                                              </tr>
                                              <?php } ?>
                                           </tbody>

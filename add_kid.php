@@ -205,7 +205,7 @@ $(document).ready(function() {
   }
 
   minYear = yyyy - 18; //Calculate Minimun Age (<80)
-  maxYear = yyyy - 1; //Calculate Maximum Age (>18)
+  maxYear = yyyy; //Calculate Maximum Age (>18)
 
   var min = minYear + "-" + mm + "-" + dd;
   var max = maxYear + "-" + mm + "-" + dd;
