@@ -1208,7 +1208,7 @@ label:focus-visible {
   margin-right: 10px;
 }
 .infotext {
-  font-family: cursive;
+  font-family: inherit;
   color: #ff3800;
   margin-top: 5px !important;
 }
@@ -1217,6 +1217,11 @@ label:focus-visible {
     width: 30px;
 }
 @media only screen and (orientation: landscape) { 
+  .infotext {
+    font-family: cursive;
+    color: #ff3800;
+    margin-top: 5px !important;
+  }
   .down-arrow-show {
     float: right;
       width: 30px;
@@ -1231,3 +1236,17 @@ label:focus-visible {
     font-size: .875em;
     color: #dc3545;
   }
+  @media(max-width: 320px){ 
+    input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea{
+      padding: 5px 5px;
+      line-height: 20px;
+    }
+    .header-cart .cart-btn {
+      display: none;
+    }
+    .header-search input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+      width: 74%;
+    }
+   
+  }
+ 
