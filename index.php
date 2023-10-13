@@ -46,7 +46,7 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                         <!-- Hero Content Start -->
                         <div class="hero-content">
                             <p class="text" data-aos="fade-up" data-aos-delay="800"><img src="assets/images/energy.png" alt=""> Select from the widest range</p>
-                            <h2 class="title" data-aos="fade-up" data-aos-delay="700"><span>Curated </span> Classes  & Activities for kids new</h2>
+                            <h2 class="title" data-aos="fade-up" data-aos-delay="700"><span>Curated </span> Classes  & Activities for kids</h2>
                             <h2 class="sub-titlesub-title-new new-sub-title" data-aos="fade-up" data-aos-delay="700">Start a quick and easy search</h2>
                             <div class="header-search mt-3">
                                 <form action="#" id="form-location">
