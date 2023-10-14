@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-<?php }elseif($_GET["page"] == "activity"){ ?> 
+<?php }elseif($_GET["page"] == "academic"){ ?> 
     <div class="sidebar-wrap-02">
 
     <!-- Sidebar Wrapper Start -->
