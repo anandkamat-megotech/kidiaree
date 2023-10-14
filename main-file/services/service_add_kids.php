@@ -15,7 +15,7 @@ class ServiceAddKids{
             $sql = "INSERT INTO `kids` (`idUser`, `kid_name`, `dob`, `gender`, `grade`,`board`, `created_at`, `updated_at`) VALUES ('$idUser', '$k_name', '$k_dob_start', '$gender', '$grade', '$board', current_timestamp(), current_timestamp());";
             $statement = query_execute($db, $sql);
 
-            $usersmastersql = "Update usersmaster SET step_number = $step_number where id = '$idUser';";
+            $usersmastersql = "Update usersmaster SET step_number = $step_number where id = '$idUser;";
             $statement = query_execute($db, $usersmastersql);
             return true;
         }
