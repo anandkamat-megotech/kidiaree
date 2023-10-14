@@ -856,6 +856,10 @@ function resendOtp(){
           },
           success: function(msg)
           {
+            $('#oneDigit').val('');
+            $('#twoDigit').val('');
+            $('#threeDigit').val('');
+            $('#fourDigit').val('');
             // var element = document.getElementById("optSendModal");
             //   element.classList.add("show");
             //   element.classList.add("d-block");

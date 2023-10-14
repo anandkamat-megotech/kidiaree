@@ -76,16 +76,16 @@ if(!empty($_SESSION['token'])){
               <div id="otp-screen" >
                 <div class="row g-3 pin">
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off"  autofocus>
+                    <input type="text" id="oneDigit" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off"  autofocus>
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
+                    <input type="text" id="twoDigit" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
+                    <input type="text" id="threeDigit" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                   <!-- <div class="col"> -->
-                    <input type="text" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
+                    <input type="text" id="fourDigit" name="otp[]" class="form-control text-center text-6 py-2" maxlength="1" required autocomplete="off">
                   <!-- </div> -->
                 </div>
                 <div id="otpError" class="mt-2" style="color: red;"></div>
