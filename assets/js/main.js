@@ -666,9 +666,13 @@ function positionError(error) {
   }
   
   if (error.PERMISSION_DENIED) {
+    var zipcode  = $('#zipcode').val();
+    console.log(zipcode);
+    if(zipcode == ''){
     var element = document.getElementById("locationModal");
     element.classList.add("show");
     element.classList.add("d-block");
+    }
     var element = document.getElementById("pop-location_yes");
     element.classList.add("d-none");
     console.log("Error: permission denied");
