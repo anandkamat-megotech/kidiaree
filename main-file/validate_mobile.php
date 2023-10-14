@@ -60,7 +60,7 @@ $otp = $serviceOTPGenerate->serve($db, "mobile", $mobile);
 $message = str_replace("[OTP]", $otp, MOBILE_OTP_MESSAGE);
 
 
-send_message_to($mobile, $message);
+// send_message_to($mobile, $message);
 
 echo response_ok($idUser, time());
 

@@ -84,7 +84,7 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                             <input type="text" class="form-control" id="ylname" name="ylname" placeholder="Your Last Name">
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
                                         </div>
                                         <p id="validationError"></p>
                                         <div class="single-form">
