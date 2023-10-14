@@ -117,7 +117,7 @@ $getClass_md_list = $db->query($query_get_class);
                             <!-- Course Top Bar Start -->
                             <div class="course-top-bar">
                                 <div class="course-top-text">
-                                    <p>We found <span><?php if(!empty($getClass->num_rows)){ echo $getClass->num_rows;} else { echo '0'; } ?></span> Classes For You</p>
+                                    <p>We found <span><?php if(!empty($getClass->num_rows)){ echo $getClass->num_rows;} else { echo '0'; } ?></span> <?php echo $_GET['page'] ?> item for you</p>
                                 </div>
                                
                             </div>
@@ -212,7 +212,7 @@ $getClass_md_list = $db->query($query_get_class);
                             </div>
 
                             <!-- Page Pagination Start -->
-                            <div class="kidiaree-pagination d-none d-md-block">
+                            <!-- <div class="kidiaree-pagination d-none d-md-block">
                                 <ul class="pagination justify-content-center">
                                     <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                     <li><a class="active" href="course-grid.html">1</a></li>
@@ -221,7 +221,7 @@ $getClass_md_list = $db->query($query_get_class);
                                     <li><span>...</span></li>
                                     <li><a href="course-grid.html"><i class="fa fa-angle-right"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <!-- Page Pagination End -->
 
                         </div>
