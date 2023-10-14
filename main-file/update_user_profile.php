@@ -95,6 +95,7 @@ $pincode = post_params("pincode");
 $email = post_params("email");
 $yfname = post_params("yfname");
 $ylname = post_params("ylname");
+$step_number = post_params("step_number");
 
 $isPincodeValid = $validatorString->validate($pincode);
 
@@ -109,7 +110,7 @@ if(!$isPincodeValid){
 $idUser = getSingleValue($db, "SELECT idUser FROM usertokenmapping WHERE token = ?", [$token]);
 
 
-$id = $serviceUpdateUserProfile->serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email,$yfname,$ylname);
+$id = $serviceUpdateUserProfile->serve($db, $idUser,$addressLine1,$addressLine2, $city, $state, $country, $pincode, $email,$yfname,$ylname, $step_number);
 $mailSubject = "Welcome Email from Kidiaree";
 $fname = $yfname;
 $mailContent = str_replace("[PARENT]", $fname, OTP_MAIL_FORMAT);
