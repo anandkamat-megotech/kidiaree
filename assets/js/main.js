@@ -1252,7 +1252,7 @@ function saveKidsDashboardAdd(){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=KD';
       } else {
         // $('#otpError').html('Otp is incorrect!');
       }
@@ -1309,7 +1309,7 @@ function saveParentDashboard(data){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=PS';
       } else {
         // $('#otpError').html('Otp is incorrect!');
       }
