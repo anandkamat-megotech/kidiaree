@@ -222,7 +222,7 @@ if(empty($_SESSION['token'])){
                                        <ul class="lessons-list">
                                           <li><a href=""><i class="fa fa-user"></i> <?php echo $profile->body[0]->name; ?> </a></li>
                                           <li><a href=""><i class="fa fa-envelope"></i> <?php echo $profile->body[0]->email; ?></a></li>
-                                          <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->city.' '.$profile->body[0]->pin; ?> </a></li>
+                                          <!-- <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->city.','.$profile->body[0]->pin; ?> </a></li> -->
                                           <li><a href=""><i class="fa fa-blender-phone"></i> <?php echo $profile->body[0]->mobile; ?> </a></li>
                                           <div class="btn btn-primary text-center" style="width: 100%;margin-top: 10px;" onclick="getParentDetailsDashboard('<?php echo $profile->body[0]->id; ?>')">Change Profile Settings</div>
                                        </ul>
