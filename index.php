@@ -151,7 +151,7 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                             <div class="col-lg-3 col-6">
                                 <!-- Category Item Start -->
                                 <div class="single-offer text-center">
-                                    <a class="image-cat" href="academic_classes.php">
+                                    <a class="image-cat" href="all.php?page=academic">
                                         <img src="assets/images/category/1.jpg" alt="offer" class="rounded">
                                     </a>
                                 </div>
@@ -160,7 +160,7 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                             <div class="col-lg-3 col-6">
                                 <!-- Category Item Start -->
                                 <div class="single-offer text-center">
-                                    <a class="image-cat" href="extra-curricular.php">
+                                    <a class="image-cat" href="#">
                                         <img src="assets/images/category/2.jpg" alt="offer" class="rounded">
                                     </a>
                                 </div>
@@ -178,7 +178,7 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                             <div class="col-lg-3 col-6">
                                 <!-- Category Item Start -->
                                 <div class="single-offer text-center">
-                                    <a class="image-cat" href="events.php">
+                                    <a class="image-cat" href="#">
                                         <img src="assets/images/category/5.jpg" alt="offer" class="rounded">
                                     </a>
                                 </div>

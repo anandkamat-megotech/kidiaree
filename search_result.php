@@ -39,7 +39,10 @@ if(!empty($_GET['age'])){
 
 // echo "SELECT * FROM products where ".$where." order by id desc";
 // Get member rows
-$getClass = $db->query("SELECT * FROM products where ".$where." order by id desc");
+$query_get_class = "SELECT * FROM products where ".$where." order by id desc";
+$getClass = $db->query($query_get_class);
+$getClass_md = $db->query($query_get_class);
+$getClass_md_list = $db->query($query_get_class);
  ?>
 <?php include_once 'global.php'; ?>
 <!doctype html>
@@ -338,7 +341,7 @@ $getClass = $db->query("SELECT * FROM products where ".$where." order by id desc
                                     <div class="course-top-menu">
                                         <ul class="nav">
                                             <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fa fa-th-large"></i></button></li>
-                                            <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fa fa-th-list"></i></button></li>
+                                            <!-- <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fa fa-th-list"></i></button></li> -->
                                         </ul>
                                     </div>
                                     <div class="course-collapse-btn">
@@ -432,16 +435,16 @@ $getClass = $db->query("SELECT * FROM products where ".$where." order by id desc
                                                             <!-- Single Courses Start -->
                                                                 <div class="single-course new-width">
                                                                     <div class="courses-image">
-                                                                        <a href="<?php echo $row['product_url'] ;?>"><img src="<?php echo $row['thumbnail'] ;?>" alt="Courses"></a>
+                                                                        <a href="<?php echo $row['product_url'] ;?>?id=<?php echo $row['id'] ;?>"><img src="<?php echo $row['thumbnail'] ;?>" alt="Courses"></a>
                                                                     </div>
                                                                     <div class="courses-content">
                                                                         <div class="top-meta">
                                                                             <div class="tag-time">
-                                                                                <a class="tag" href="<?php echo $row['product_url'] ;?>"><?php echo $row['type'] ;?></a>
+                                                                                <a class="tag" href="<?php echo $row['product_url'] ;?>?id=<?php echo $row['id'] ;?>"><?php echo $row['type'] ;?></a>
                                                                                 <p class="time"><i class="fa fa-birthday-cake"></i> <?php echo $row['age'] ;?> Yrs</p>
                                                                             </div>
                                                                         </div>
-                                                                        <h3 class="title mt-2"><a href="<?php echo $row['product_url'] ;?>"><?php echo $row['name'] ;?></a></h3>
+                                                                        <h3 class="title mt-2"><a href="<?php echo $row['product_url'] ;?>?id=<?php echo $row['id'] ;?>"><?php echo $row['name'] ;?></a></h3>
                                                                         <div class="top-meta  mt-2">
                                                                             <span class="price">
                                                                             <span class="sale-price">INR <?php echo $row['price'] ;?></span>
@@ -450,29 +453,6 @@ $getClass = $db->query("SELECT * FROM products where ".$where." order by id desc
                                                                     </div>
                                                                 </div>
                                                                 <!-- Single Courses End -->
-                                                                <!-- Single Courses Start -->
-                                                                <!-- <div class="single-course new-width">
-                                                                    <div class="courses-image">
-                                                                        <a href="course-details.html"><img src="assets/images/the_drum.png" alt="Courses"></a>
-                                                                    </div>
-                                                                    <div class="courses-content">
-                                                                        <div class="top-meta">
-                                                                            <div class="tag-time">
-                                                                                <a class="tag" href="#">Offline</a>
-                                                                                <p class="time"><i class="fa fa-birthday-cake"></i> 9-12 Yrs</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <h3 class="title mt-2"><a href="course-details.html"><?php echo $row['name'] ;?></a></h3>
-                                                                        <div class="top-meta mt-2">
-                                                                            <span class="price">
-                                                                            <span class="sale-price">INR 6000 for 5 Sessions</span>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
-                                                                <!-- Single Courses End -->
-                                                        <!-- </div> -->
-                                                        <!--  Single Testimonial End  -->
                                                     <?php } }else{ ?>
                                                         <p class="mt-3 text-center">No Class(s) found...</p>
                                                     <?php } ?>
@@ -486,241 +466,41 @@ $getClass = $db->query("SELECT * FROM products where ".$where." order by id desc
                                     <!-- Testimonial Wrap End  -->
                                 <div class="d-none d-md-block">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-6">
+                                    <?php
+                                    if($getClass_md->num_rows > 0){
+                                        while($row_md = $getClass_md->fetch_assoc()){
+                                            // print_r($row );
+                                            // die;
+                                    ?>
+                                        <div class="col-lg-3 col-sm-6">
                                             <!-- Single Courses Start -->
                                             <div class="single-course">
                                                 <div class="courses-image">
-                                                    <a href="single-session.php"><img src="assets/images/courses/one.jpg" alt="Courses"></a>
+                                                    <a href="<?php echo $row_md['product_url'] ;?>?id=<?php echo $row_md['id'] ;?>"><img src="<?php echo $row_md['thumbnail'] ?>" alt="Courses"></a>
                                                 </div>
                                                 <div class="courses-content">
                                                     <div class="top-meta">
                                                         <div class="tag-time">
-                                                            <a class="tag" href="#">Online</a>
-                                                            <!-- <p class="time"><i class="far fa-clock"></i> Single Session</p> -->
+                                                            <a class="tag" href="<?php echo $row_md['product_url'] ;?>?id=<?php echo $row_md['id'] ;?>"><?php echo $row_md['type'] ;?></a>
+                                                            <p class="time"><i class="fa fa-birthday-cake"></i> <?php echo $row_md['age'] ;?> Yrs</p>
                                                         </div>
-                                                        <span class="price">
-                                                        <span class="sale-price">INR 5000</span>
-                                                        </span>
                                                     </div>
-                                                    <h3 class="title"><a href="single-session.php">Story Time</a></h3>
-                                                    <div class="courses-meta">
-                                                        <p class="author-name"><span>By</span> Andrew paker</p>
+                                                    <h3 class="title mt-2"><a href="<?php echo $row_md['product_url'] ;?>?id=<?php echo $row_md['id'] ;?>"><?php echo $row_md['name'] ;?></a></h3>
+                                                    <div class="top-meta  mt-2">
+                                                        <span class="price">
+                                                        <span class="sale-price">INR <?php echo $row_md['price'] ;?></span>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Single Courses End -->
                                         </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <!-- Single Courses Start -->
-                                            <div class="single-course">
-                                                <div class="courses-image">
-                                                    <a href="course-details.html"><img src="assets/images/courses/2.jpg" alt="Courses"></a>
-                                                </div>
-                                                <div class="courses-content">
-                                                    <div class="top-meta">
-                                                        <div class="tag-time">
-                                                            <a class="tag" href="#">Offline</a>
-                                                            <!-- <p class="time"><i class="far fa-clock"></i> Multiple Session</p> -->
-                                                        </div>
-                                                        <span class="price">
-                                                        <span class="sale-price">INR 1K/Session</span>
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="title"><a href="course-details.html">Mom and me</a></h3>
-                                                    <div class="courses-meta">
-                                                        <p class="author-name"><span>By</span> Andrew paker</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Single Courses End -->
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <!-- Single Courses Start -->
-                                            <div class="single-course">
-                                                <div class="courses-image">
-                                                    <a href="course-details.html"><img src="assets/images/courses/three.jpg" alt="Courses"></a>
-                                                </div>
-                                                <div class="courses-content">
-                                                    <div class="top-meta">
-                                                        <div class="tag-time">
-                                                            <a class="tag" href="#">Beginner</a>
-                                                            <p class="time"><i class="far fa-clock"></i> 2h 30m</p>
-                                                        </div>
-                                                        <span class="price">
-                                                        <span class="sale-price">Free</span>
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="title"><a href="course-details.html">The wonderful world of jolly phonics</a></h3>
-                                                    <div class="courses-meta">
-                                                        <p class="author-name"><span>By</span> Andrew paker</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Single Courses End -->
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <!-- Single Courses Start -->
-                                            <div class="single-course">
-                                                <div class="courses-image">
-                                                    <a href="course-details.html"><img src="assets/images/courses/courses-5.jpg" alt="Courses"></a>
-                                                </div>
-                                                <div class="courses-content">
-                                                    <div class="top-meta">
-                                                        <div class="tag-time">
-                                                            <a class="tag" href="#">Beginner</a>
-                                                            <p class="time"><i class="far fa-clock"></i> 2h 30m</p>
-                                                        </div>
-                                                        <span class="price">
-                                                        <span class="sale-price">$59</span>
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="title"><a href="course-details.html">The Complete JavaScript Course for Beginner</a></h3>
-                                                    <div class="courses-meta">
-                                                        <p class="author-name"><span>By</span> Andrew paker</p>
-                                                        <div class="rating">
-                                                            <div class="rating-star">
-                                                                <div class="rating-active" style="width: 60%;"></div>
-                                                            </div>
-                                                            <span>(4.5)</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Single Courses End -->
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <!-- Single Courses Start -->
-                                            <div class="single-course">
-                                                <div class="courses-image">
-                                                    <a href="course-details.html"><img src="assets/images/courses/courses-6.jpg" alt="Courses"></a>
-                                                </div>
-                                                <div class="courses-content">
-                                                    <div class="top-meta">
-                                                        <div class="tag-time">
-                                                            <a class="tag" href="#">Beginner</a>
-                                                            <p class="time"><i class="far fa-clock"></i> 2h 30m</p>
-                                                        </div>
-                                                        <span class="price">
-                                                        <span class="sale-price">Free</span>
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="title"><a href="course-details.html">Getting Started with the Linux Command Line</a></h3>
-                                                    <div class="courses-meta">
-                                                        <p class="author-name"><span>By</span> Daziy Millar</p>
-                                                        <div class="rating">
-                                                            <div class="rating-star">
-                                                                <div class="rating-active" style="width: 60%;"></div>
-                                                            </div>
-                                                            <span>(4.5)</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Single Courses End -->
-                                        </div>
+                                        <?php } }else{ ?>
+                                                        <p class="mt-3 text-center">No Class(s) found...</p>
+                                                    <?php } ?>
                                     </div>
                 </div>
 
-                                </div>
-                                <div class="tab-pane fade " id="list">
-                                    <!-- Course List Start -->
-                                    <div class="course-list-items">
-
-                                        <!-- Course List Start -->
-                                        <div class="single-course-list">
-                                            <div class="course-image">
-                                                <a href="course-details.html"><img src="assets/images/courses/courses-1.jpg" alt="Courses"></a>
-                                            </div>
-                                            <div class="course-content">
-                                                <div class="top-meta">
-                                                    <a class="tag" href="#">Beginner</a>
-                                                    <span class="price">
-                                            <span class="sale-price">Free</span>
-                                                    </span>
-                                                </div>
-                                                <h3 class="title"><a href="course-details.html">Getting Started with the Linux Command Line</a></h3>
-                                                <span class="author-name">Andrew paker</span>
-
-                                                <p>Managing a popular open source project can be daunting at first. How do we maintain all these issues, or automatically trigger</p>
-
-                                                <div class="bottom-meta">
-                                                    <p class="meta-action"><i class="far fa-user"></i> 79</p>
-                                                    <p class="meta-action"><i class="far fa-clock"></i> 2h 20min</p>
-                                                    <div class="rating">
-                                                        <div class="rating-star">
-                                                            <div class="rating-active" style="width: 60%;"></div>
-                                                        </div>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Course List End -->
-
-                                        <!-- Course List Start -->
-                                        <div class="single-course-list">
-                                            <div class="course-image">
-                                                <a href="course-details.html"><img src="assets/images/courses/courses-2.jpg" alt="Courses"></a>
-                                            </div>
-                                            <div class="course-content">
-                                                <div class="top-meta">
-                                                    <a class="tag" href="#">Beginner</a>
-                                                    <span class="price">
-                                                      <span class="sale-price">$49</span>
-                                                    </span>
-                                                </div>
-                                                <h3 class="title"><a href="course-details.html">Learn PHP Programming From Scratch</a></h3>
-                                                <span class="author-name">Daziy Millar</span>
-
-                                                <p>Managing a popular open source project can be daunting at first. How do we maintain all these issues, or automatically trigger</p>
-
-                                                <div class="bottom-meta">
-                                                    <p class="meta-action"><i class="far fa-user"></i> 79</p>
-                                                    <p class="meta-action"><i class="far fa-clock"></i> 2h 20min</p>
-                                                    <div class="rating">
-                                                        <div class="rating-star">
-                                                            <div class="rating-active" style="width: 60%;"></div>
-                                                        </div>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Course List End -->
-
-                                        <!-- Course List Start -->
-                                        <div class="single-course-list">
-                                            <div class="course-image">
-                                                <a href="course-details.html"><img src="assets/images/courses/courses-3.jpg" alt="Courses"></a>
-                                            </div>
-                                            <div class="course-content">
-                                                <div class="top-meta">
-                                                    <a class="tag" href="#">Beginner</a>
-                                                    <span class="price">
-                                                       <span class="sale-price">$29</span>
-                                                    </span>
-                                                </div>
-                                                <h3 class="title"><a href="course-details.html">The Complete JavaScript Course for Beginner</a></h3>
-                                                <span class="author-name">Andrew paker</span>
-
-                                                <p>Managing a popular open source project can be daunting at first. How do we maintain all these issues, or automatically trigger</p>
-
-                                                <div class="bottom-meta">
-                                                    <p class="meta-action"><i class="far fa-user"></i> 79</p>
-                                                    <p class="meta-action"><i class="far fa-clock"></i> 2h 20min</p>
-                                                    <div class="rating">
-                                                        <div class="rating-star">
-                                                            <div class="rating-active" style="width: 60%;"></div>
-                                                        </div>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Course List End -->
-
-                                    </div>
-                                    <!-- Course List End -->
                                 </div>
                             </div>
 

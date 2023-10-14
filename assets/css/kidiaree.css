@@ -1249,4 +1249,18 @@ label:focus-visible {
     }
    
   }
+
+  .shape-3 {
+    display: none !important;
+  }
+  .sidebar-details-video-description .sidebar-description .share-link .social-share-wrapper {
+    left: 60% !important;
+    bottom: calc(100% + -2px) !important;
+    padding: 10px !important;
+  }
+  /* Yogesh */
+  .header-user{
+    color: #fff;
+  }
+  /* Yogesh */
  

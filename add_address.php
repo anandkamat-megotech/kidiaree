@@ -78,21 +78,15 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                 <div class="login-register-form">
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="yfname" name="yfname" placeholder="Your First Name">
+                                            <input type="text" class="form-control" id="yfname" name="yfname" placeholder="Parent First Name">
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="ylname" name="ylname" placeholder="Your Last Name">
+                                            <input type="text" class="form-control" id="ylname" name="ylname" placeholder="Parent Last Name">
                                         </div>
                                         <div class="single-form">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                                         </div>
                                         <p id="validationError"></p>
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1 ">
-                                        </div>
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2">
-                                        </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                         </div>

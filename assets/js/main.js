@@ -943,7 +943,8 @@ function saveKids(){
         k_dob: k_dob,
         k_name: k_name,
         board: board,
-        grade: grade
+        grade: grade,
+        step_number: 1
     },
     success: function(msg)
     {
@@ -999,7 +1000,8 @@ function saveAddress(){
         country: country,
         yfname: yfname,
         ylname: ylname,
-        pincode: pincode
+        pincode: pincode,
+        step_number: 2
     },
     success: function(msg)
     {

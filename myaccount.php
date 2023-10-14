@@ -77,7 +77,7 @@ if(!empty($_SESSION['token'])){
                                 <div class="login-register-form">
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
-                                            <input type="text" id="emailorphone" class="form-control" placeholder="Enter Mobile Number">
+                                            <input type="text" id="emailorphone"  pattern="^\d{13}$" onkeypress="if(this.value.length==10) return false;" class="form-control" placeholder="Enter Mobile Number">
                                             <div id="validationError" class="mt-2" style="color: red;"></div>
                                         </div>
                                         <!-- <div class="single-form form-check">

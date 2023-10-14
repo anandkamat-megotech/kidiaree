@@ -160,13 +160,13 @@ $dataTeachers = $getTeacher->fetch_assoc();
                                         <div class="link-icon">
                                             <i class="fas fa-share-alt creative-page-icons"></i>
                                         </div>
-                                        <a class="share-btn" href="#"> Share This Course</a>
+                                        <a class="share-btn" href="javascript:void(0)"> Share This Course</a>
                                         <div class="social-share-wrapper">
                                             <ul>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://twitter.com/intent/tweet?url=kidiaree.in/stage/creative_writing_lab_single.php?id=<?php echo $data['id'] ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=kidiaree.in/stage/creative_writing_lab_single.php?id=<?php echo $data['id'] ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                                <!-- <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li> -->
+                                                <li><a href="https://www.instagram.com/?url=kidiaree.in/stage/creative_writing_lab_single.php?id=<?php echo $data['id'] ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

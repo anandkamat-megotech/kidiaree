@@ -77,16 +77,19 @@
                             <h4 class="text-center">Alternatively, please share your details below, for us to contact you</h4>
                             <div class="single-form">
                                 <input type="text" class="form-control" placeholder="Name " id="en_name">
+                                <div id="" class="mt-1 validationErrorName" style="color: red;"></div>
                             </div>
                             <div class="single-form">
                                 <input type="text" class="form-control" placeholder="Contact Number " id="en_contact">
+                                <div id="" class="mt-1 validationErrorNumber" style="color: red;"></div>
                             </div>
                             <div class="single-form">
                                 <input type="text" class="form-control" placeholder="Email " id="en_email">
+                                <div id="" class="mt-1 validationErrorEmail" style="color: red;"></div>
                             </div>
                             <div class="form-btn">
-                                            <button class="btn" onclick="sendEnquiry()">Send</button>
-                                        </div>
+                                <button class="btn" onclick="sendEnquiry()">Send</button>
+                            </div>
                         </div>
                         </div>
                         </div>
@@ -100,28 +103,6 @@
 
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="optSendModal" tabindex="-1" aria-labelledby="optSendModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="optSendModalLabel">Enter OTP</h5>
-      </div>
-      <div class="modal-body text-center">
-      <input id="idUser" type="hidden"/>
-      <input id="partitioned" type="text" maxlength="4" />
-      <div id="otpError" class="mt-2" style="color: red;"></div>
-      </div>
-      <div class="text-center" style="margin-bottom: 10px;"><span onclick="ClearOtp()" class="text-center mb-2" style="color:red !important; margin-right: 20px;display: inline;">Clear OTP</span>
-      <span onclick="sendOtpTeacher()" class="text-center text-primary mb-2" style="display: inline;">Resend OTP</span></div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal('optSendModal')">Close</button>
-        <button type="button" class="btn btn-primary" onclick="VerifyOtp()">Confirm</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <?php include('const/footer.php'); ?>
 
@@ -140,45 +121,7 @@
 
     <?php include('const/scripts.php');  ?>
     <script>
-    var obj = document.getElementById('partitioned');
-    console.log(obj);
-
-if(obj != null){
-  obj.addEventListener('keydown', stopCarret); 
-  obj.addEventListener('keyup', stopCarret); 
-}
-
-function stopCarret() {
-    console.log(obj.value.length)
-    console.log(obj)
-    if (obj.value.length < 4){
-        setCaretPosition(obj, 3);
-    }else {
-         obj.blur();
-    }
-}
-
-function setCaretPosition(elem, caretPos) {
-    if(elem != null) {
-        if(elem.createTextRange) {
-            var range = elem.createTextRange();
-            range.move('character', caretPos);
-            range.select();
-        }
-        else {
-            console.log(elem.selectionStart);
-            if(elem.selectionStart) {
-                elem.focus();
-                elem.setSelectionRange(caretPos, caretPos);
-            }
-            // else
-                // elem.focus();
-        }
-    }
-}
-function ClearOtp(){
-    document.getElementById('partitioned').value='';
-}
+    
 
 function sendOtpTeacher(){
   var emailorphone = $('#emailorphone').val();
@@ -196,8 +139,8 @@ function sendOtpTeacher(){
     url = 'validate_mobile_teacher.php';
   }
 
-  // var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
-  var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+  var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
+//   var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
   
   if(emailorphone){
   		 if(!regex.test(emailorphone)){
@@ -236,36 +179,76 @@ console.log(url);
     </script>
 
 <script>
-        function sendEnquiry(){
+function sendEnquiry(){
 
   var en_name =  $('#en_name').val(); 
   var en_contact = $('#en_contact').val(); 
   var en_email = $('#en_email').val(); 
   console.log(en_name);
   console.log(en_contact);
-  $.ajax({
-    url: './main-file/add_enquiry.php',
-    type:'POST',
-    data:
-    {
-        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
-        en_name: en_name,
-        en_email: en_email,
-        en_contact: en_contact
-    },
-    success: function(msg)
-    {
-      let response = JSON.parse(msg);
-      console.log(response);
-      if(response.code == "200"){
-        window.location.href = 'educator_details_thank_you_msg.php';
-      } else {
-        // $('#otpError').html('Otp is incorrect!');
-      }
-      
-      // $('#idUser').val(response.body.id)
-    }               
-});
+  function validatePhoneNumber(input_str) {
+    var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+  
+    return re.test(input_str);
+  }
+
+  var datavalue = validatePhoneNumber(en_contact);
+  console.log(datavalue);
+
+//   var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
+  var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+  var validRegexemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    validation = true; 
+    $(".validationErrorName").text("");
+    $(".validationErrorEmail").text("");
+    $(".validationErrorNumber").text("");
+    if(en_name == ''){
+    $(".validationErrorName").text("Name is requried!.");
+    validation = false; 
+    }
+    if(en_email == ''){
+    $(".validationErrorEmail").text("Email is requried!.");
+    validation = false; 
+    }else if(!validRegexemail.test(en_email)){
+    document.getElementById("en_contact").focus();
+    $(".validationErrorEmail").text("Please enter valid email.")
+    validation = false; 
+    }
+    if(en_contact == ''){
+    $(".validationErrorNumber").text("Contact Number is requried!.");
+    validation = false; 
+    }else if(!regex.test(en_contact)){
+    document.getElementById("en_contact").focus();
+    $(".validationErrorNumber").text("Please enter valid phone number.")
+    validation = false; 
+    }
+  
+  if(validation){
+  		 
+            $.ajax({
+                url: './main-file/add_enquiry.php',
+                type:'POST',
+                data:
+                {
+                    // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+                    en_name: en_name,
+                    en_email: en_email,
+                    en_contact: en_contact
+                },
+                success: function(msg)
+                {
+                let response = JSON.parse(msg);
+                console.log(response);
+                if(response.code == "200"){
+                    window.location.href = 'educator_details_thank_you_msg.php';
+                } else {
+                    // $('#otpError').html('Otp is incorrect!');
+                }
+                
+                // $('#idUser').val(response.body.id)
+                }               
+            });
+}
 }
     </script>
 
