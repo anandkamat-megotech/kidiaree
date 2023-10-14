@@ -968,8 +968,8 @@ function saveAddress(){
   var email =  $('#email').val(); 
   var yfname =  $('#yfname').val(); 
   var ylname =  $('#ylname').val(); 
-  var addressLine1 =  $('#addressLine1').val(); 
-  var addressLine2 = $('#addressLine2').val(); 
+  var addressLine1 =  "xyz"; 
+  var addressLine2 = "abc"; 
   var area =  $('#area').val(); 
   var city =  $('#city').val(); 
   var state =  $('#state').val(); 
