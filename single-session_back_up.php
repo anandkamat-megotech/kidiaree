@@ -17,15 +17,15 @@
 	============================================ -->
 
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.43">
-    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.43">
+    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.44">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.43">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.43">
-    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.43">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.43">
-    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.43">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.44">
     <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.35">
 
     <!-- Main Style CSS -->

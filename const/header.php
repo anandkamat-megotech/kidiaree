@@ -139,7 +139,11 @@ if(!empty($_SESSION['token'])){
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
+                <?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
+                    <h4 class="header-user">Welcome <?php echo explode(' ', $profile->body[0]->name)[0]; ?></h4>
+                    <?php }else{ ?>
                     <a href="#"><img src="assets/images/logo-white.png" alt=""></a>
+                    <?php } ?>
                 </div>
                 <!-- Offcanvas Logo End -->
 
@@ -150,6 +154,7 @@ if(!empty($_SESSION['token'])){
                 <div class="offcanvas-menu">
                     <ul class="main-menu">
                         <?php if(!empty($_SESSION['token']) && !empty($profile)){  ?>
+                        <?php if($profile->body[0]->step_number == 2) { ?>
                     <?php if(!empty($profile->body[0]->parents_teacher)){ ?>
                     <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>"><b class="color1-k ">Kid</b> details</a>
                             <ul class="sub-menu">
@@ -157,11 +162,15 @@ if(!empty($_SESSION['token'])){
                             </ul>
                         </li>
                         <?php } ?>
-                        <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">Upcoming Classes & Activities</a></li>
+                        <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>#accordionCourse">Upcoming Classes & Activities</a></li>
                         <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">My Bookings</a></li>
                         <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">My Favorites</a></li>
                         <li><a href="<?php if($profile->body[0]->idRole == 3){ echo 'teacher_dashboard.php';}else{ echo'dashboard.php';} ?>">Profile Settings</a></li>
-                        <?php } ?>
+                        <?php } elseif($profile->body[0]->step_number == 0) {?>
+                            <li><a href="add_kid.php?token=<?php echo $_SESSION['token']?>">Add Kid</a></li>
+                        <?php } elseif($profile->body[0]->step_number == 1) {?>
+                            <li><a href="add_address.php?token=<?php echo $_SESSION['token']?>">Add Address</a></li>
+                        <?php } }?>
                         <li><?php if(!empty($_SESSION['token'])){ ?><a href="logout.php">Logout</a> <?php } else { ?> <a href="myaccount.php">Login / Sign Up</a><?php } ?></li>
                         <!-- <li><?php if(!empty($_SESSION['token'])){ ?> <?php } else { ?> <a href="teacher_login.php">Teacher Login / Sign Up</a><?php } ?></li> -->
                     </ul>
