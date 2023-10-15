@@ -79,14 +79,17 @@ if(!empty($_GET['token'])){ $_SESSION['token'] = $_GET['token'];}
                                     <!-- <form action="#"> -->
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="yfname" name="yfname" placeholder="Parent First Name">
+                                            <p id="validationErrorName" style="color: red;"></p>
                                         </div>
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="ylname" name="ylname" placeholder="Parent Last Name">
+                                            <p id="validationErrorLname" style="color: red;"></p>
                                         </div>
                                         <div class="single-form">
                                             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                            <p id="validationErrorEmail" style="color: red;"></p>
                                         </div>
-                                        <p id="validationError"></p>
+                                        
                                         <div class="single-form">
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode ">
                                         </div>
@@ -207,6 +210,88 @@ $(document).ready(function() {
     });
  });
  
+ function saveAddress(){
+  var idUser =  localStorage.getItem("idUser");
+  var token =  localStorage.getItem("token");
+  console.log(token);
+  console.log(token);
+  var email =  $('#email').val(); 
+  var yfname =  $('#yfname').val(); 
+  var ylname =  $('#ylname').val(); 
+  var addressLine1 =  "xyz"; 
+  var addressLine2 = "abc"; 
+  var area =  $('#area').val(); 
+  var city =  $('#city').val(); 
+  var state =  $('#state').val(); 
+  var country =  $('#country').val(); 
+  var pincode =  $('#pincode').val(); 
+  console.log(ylname);
+  console.log(addressLine1);
+  console.log(addressLine2);
+  console.log(area);
+  console.log(city);
+  console.log(state);
+  console.log(country);
+  console.log(pincode);
+  var validRegexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+  var validationaddAddress = true; 
+  $("#validationErrorName").text("");
+  $("#validationErrorLname").text("");
+  $("#validationErrorEmail").text("");
+  if(yfname == ''){
+  $("#validationErrorName").text("Parent First Name is requried!.");
+  validationaddAddress = false; 
+  }
+  if(ylname == ''){
+  $("#validationErrorLName").text("Parent Last Name is requried!.");
+  validationaddAddress = false; 
+  }
+  if(email == ''){
+    $("#validationErrorEmail").text("Email is requried!.");
+    validationaddAddress = false; 
+    }else if(!validRegexemail.test(email)){
+    document.getElementById("email").focus();
+    $("#validationErrorEmail").text("Please enter valid email.")
+    validationaddAddress = false; 
+    }
+    if(validationaddAddress){
+   
+  $('#preloader').show();
+  $.ajax({
+    url: './main-file/update_user_profile.php',
+    type:'POST',
+    headers: {
+        'Authorization': 'Bearer '+token
+    },
+    data:
+    {
+        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+        email: email,
+        addressLine1: addressLine1,
+        addressLine2: addressLine2,
+        area: area,
+        city: city,
+        state: state,
+        country: country,
+        yfname: yfname,
+        ylname: ylname,
+        pincode: pincode,
+        step_number: 2
+    },
+    success: function(msg)
+    {
+      let response = JSON.parse(msg);
+      console.log(response);
+      if(response.code == "200"){
+        window.location.href = 'dashboard.php';
+      }
+      
+      // $('#idUser').val(response.body.id)
+    }           
+});
+}
+}
 
     </script>
 
