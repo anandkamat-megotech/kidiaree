@@ -703,6 +703,7 @@ function closeModal(data) {
   element.classList.remove("d-block");
 }
 function mychecked(data){
+  setTimeout(function(){$(".error_pin").hide();},5000);
   if(data == 'online'){
     $("#online").attr("checked", true);
     $("#offline").attr("checked", false);
@@ -710,11 +711,19 @@ function mychecked(data){
     $("#type").val(data);
 
   }else if(data == 'both'){
+    var zipcode =  $('#zipcode').val(); 
+  if( zipcode == '' ) {
+    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+  }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", false);
     $("#both").attr("checked", true);
     $("#type").val(data);
   }else if(data == 'offline'){
+    var zipcode =  $('#zipcode').val(); 
+  if( zipcode == '' ) {
+    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+  }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", true);
     $("#both").attr("checked", false);
@@ -785,6 +794,7 @@ function sendOtp(){
           $("#validationError").text("Please enter valid phone number.")
        }else{
          $("#validationError").text('')
+         document.getElementsByClassName("loader")[0].style.display = "block";
          $.ajax({
           url: './main-file/'+url,
           type:'POST',
@@ -850,6 +860,7 @@ function resendOtp(){
           $("#validationError").text("Please enter valid phone number.")
        }else{
          $("#validationError").text('')
+         $('#preloader').show();
          $.ajax({
           url: './main-file/'+url,
           type:'POST',
@@ -864,6 +875,7 @@ function resendOtp(){
             $('#twoDigit').val('');
             $('#threeDigit').val('');
             $('#fourDigit').val('');
+            $('#preloader').hide();
             // var element = document.getElementById("optSendModal");
             //   element.classList.add("show");
             //   element.classList.add("d-block");
@@ -940,6 +952,7 @@ function saveKids(){
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -990,6 +1003,7 @@ function saveAddress(){
   console.log(state);
   console.log(country);
   console.log(pincode);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/update_user_profile.php',
     type:'POST',
@@ -1095,7 +1109,7 @@ function saveAddress(){
 // });
 
 function getKidsDashboard(idKids){
-
+  $('#preloader').show();
   $.ajax({
     url: './main-file/get_kids_details.php',
     type:'POST',
@@ -1106,6 +1120,7 @@ function getKidsDashboard(idKids){
     },
     success: function(data)
     {
+      
       let response = JSON.parse(data);
       if(response.code == "200"){
         $('#k_id').val(response.body[0].id);
@@ -1115,6 +1130,7 @@ function getKidsDashboard(idKids){
         $('#board_edit').val(response.body[0].board).niceSelect('update');
         $('#gender_' + response.body[0].gender).prop('checked',true);
         $('#kidsModalEdit').modal('show')
+        $('#preloader').hide();
       }
       
       // $('#idUser').val(response.body.id)
@@ -1137,7 +1153,7 @@ function deleteKidsDashboard(idKids, name){
     {
       let response = JSON.parse(data);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=KD';
       }
       
       // $('#idUser').val(response.body.id)
@@ -1167,6 +1183,7 @@ function saveKidsDashboard(data){
   console.log(k_name);
   console.log(grade);
   console.log(board);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -1186,7 +1203,7 @@ function saveKidsDashboard(data){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=KD';
       } else {
         // $('#otpError').html('Otp is incorrect!');
       }
@@ -1234,6 +1251,7 @@ function saveKidsDashboardAdd(){
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -1294,6 +1312,7 @@ function saveParentDashboard(data){
   var p_name = $('#p_name_edit').val(); 
   var email =  $('#p_email_edit').val(); 
   var p_id =  $('#p_id').val(); 
+  $('#preloader').show();
   $.ajax({
     url: './main-file/update_parent.php',
     type:'POST',
@@ -1309,6 +1328,7 @@ function saveParentDashboard(data){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
+        $('#preloader').hide();
         window.location.href = 'dashboard.php?tab=PS';
       } else {
         // $('#otpError').html('Otp is incorrect!');

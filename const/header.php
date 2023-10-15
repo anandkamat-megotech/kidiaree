@@ -178,3 +178,8 @@ if(!empty($_SESSION['token'])){
             </div>
         </div>
         <!-- Offcanvas End -->
+
+        <div class="loader">
+            <div class="loading">
+            </div>
+        </div>
