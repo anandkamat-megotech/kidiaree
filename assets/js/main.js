@@ -1196,14 +1196,18 @@ function saveKidsDashboardAdd(){
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
-  validation = true
+  var validation = true
+  $(".validationErrorName").text("");
+  $(".validationErrorDOB").text("");
+  $(".validationErrorNameEdit").text("");
+  $(".validationErrorDOBEdit").text("");
   if( k_name == '' ) {
-    $("#k_name").after(' <p class="text-danger"> Name is required</p>');
+    $(".validationErrorName").text("Name is requried!.");
     validation = false;
   }
 
   if( k_dob == '' ) {
-    $("#k_dob_start").after(' <p class="text-danger"> DOB is required</p>');
+    $(".validationErrorDOB").text("DOB is requried!.");
     validation = false;
   }
 

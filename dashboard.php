@@ -250,6 +250,7 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Name</label>
                                                       <input class="form-control" type="text" id="k_name" name="k_name" placeholder="e.g Kabir Sharma" required>
+                                                      <div id="" class="mt-1 validationErrorName" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -259,6 +260,7 @@ if(empty($_SESSION['token'])){
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start" required>
                                                       <img src="assets/images/Up Arrow (40 x 40 px).png" alt="" style="float: right;">
+                                                      <div id="" class="mt-1 validationErrorDOB" style="color: red;"></div>
                                                       <p class="infotext">helps us show you age-relevant options as your child grows </p>
                                                    </div>
                                                    <!-- Single Form End -->
@@ -342,6 +344,7 @@ if(empty($_SESSION['token'])){
                                                       <label for="">Name</label>
                                                       <input class="form-control" type="hidden" id="k_id" name="k_id" >
                                                       <input class="form-control" type="text" id="k_name_edit" name="k_name" placeholder="e.g Kabir Sharma">
+                                                      <div id="" class="mt-1 validationErrorNameEdit" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -350,6 +353,7 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start_edit">
+                                                      <div id="" class="mt-1 validationErrorDOBEdit" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
