@@ -17,16 +17,16 @@
 	============================================ -->
 
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.47">
+    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=<?php echo $randomeVersion; ?>">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.47">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.47">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=<?php echo $randomeVersion; ?>">
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css?v=0.42">
