@@ -24,23 +24,24 @@
                         <!-- Sidebar Wrapper Start -->
     <div class="sidebar-widget-02 mt-3">
         <h3 class="widget-title">Subscriptions </h3>
-
-        <div class="widget-checkbox">
-            <ul class="checkbox-list">
-                <li class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkbox3">
-                    <label class="form-check-label" for="checkbox3">Activity Boxes </label>
-                </li>
-                <li class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkbox4">
-                    <label class="form-check-label" for="checkbox4">Newspapers & Magazines</label>
-                </li>
-                <li class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkbox5">
-                    <label class="form-check-label" for="checkbox5">Toy & Book Libraries</label>
-                </li>
-            </ul>
-        </div>
+        <form id="filterable-subscription" class="filterable">
+            <div class="widget-checkbox">
+                <ul class="checkbox-list ">
+                    <li class="form-check">
+                        <input class="form-check-input" name="filter[subscriptions][type][]" type="checkbox" value="activity_boxes" id="checkbox3">
+                        <label class="form-check-label" for="checkbox3">Activity Boxes </label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" name="filter[subscriptions][type][]" type="checkbox" value="newspapers_magazines" id="checkbox4">
+                        <label class="form-check-label" for="checkbox4">Newspapers & Magazines</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" name="filter[subscriptions][type][]" type="checkbox" value="toy_book_libraries" id="checkbox5">
+                        <label class="form-check-label" for="checkbox5">Toy & Book Libraries</label>
+                    </li>
+                </ul>
+            </div>
+        </form>
     </div>
     <!-- Sidebar Wrapper End -->
                 </div>
@@ -288,3 +289,23 @@
 </div>
 <?php } ?>
  <!--  -->
+ <?php 
+    $hookManager->addHook('execute_jquery', function () {
+        ?>
+            <script>
+            $(document).ready(function(){
+                $(".filterable input").change(function(){
+                    $.ajax({
+                        url : "<?= base_url('ajax.php?action=product-subscription-filter')?>",
+                        method: 'post',
+                        data: $(".filterable").serialize(),
+                        success:function(response){
+                           $("#load-items").html(response);
+                        }
+                    });
+                });
+            });
+            </script>
+        <?php
+    });
+ ?>
