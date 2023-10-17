@@ -171,8 +171,8 @@ $getClass_md_list = $db->query($query_get_class);
                                         </div>
                                     </div>
                                     <!-- Testimonial Wrap End  -->
-                                <div class="d-none d-md-block">
-                                    <div class="row">
+                                <div class="d-none d-md-block s">
+                                    <div class="row" id="load-items">
                                     <?php
                                     if($getClass_md->num_rows > 0){
                                         while($row_md = $getClass_md->fetch_assoc()){
@@ -254,8 +254,10 @@ $getClass_md_list = $db->query($query_get_class);
 
     <!-- JS
     ============================================ -->
-    <?php include('const/scripts.php'); ?>
-
+    <?php include('const/scripts.php'); 
+    
+    ?>
+    
 </body>
 
 </html>
