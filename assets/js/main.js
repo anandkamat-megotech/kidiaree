@@ -666,9 +666,13 @@ function positionError(error) {
   }
   
   if (error.PERMISSION_DENIED) {
+    var zipcode  = $('#zipcode').val();
+    console.log(zipcode);
+    if(zipcode == ''){
     var element = document.getElementById("locationModal");
     element.classList.add("show");
     element.classList.add("d-block");
+    }
     var element = document.getElementById("pop-location_yes");
     element.classList.add("d-none");
     console.log("Error: permission denied");
@@ -699,6 +703,7 @@ function closeModal(data) {
   element.classList.remove("d-block");
 }
 function mychecked(data){
+  setTimeout(function(){$(".error_pin").hide();},5000);
   if(data == 'online'){
     $("#online").attr("checked", true);
     $("#offline").attr("checked", false);
@@ -706,11 +711,19 @@ function mychecked(data){
     $("#type").val(data);
 
   }else if(data == 'both'){
+    var zipcode =  $('#zipcode').val(); 
+  if( zipcode == '' ) {
+    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+  }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", false);
     $("#both").attr("checked", true);
     $("#type").val(data);
   }else if(data == 'offline'){
+    var zipcode =  $('#zipcode').val(); 
+  if( zipcode == '' ) {
+    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+  }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", true);
     $("#both").attr("checked", false);
@@ -781,6 +794,7 @@ function sendOtp(){
           $("#validationError").text("Please enter valid phone number.")
        }else{
          $("#validationError").text('')
+         document.getElementsByClassName("loader")[0].style.display = "block";
          $.ajax({
           url: './main-file/'+url,
           type:'POST',
@@ -846,6 +860,7 @@ function resendOtp(){
           $("#validationError").text("Please enter valid phone number.")
        }else{
          $("#validationError").text('')
+         $('#preloader').show();
          $.ajax({
           url: './main-file/'+url,
           type:'POST',
@@ -856,6 +871,11 @@ function resendOtp(){
           },
           success: function(msg)
           {
+            $('#oneDigit').val('');
+            $('#twoDigit').val('');
+            $('#threeDigit').val('');
+            $('#fourDigit').val('');
+            $('#preloader').hide();
             // var element = document.getElementById("optSendModal");
             //   element.classList.add("show");
             //   element.classList.add("d-block");
@@ -932,6 +952,7 @@ function saveKids(){
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -960,61 +981,7 @@ function saveKids(){
     }               
 });
 }
-function saveAddress(){
-  var idUser =  localStorage.getItem("idUser");
-  var token =  localStorage.getItem("token");
-  console.log(token);
-  console.log(token);
-  var email =  $('#email').val(); 
-  var yfname =  $('#yfname').val(); 
-  var ylname =  $('#ylname').val(); 
-  var addressLine1 =  $('#addressLine1').val(); 
-  var addressLine2 = $('#addressLine2').val(); 
-  var area =  $('#area').val(); 
-  var city =  $('#city').val(); 
-  var state =  $('#state').val(); 
-  var country =  $('#country').val(); 
-  var pincode =  $('#pincode').val(); 
-  console.log(addressLine1);
-  console.log(addressLine2);
-  console.log(area);
-  console.log(city);
-  console.log(state);
-  console.log(country);
-  console.log(pincode);
-  $.ajax({
-    url: './main-file/update_user_profile.php',
-    type:'POST',
-    headers: {
-        'Authorization': 'Bearer '+token
-    },
-    data:
-    {
-        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
-        email: email,
-        addressLine1: addressLine1,
-        addressLine2: addressLine2,
-        area: area,
-        city: city,
-        state: state,
-        country: country,
-        yfname: yfname,
-        ylname: ylname,
-        pincode: pincode,
-        step_number: 2
-    },
-    success: function(msg)
-    {
-      let response = JSON.parse(msg);
-      console.log(response);
-      if(response.code == "200"){
-        window.location.href = 'dashboard.php';
-      }
-      
-      // $('#idUser').val(response.body.id)
-    }           
-});
-}
+
 
 
 // document.addEventListener("DOMContentLoaded", function (event) {
@@ -1087,7 +1054,7 @@ function saveAddress(){
 // });
 
 function getKidsDashboard(idKids){
-
+  $('#preloader').show();
   $.ajax({
     url: './main-file/get_kids_details.php',
     type:'POST',
@@ -1098,6 +1065,7 @@ function getKidsDashboard(idKids){
     },
     success: function(data)
     {
+      
       let response = JSON.parse(data);
       if(response.code == "200"){
         $('#k_id').val(response.body[0].id);
@@ -1107,6 +1075,7 @@ function getKidsDashboard(idKids){
         $('#board_edit').val(response.body[0].board).niceSelect('update');
         $('#gender_' + response.body[0].gender).prop('checked',true);
         $('#kidsModalEdit').modal('show')
+        $('#preloader').hide();
       }
       
       // $('#idUser').val(response.body.id)
@@ -1129,7 +1098,7 @@ function deleteKidsDashboard(idKids, name){
     {
       let response = JSON.parse(data);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=KD';
       }
       
       // $('#idUser').val(response.body.id)
@@ -1159,6 +1128,7 @@ function saveKidsDashboard(data){
   console.log(k_name);
   console.log(grade);
   console.log(board);
+  $('#preloader').show();
   $.ajax({
     url: './main-file/add_kids.php',
     type:'POST',
@@ -1178,7 +1148,7 @@ function saveKidsDashboard(data){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        window.location.href = 'dashboard.php?tab=KD';
       } else {
         // $('#otpError').html('Otp is incorrect!');
       }
@@ -1226,32 +1196,51 @@ function saveKidsDashboardAdd(){
   console.log(k_dob);
   console.log(k_name);
   console.log(grade);
-  $.ajax({
-    url: './main-file/add_kids.php',
-    type:'POST',
-    data:
-    {
-        // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
-        idUser: idUser,
-        gender: gender,
-        k_dob: k_dob,
-        k_name: k_name,
-        board: board,
-        grade: grade
-    },
-    success: function(msg)
-    {
-      let response = JSON.parse(msg);
-      console.log(response);
-      if(response.code == "200"){
-        window.location.href = 'dashboard.php';
-      } else {
-        // $('#otpError').html('Otp is incorrect!');
-      }
-      
-      // $('#idUser').val(response.body.id)
-    }               
-});
+  var validation = true
+  $(".validationErrorName").text("");
+  $(".validationErrorDOB").text("");
+  $(".validationErrorNameEdit").text("");
+  $(".validationErrorDOBEdit").text("");
+  if( k_name == '' ) {
+    $(".validationErrorName").text("Name is requried!.");
+    validation = false;
+  }
+
+  if( k_dob == '' ) {
+    $(".validationErrorDOB").text("DOB is requried!.");
+    validation = false;
+  }
+
+  if(validation){
+    $('#preloader').show();
+    $.ajax({
+      url: './main-file/add_kids.php',
+      type:'POST',
+      data:
+      {
+          // The key is 'mobile'. This will be the same key in $_POST[] that holds the mobile number value.
+          idUser: idUser,
+          gender: gender,
+          k_dob: k_dob,
+          k_name: k_name,
+          board: board,
+          grade: grade
+      },
+      success: function(msg)
+      {
+        let response = JSON.parse(msg);
+        console.log(response);
+        if(response.code == "200"){
+          window.location.href = 'dashboard.php?tab=KD';
+        } else {
+          // $('#otpError').html('Otp is incorrect!');
+        }
+        
+        // $('#idUser').val(response.body.id)
+      }               
+  });
+  }
+  
 }
 
 function getParentDetailsDashboard(id){
@@ -1286,6 +1275,7 @@ function saveParentDashboard(data){
   var p_name = $('#p_name_edit').val(); 
   var email =  $('#p_email_edit').val(); 
   var p_id =  $('#p_id').val(); 
+  $('#preloader').show();
   $.ajax({
     url: './main-file/update_parent.php',
     type:'POST',
@@ -1301,7 +1291,8 @@ function saveParentDashboard(data){
       let response = JSON.parse(msg);
       console.log(response);
       if(response.code == "200"){
-        window.location.href = 'dashboard.php';
+        $('#preloader').hide();
+        window.location.href = 'dashboard.php?tab=PS';
       } else {
         // $('#otpError').html('Otp is incorrect!');
       }

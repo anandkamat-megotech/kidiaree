@@ -197,8 +197,9 @@ function sendEnquiry(){
 
 //   var regex = new RegExp('/^(\+\d{1,3}[- ]?)?\d{10}$/');
   var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-  var validRegexemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    validation = true; 
+  var validRegexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+    var validation = true; 
     $(".validationErrorName").text("");
     $(".validationErrorEmail").text("");
     $(".validationErrorNumber").text("");
@@ -210,7 +211,7 @@ function sendEnquiry(){
     $(".validationErrorEmail").text("Email is requried!.");
     validation = false; 
     }else if(!validRegexemail.test(en_email)){
-    document.getElementById("en_contact").focus();
+    document.getElementById("en_email").focus();
     $(".validationErrorEmail").text("Please enter valid email.")
     validation = false; 
     }

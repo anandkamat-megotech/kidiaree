@@ -114,8 +114,8 @@ if(empty($_SESSION['token'])){
                            <!-- Course Accordion Start -->
                            <div class="course-accordion accordion" id="accordionCourse">
                               <div class="accordion-item">
-                                 <button data-bs-toggle="collapse" data-bs-target="#collapseOne">Kids Details </button>
-                                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionCourse">
+                                 <button data-bs-toggle="collapse" data-bs-target="#collapseOne" class="<?php if($_GET['tab']!="KD"){ echo "collapsed";} ?>">Kids Details </button>
+                                 <div id="collapseOne" class="accordion-collapse collapse <?php if($_GET['tab']=="KD"){ echo "show";} ?>" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body table-responsive">
                                        <table class="table table-striped">
                                           <thead>
@@ -141,8 +141,8 @@ if(empty($_SESSION['token'])){
                                  </div>
                               </div>
                               <div class="accordion-item">
-                                 <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Upcoming Classes & Activities</button>
-                                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
+                                 <button class="<?php if($_GET['tab']!="UCA"){ echo "collapsed";} ?>" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Upcoming Classes & Activities</button>
+                                 <div id="collapseTwo" class="accordion-collapse  collapse <?php if($_GET['tab']=="UCA"){ echo " show";} ?>" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body">
                                        <div class="accordion-body table-responsive">
                                           <table class="table table-striped mt-3">
@@ -167,8 +167,8 @@ if(empty($_SESSION['token'])){
                                  </div>
                               </div>
                               <div class="accordion-item">
-                                 <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">My Bookings</button>
-                                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
+                                 <button class="<?php if($_GET['tab']!="MB"){ echo "collapsed";} ?>" data-bs-toggle="collapse" data-bs-target="#collapseThree">My Bookings</button>
+                                 <div id="collapseThree" class="accordion-collapse collapse <?php if($_GET['tab']=="MB"){ echo " show";} ?>" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body">
                                     <div class="order-date">Booked on : 12 July 2023, 12:45:00 pm</div>
                                     <div class="single-course-list single-course" style="border-radius: 10px;border:1px solid #ddd;display:inline-block !important;border-style: dashed;">
@@ -194,8 +194,8 @@ if(empty($_SESSION['token'])){
                                  </div>
                               </div>
                               <div class="accordion-item">
-                                 <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">My Favorites </button>
-                                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
+                                 <button class="<?php if($_GET['tab']!="MF"){ echo "collapsed";} ?>" data-bs-toggle="collapse" data-bs-target="#collapseFour">My Favorites </button>
+                                 <div id="collapseFour" class="accordion-collapse collapse <?php if($_GET['tab']=="MF"){ echo " show";} ?> " data-bs-parent="#accordionCourse">
                                     <div class="accordion-body table-responsive">
                                        <table class="table table-striped mt-3">
                                           <tbody>
@@ -216,13 +216,13 @@ if(empty($_SESSION['token'])){
                                  </div>
                               </div>
                               <div class="accordion-item">
-                                 <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">Profile Settings </button>
-                                 <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
+                                 <button class="<?php if($_GET['tab']!="PS"){ echo "collapsed";} ?>" data-bs-toggle="collapse" data-bs-target="#collapseFive">Profile Settings </button>
+                                 <div id="collapseFive" class="accordion-collapse collapse <?php if($_GET['tab']=="PS"){ echo " show";} ?>" data-bs-parent="#accordionCourse">
                                     <div class="accordion-body mt-2">
                                        <ul class="lessons-list">
                                           <li><a href=""><i class="fa fa-user"></i> <?php echo $profile->body[0]->name; ?> </a></li>
                                           <li><a href=""><i class="fa fa-envelope"></i> <?php echo $profile->body[0]->email; ?></a></li>
-                                          <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->city.','.$profile->body[0]->pin; ?> </a></li>
+                                          <!-- <li><a href=""><i class="fa fa-map-marker"></i> <?php echo $profile->body[0]->city.','.$profile->body[0]->pin; ?> </a></li> -->
                                           <li><a href=""><i class="fa fa-blender-phone"></i> <?php echo $profile->body[0]->mobile; ?> </a></li>
                                           <div class="btn btn-primary text-center" style="width: 100%;margin-top: 10px;" onclick="getParentDetailsDashboard('<?php echo $profile->body[0]->id; ?>')">Change Profile Settings</div>
                                        </ul>
@@ -250,6 +250,7 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Name</label>
                                                       <input class="form-control" type="text" id="k_name" name="k_name" placeholder="e.g Kabir Sharma" required>
+                                                      <div id="" class="mt-1 validationErrorName" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -259,6 +260,7 @@ if(empty($_SESSION['token'])){
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start" required>
                                                       <img src="assets/images/Up Arrow (40 x 40 px).png" alt="" style="float: right;">
+                                                      <div id="" class="mt-1 validationErrorDOB" style="color: red;"></div>
                                                       <p class="infotext">helps us show you age-relevant options as your child grows </p>
                                                    </div>
                                                    <!-- Single Form End -->
@@ -342,6 +344,7 @@ if(empty($_SESSION['token'])){
                                                       <label for="">Name</label>
                                                       <input class="form-control" type="hidden" id="k_id" name="k_id" >
                                                       <input class="form-control" type="text" id="k_name_edit" name="k_name" placeholder="e.g Kabir Sharma">
+                                                      <div id="" class="mt-1 validationErrorNameEdit" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>
@@ -350,6 +353,7 @@ if(empty($_SESSION['token'])){
                                                    <div class="single-form">
                                                       <label for="">Select Date of birth</label>
                                                       <input class="form-control" type="date"  placeholder="Dob" id="k_dob_start_edit">
+                                                      <div id="" class="mt-1 validationErrorDOBEdit" style="color: red;"></div>
                                                    </div>
                                                    <!-- Single Form End -->
                                                 </div>

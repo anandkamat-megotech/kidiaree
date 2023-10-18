@@ -1,3 +1,4 @@
+<?php $randomeVersion = rand(); ?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,22 +14,22 @@
 	============================================ -->
 
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/all.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/flaticon.css?v=<?php echo $randomeVersion; ?>">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/aos.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.powertip.min.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css?v=<?php echo $randomeVersion; ?>">
     <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="owl-carousel/owl.theme.css" rel="stylesheet">
     <!-- Main Style CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" /> -->
 
-    <link rel="stylesheet" href="assets/css/style.css?v=0.44">
-    <link rel="stylesheet" href="assets/css/kidiaree.css?v=0.44">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?php echo $randomeVersion; ?>">
+    <link rel="stylesheet" href="assets/css/kidiaree.css?v=<?php echo $randomeVersion; ?>">
 
 </head>

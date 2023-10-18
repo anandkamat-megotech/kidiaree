@@ -437,7 +437,13 @@ $('#zipcode').val(pin);
 // Example usage: Call showAddToHomeScreenButton() when you want to display the prompt again
 
 $(document).ready(function() {
- 
+    var zipcode  = $('#zipcode').val();
+    console.log(zipcode);
+ if(zipcode != ''){
+    var element = document.getElementById("locationModal");
+    element.classList.remove("show");
+    element.classList.remove("d-block");
+ }
  var owl = $("#owl-demo");
 
  owl.owlCarousel({
