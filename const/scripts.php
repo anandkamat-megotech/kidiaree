@@ -23,7 +23,7 @@
 
 
     <!-- Main JS -->
-    <script src="assets/js/main.js?v=0.34"></script>
+    <script src="assets/js/main.js?v=<?php echo $randomeVersion; ?>"></script>
     <?php 
         $hookManager->executeHook('execute_jquery');
     ?>

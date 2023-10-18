@@ -2,18 +2,14 @@
 <?php include_once 'dbConfig.php';
 $where = '';
 // Get member rows
-$getClass = $db->query("SELECT * FROM products where status= 3  order by id desc");
-?>
 
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 <?php include('const/head.php'); ?>
-
 <body>
-
     <div class="main-wrapper">
-
-
         <!-- Preloader start -->
         <div id="preloader">
             <div class="preloader">
@@ -22,10 +18,7 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
             </div>
         </div>
         <!-- Preloader End -->
-
-       <?php include('const/header.php'); ?>
-
-
+        <?php include('const/header.php'); ?>
         <!-- Hero Start -->
         <div class="kidiaree-hero-section section" style="background-image: url(assets/images/bg/hero-bg.jpg);">
             <div class="shape-3">
@@ -148,87 +141,22 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                     </div>
                     <div class="category-content-wrap">
                         <div class="row text-center">
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <a class="image-cat" href="all.php?page=academic">
-                                        <img src="assets/images/category/1.jpg" alt="offer" class="rounded">
-                                    </a>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <a class="image-cat" href="#">
-                                        <img src="assets/images/category/2.jpg" alt="offer" class="rounded">
-                                    </a>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/category/3.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <a class="image-cat" href="#">
-                                        <img src="assets/images/category/5.jpg" alt="offer" class="rounded">
-                                    </a>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/category/6.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/category/4.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/13.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/Picks for parents.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
-                            <div class="col-lg-3 col-6 d-none">
-                                <!-- Category Item Start -->
-                                <div class="single-offer text-center">
-                                    <div class="image-cat">
-                                        <img src="assets/images/category/7.jpg" alt="offer" class="rounded">
-                                    </div>
-                                </div>
-                                <!-- Category Item End -->
-                            </div>
+                            <?php 
+                                $getTopCategories = $db->query("SELECT * FROM `product_categories` WHERE `status` = 1 ORDER BY `sort_order`");
+                                while($row = $getTopCategories->fetch_assoc()){
+                                ?>
+                                    <div class="col-lg-3 col-6">
+                                        <!-- Category Item Start -->
+                                        <div class="single-offer text-center">
+                                            <a class="image-cat" href="<?= base_url('all.php?category_id='.$row['id']);?>">
+                                                <img src="<?= base_url($row['cat_image']);?>" alt="<?= $row['cat_name']?>" class="rounded">
+                                            </a>
+                                        </div>
+                                        <!-- Category Item End -->
+                                    </div> 
+                                <?php 
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -295,7 +223,9 @@ $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc
                                             <div id="owl-demo" class="owl-carousel owl-theme">
                                                 <!-- <div class="swiper-wrapper"> -->
                                                     <?php
+                                                    $getClass = $db->query("SELECT * FROM products where status= 3  order by id desc");
                                                     if($getClass->num_rows > 0){
+                                                        
                                                         while($row = $getClass->fetch_assoc()){
                                                             // print_r($row );
                                                             // die;

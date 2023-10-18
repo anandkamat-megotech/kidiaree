@@ -2,12 +2,15 @@
 
 <?php // Load the database configuration file
 include_once 'dbConfig.php';
+
 $where = '';
 $text = '';
 if(isset($_GET['page'])){
     $where .= 'service_type= \''.$_GET['page']."'";
 }
-
+if(isset($_GET['category_id'])){
+    $where .= 'service_type= \''.$_GET['category_id']."'";
+}
 if(!empty($_GET['age'])){
     // if($_GET['age'] < 10){
     //     $where .= ' AND age_tags LIKE "'.$_GET['age']."%\"";
@@ -41,11 +44,12 @@ if(!empty($_GET['age'])){
 // echo "SELECT * FROM products where ".$where." order by id desc";
 // Get member rows
 $query_get_class = "SELECT * FROM products where ".$where." order by id desc";
+
 $getClass = $db->query($query_get_class);
 $getClass_md = $db->query($query_get_class);
 $getClass_md_list = $db->query($query_get_class);
 ?>
-<?php include_once 'global.php'; ?>
+<?php require 'global.php'; ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -133,6 +137,7 @@ $getClass_md_list = $db->query($query_get_class);
                                                 <!-- <div class="swiper-wrapper"> -->
                                                     <?php
                                                     if($getClass->num_rows > 0){
+                                                        echo 123;
                                                         while($row = $getClass->fetch_assoc()){
                                                             // print_r($row );
                                                             // die;
