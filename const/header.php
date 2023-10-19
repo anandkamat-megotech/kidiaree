@@ -46,7 +46,11 @@ if(!empty($_SESSION['token'])){
                                     <span></span>
                                     <span></span>
                                 </button>
-                            </div></span></a> <span class="smllogo d-lg-none"><a href="index.php"><img src="assets/images/logo.png" width="120" alt="img"></a></span><a  class="callusbtn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><i class="flaticon-user-2" aria-hidden="true"></i></a> </div> </div>
+                            </div></span></a> <span class="smllogo d-lg-none"><a href="index.php"><img src="assets/images/logo.png" width="120" alt="img"></a></span><a  class="callusbtn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
+                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i></p>
+                                    <?php }else{ ?>
+                                        <i class="flaticon-user-2"></i>
+                                    <?php } ?></a> </div> </div>
                     <div class="header-bottom-wrap">
 
                         <div class="header-logo-menu">
@@ -85,7 +89,12 @@ if(!empty($_SESSION['token'])){
 
                             <div class="header-cart dropdown desktop-only">
                                 <button class="cart-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
-                                    <i class="flaticon-user-2"></i>
+                                <?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
+                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i></p>
+                                    <?php }else{ ?>
+                                        <i class="flaticon-user-2"></i>
+                                    <?php } ?>
+                                   
                                     <!-- <span class="count">3</span> -->
                                 </button>
                             </div>
