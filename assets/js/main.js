@@ -713,7 +713,7 @@ function mychecked(data){
   }else if(data == 'both'){
     var zipcode =  $('#zipcode').val(); 
   if( zipcode == '' ) {
-    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+    $("#error_pin_data").html(' <p class="text-danger error_pin"> Pincode is required for Offline Activites!</p>');
   }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", false);
@@ -722,7 +722,7 @@ function mychecked(data){
   }else if(data == 'offline'){
     var zipcode =  $('#zipcode').val(); 
   if( zipcode == '' ) {
-    $("#zipcode").after(' <p class="text-danger error_pin"> Pincode is required!</p>');
+    $("#error_pin_data").html(' <p class="text-danger error_pin"> Pincode is required for Offline Activites!</p>');
   }
     $("#online").attr("checked", false);
     $("#offline").attr("checked", true);
