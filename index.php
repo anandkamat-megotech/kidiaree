@@ -8,6 +8,11 @@
 <!doctype html>
 <html class="no-js" lang="en">
    <?php include('const/head.php'); ?>
+   <style>
+      .callusbtn {
+         font-size: 13px !important;
+      }
+   </style>
    <body>
       <div class="main-wrapper">
          <!-- Preloader start -->
@@ -21,7 +26,7 @@
          <?php include('const/header.php'); ?>
          <?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
          <!-- Hero Start -->
-         <div class="logged_in_section_hero" style="background-image: url(assets/images/bg/hero-bg.jpg);">
+         <div class="logged_in_section_hero" style="background-image: url(assets/images/bg/hero-bg.jpg);background-position: center;background-repeat: no-repeat;background-size: 110% 89%;">
             <div class="container">
                <div class="row align-items-center">
                   <div class="col-lg-6 mx-auto">
@@ -31,9 +36,12 @@
                         <h2 class="title" data-aos="fade-up" data-aos-delay="700"><span>Curated </span> Classes  & Activities for kids</h2>
                         <div class="text-center logged_in">
                            <select class="" name="activity">
-                              <option>Showing Online & Offline results</option>
+                              <option>Online & Offline</option>
+                              <option>Offline</option>
+                              <option>Online</option>
+                              <!-- <option>Showing Online & Offline results</option>
                               <option>Showing Online results</option>
-                              <option>Showing Offline results</option>
+                              <option>Showing Offline results</option> -->
                            </select>
                         </div>
                         <?php 
@@ -135,7 +143,7 @@
                            </div>
                            <!-- end one category -->
                            <!-- start one category -->
-                           <div class="heading-category mt-3">
+                           <div class="heading-category mt-3" style="background: #8c7bdd;">
                               <div class="name d-inline-block">Extra Curricular Classes</div>
                               <div class="all d-inline-block" style="float: right;">All</div>
                            </div>
