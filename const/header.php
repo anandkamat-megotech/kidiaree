@@ -46,8 +46,8 @@ if(!empty($_SESSION['token'])){
                                     <span></span>
                                     <span></span>
                                 </button>
-                            </div></span></a> <span class="smllogo d-lg-none"><a href="index.php"><img src="assets/images/logo.png" width="120" alt="img"></a></span><a  class="callusbtn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
-                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i></p>
+                            </div></span></a> <span class="smllogo d-lg-none"><a href="index.php"><img src="assets/images/logo.png" width="120" alt="img"></a></span><a  class="callusbtn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i>
+                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?></p>
                                     <?php }else{ ?>
                                         <i class="flaticon-user-2"></i>
                                     <?php } ?></a> </div> </div>
@@ -90,7 +90,7 @@ if(!empty($_SESSION['token'])){
                             <div class="header-cart dropdown desktop-only">
                                 <button class="cart-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
                                 <?php if(!empty($_SESSION['token']) && !empty($profile) && $profile->body[0]->step_number == 2){  ?>
-                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i></p>
+                                    <p > <?php echo explode(' ', $profile->body[0]->name)[0]; ?>1</p><i class="flaticon-user-2" style="margin-left: 2px;" aria-hidden="true"></i>
                                     <?php }else{ ?>
                                         <i class="flaticon-user-2"></i>
                                     <?php } ?>
